@@ -79,44 +79,10 @@ This flow guides you through a complete Arch Linux installation with LUKS disk e
 *   **[Display Server Configuration](../wiki/POST-INSTALLATION.md#display-servers)**: Xorg or Wayland.
 *   **[Essential Applications](../wiki/POST-INSTALLATION.md#essential-applications)**: Install web browser, office suite, etc.
 *   **[Backup Solution (Timeshift)](../wiki/POST-INSTALLATION.md#backup-solutions)**: Set up system snapshots.
+*   **[Terminal Tools (w3m)](../wiki/POST-INSTALLATION.md#w3m-terminal-web-browser)**: For text-based web browsing in console/minimal environments.
 *   **[Desktop Environment](../wiki/POST-INSTALLATION.md#desktop-environments)**: Install GNOME, KDE Plasma, XFCE, or a Window Manager.
 
 ---
-
-### Standard Installation without Encryption
-
-This flow covers a basic Arch Linux installation suitable for most users who do not require disk encryption.
-
-**Recommended for:** Users who want a straightforward Arch Linux setup on a single disk.
-
-**Phase Overview:**
-
-1.  **[PREPARATION: Create USB & Format Disk](../phases/PREPARATION.md)**
-    *   Create bootable Arch Linux USB.
-    *   (Optional) Format entire disk for a fresh start.
-    *   Boot from USB and connect to the network.
-2.  **[DISK SETUP: Partitioning & Mount](../phases/DISK_SETUP.md)**
-    *   Partition your disk (EFI, Root, Swap).
-    *   Create filesystems (e.g., Ext4).
-    *   Mount all partitions correctly.
-3.  **[SYSTEM INSTALL: Base System & Fstab](../phases/SYSTEM_INSTALL.md)**
-    *   Install the base Arch Linux system using `pacstrap`.
-    *   Generate `fstab`.
-4.  **[BASIC CONFIGURATION: Locale, User, Sudo](../phases/BASIC_CONFIG.md)**
-    *   Set system locale and timezone.
-    *   Create your user account and configure `sudo` access.
-5.  **[BOOTLOADER: GRUB](../phases/BOOTLOADER.md)**
-    *   Install and configure GRUB bootloader.
-6.  **[NETWORK: Wired & Wireless Setup](../phases/NETWORK.md)**
-    *   Enable NetworkManager for network connectivity.
-    *   Configure WiFi and Bluetooth support.
-7.  **[AUDIO: PipeWire Sound Server](../phases/AUDIO.md)**
-    *   Install and enable PipeWire for audio.
-8.  **[SECURITY: Firewall & SSH Protection](../phases/SECURITY.md)**
-    *   Configure UFW firewall.
-    *   Install Fail2ban for SSH brute-force protection.
-9.  **[FINALIZE: Exit & Reboot](../phases/FINALIZE.md)**
-    *   Exit chroot, unmount, and reboot into your new system!
 
 **Post-Installation Choices (after rebooting into your new system):**
 
@@ -124,8 +90,8 @@ This flow covers a basic Arch Linux installation suitable for most users who do 
 *   **[Display Server Configuration](../wiki/POST-INSTALLATION.md#display-servers)**: Xorg or Wayland.
 *   **[Essential Applications](../wiki/POST-INSTALLATION.md#essential-applications)**: Install web browser, office suite, etc.
 *   **[Backup Solution (Timeshift)](../wiki/POST-INSTALLATION.md#backup-solutions)**: Set up system snapshots.
+*   **[Terminal Tools (w3m)](../wiki/POST-INSTALLATION.md#w3m-terminal-web-browser)**: For text-based web browsing in console/minimal environments.
 *   **[Desktop Environment](../wiki/POST-INSTALLATION.md#desktop-environments)**: Install GNOME, KDE Plasma, XFCE, or a Window Manager.
-*   **[Hardware (Optional)](../phases/HARDWARE.md)**: Configure touchpad, webcam, IR camera, fingerprint reader if applicable.
 
 ---
 
@@ -171,6 +137,7 @@ This flow focuses on installing Arch Linux alongside an existing Windows install
 *   **[Display Server Configuration](../wiki/POST-INSTALLATION.md#display-servers)**: Xorg or Wayland.
 *   **[Essential Applications](../wiki/POST-INSTALLATION.md#essential-applications)**: Install web browser, office suite, etc.
 *   **[Backup Solution (Timeshift)](../wiki/POST-INSTALLATION.md#backup-solutions)**: Set up system snapshots.
+*   **[Terminal Tools (w3m)](../wiki/POST-INSTALLATION.md#w3m-terminal-web-browser)**: For text-based web browsing in console/minimal environments.
 *   **[Desktop Environment](../wiki/POST-INSTALLATION.md#desktop-environments)**: Install GNOME, KDE Plasma, XFCE, or a Window Manager.
 *   **[Hardware (Optional)](../phases/HARDWARE.md)**: Configure touchpad, webcam, IR camera, fingerprint reader if applicable.
 
@@ -212,6 +179,7 @@ This flow provides a bare-bones Arch Linux installation, ideal for servers or us
 **Post-Installation Choices (after rebooting into your new system):**
 
 *   **[AUR Helper (e.g., yay)](../wiki/POST-INSTALLATION.md#aur-helper-eg-yay)**: Recommended for easy access to community packages.
+*   **[Terminal Tools (w3m)](../wiki/POST-INSTALLATION.md#w3m-terminal-web-browser)**: For text-based web browsing in console/minimal environments.
 *   Install any specific server applications or services as needed.
 
 ---

@@ -58,6 +58,7 @@ Answer these questions to select the modules relevant to your installation:
 ### Essential Applications / Backup
 - [ ] Need Essential Applications → Include [`essential-applications.md`](modules/essential-applications.md) ([ArchWiki: List of applications](https://wiki.archlinux.org/title/List_of_applications))
 - [ ] Need Backup Solution (Timeshift) → Include [`timeshift.md`](modules/timeshift.md) ([ArchWiki: Timeshift](https://wiki.archlinux.org/title/Timeshift))
+- [ ] Need w3m Terminal Web Browser → Include [`w3m.md`](modules/w3m.md) ([ArchWiki: w3m](https://wiki.archlinux.org/title/W3m))
 
 ### GPU Drivers
 - [ ] Need NVIDIA GPU Drivers → Include [`nvidia-drivers.md`](modules/nvidia-drivers.md) ([ArchWiki: NVIDIA](https://wiki.archlinux.org/title/NVIDIA))
@@ -136,6 +137,7 @@ Then add modules based on your answers above, in this order:
 - `xfce.md` - Install XFCE
 - `essential-applications.md` - Install essential applications
 - `timeshift.md` - Timeshift for system snapshots
+- `w3m.md` - w3m Terminal Web Browser
 - `nvidia-drivers.md` - NVIDIA GPU Driver Installation
 - `amd-drivers.md` - AMD GPU Driver Installation
 
@@ -159,6 +161,7 @@ Then add modules based on your answers above, in this order:
    - `gnome.md` - GNOME (or `kde-plasma.md`, `xfce.md`)
    - `essential-applications.md`
    - `timeshift.md`
+   - `w3m.md`
 
 ### Scenario 2: New PC, Need Full Setup (LUKS + Btrfs + All Features)
 
@@ -189,6 +192,7 @@ Then add modules based on your answers above, in this order:
     - `gnome.md` (or `kde-plasma.md`, `xfce.md`)
     - `essential-applications.md`
     - `timeshift.md`
+    - `w3m.md`
     - `nvidia-drivers.md` (if NVIDIA)
     - `amd-drivers.md` (if AMD)
 
@@ -202,6 +206,8 @@ Then add modules based on your answers above, in this order:
 5. `grub.md` - Install GRUB
 6. `networkmanager.md` - Enable NetworkManager
 7. `exit-chroot.md` - Exit and reboot
+8. **After first boot:**
+   - `w3m.md`
 
 ---
 

@@ -14,10 +14,10 @@ This is a local copy of the arch-linux repository containing only wiki documenta
 - **Root documentation:** 6 markdown files (e.g., README.md, MODULE_INDEX.md)
 - **Phases:** 10 installation phases
 - **Steps:** 25 installation steps (concise commands)
-- **Modules:** 33 detailed modules (now unique, no longer mirroring steps/)
+- **Modules:** 34 detailed modules (now unique, no longer mirroring steps/)
 - **Wiki:** 6 wiki documentation files
 
-**Total:** ~80 markdown files (wiki documentation + various guides)
+**Total:** ~81 markdown files (wiki documentation + various guides)
 
 ### Development Files
 
@@ -84,11 +84,11 @@ cd ~/arch-linux
 echo "Root files: $(ls -1 *.md | wc -l)" # Expected: 6
 echo "Phases: $(find phases -name '*.md' | wc -l)" # Expected: 10
 echo "Steps: $(find steps -name '*.md' | wc -l)" # Expected: 25
-echo "Modules: $(find modules -name '*.md' | wc -l)" # Expected: 33
+echo "Modules: $(find modules -name '*.md' | wc -l)" # Expected: 34
 echo "Wiki: $(find wiki -name '*.md' | wc -l)" # Expected: 6
 ```
 
 ---
 
-**Last Updated:** 2025-01-02  
+**Last Updated:** 2025-12-03  
 **Status:** ✅ Local repository ready

@@ -107,6 +107,7 @@ arch-linux/
 │   ├── wayland-config.md
 │   ├── essential-applications.md
 │   ├── timeshift.md
+│   ├── w3m.md
 │   ├── nvidia-drivers.md
 │   └── amd-drivers.md
 └── wiki/                       # Wiki documentation
