@@ -9,26 +9,26 @@
 ### Desktop Computer
 
 #### Intel CPU
-- **With NVIDIA GPU** → [Desktop: Intel CPU + NVIDIA GPU](#desktop-intel-nvidia)
-- **With AMD GPU** → [Desktop: Intel CPU + AMD GPU](#desktop-intel-amd)
-- **Intel Integrated Graphics** → [Desktop: Intel CPU + Integrated Graphics](#desktop-intel-integrated)
+- **With NVIDIA GPU** → See [Desktop: Intel + NVIDIA](INSTALLATION-SCENARIOS.md#desktop-intel-cpu--nvidia-gpu) in Installation Scenarios
+- **With AMD GPU** → See [Desktop: Intel + AMD GPU](INSTALLATION-SCENARIOS.md#desktop-intel-cpu--amd-gpu) in Installation Scenarios
+- **Intel Integrated Graphics** → See [Desktop: Intel + Integrated](INSTALLATION-SCENARIOS.md#desktop-intel-cpu--integrated-graphics) in Installation Scenarios
 
 #### AMD CPU
-- **With NVIDIA GPU** → [Desktop: AMD CPU + NVIDIA GPU](#desktop-amd-nvidia)
-- **With AMD GPU** → [Desktop: AMD CPU + AMD GPU](#desktop-amd-amd)
-- **AMD Integrated Graphics** → [Desktop: AMD CPU + Integrated Graphics](#desktop-amd-integrated)
+- **With NVIDIA GPU** → See [Desktop: AMD + NVIDIA](INSTALLATION-SCENARIOS.md#desktop-amd-cpu--nvidia-gpu) in Installation Scenarios
+- **With AMD GPU** → See [Desktop: AMD + AMD GPU](INSTALLATION-SCENARIOS.md#desktop-amd-cpu--amd-gpu) in Installation Scenarios
+- **AMD Integrated Graphics** → See [Desktop: AMD + Integrated](INSTALLATION-SCENARIOS.md#desktop-amd-cpu--integrated-graphics) in Installation Scenarios
 
 ### Laptop
 
 #### Intel CPU
-- **With NVIDIA GPU** → [Laptop: Intel CPU + NVIDIA GPU](#laptop-intel-nvidia)
-- **Intel Integrated Graphics** → [Laptop: Intel CPU + Integrated Graphics](#laptop-intel-integrated)
-- **With Fingerprint/Biometrics** → [Laptop: Intel + Biometrics](#laptop-intel-biometrics)
+- **With NVIDIA GPU** → See [Laptop: Intel + NVIDIA](INSTALLATION-SCENARIOS.md#laptop-intel-cpu--nvidia-gpu) in Installation Scenarios
+- **Intel Integrated Graphics** → See [Laptop: Intel + Integrated](INSTALLATION-SCENARIOS.md#laptop-intel-cpu--integrated-graphics) in Installation Scenarios
+- **With Fingerprint/Biometrics** → See [Laptop: Intel + Biometrics](INSTALLATION-SCENARIOS.md#laptop-intel-cpu--biometrics) in Installation Scenarios
 
 #### AMD CPU
-- **With NVIDIA GPU** → [Laptop: AMD CPU + NVIDIA GPU](#laptop-amd-nvidia)
-- **AMD Integrated Graphics** → [Laptop: AMD CPU + Integrated Graphics](#laptop-amd-integrated)
-- **With Fingerprint/Biometrics** → [Laptop: AMD + Biometrics](#laptop-amd-biometrics)
+- **With NVIDIA GPU** → See [Laptop: AMD + NVIDIA](INSTALLATION-SCENARIOS.md#laptop-amd-cpu--nvidia-gpu) in Installation Scenarios
+- **AMD Integrated Graphics** → See [Laptop: AMD + Integrated](INSTALLATION-SCENARIOS.md#laptop-amd-cpu--integrated-graphics) in Installation Scenarios
+- **With Fingerprint/Biometrics** → See [Laptop: AMD + Biometrics](INSTALLATION-SCENARIOS.md#laptop-amd-cpu--biometrics) in Installation Scenarios
 
 ---
 
