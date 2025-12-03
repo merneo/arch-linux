@@ -8,6 +8,8 @@
 
 **Time:** 2-3 minutes
 
+**ENVIRONMENT:** Chroot (root@archiso /)#
+
 ---
 
 ## Step 1: Install WiFi Packages

@@ -8,6 +8,8 @@
 
 **Time:** 1 minute
 
+**ENVIRONMENT:** Live USB (root@archiso) → Chroot (root@archiso /)#
+
 ---
 
 ## Enter Chroot

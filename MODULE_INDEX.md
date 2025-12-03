@@ -54,6 +54,17 @@
 
 ---
 
+## Laptop Hardware (Laptops Only)
+
+| Module | Purpose | When to Use |
+|--------|---------|-------------|
+| `17-laptop-touchpad.md` | Configure touchpad/trackpad | **Laptops only** - If you have a laptop with touchpad |
+| `18-laptop-webcam.md` | Configure built-in webcam | **Laptops only** - If you have a laptop with webcam |
+| `19-laptop-ir-camera.md` | Configure IR camera for face recognition | **Laptops only** - If you have IR camera (business laptops) |
+| `20-laptop-fingerprint.md` | Configure fingerprint reader | **Laptops only** - If you have fingerprint reader |
+
+**Note:** Desktop computers typically don't have these built-in. Skip these modules for desktop installations.
+
 ## Final Steps (Required)
 
 | Module | Purpose | When to Use |
@@ -100,6 +111,15 @@
 13. `13-bluetooth.md` - Bluetooth
 14. `14-audio.md` - Audio server
 15. `15-exit-chroot.md` - Exit and reboot
+
+### Laptop Installation (with Hardware)
+
+1. Follow "Full Installation" steps 1-15 above
+2. After first boot, add laptop-specific modules:
+   - `17-laptop-touchpad.md` - Configure touchpad
+   - `18-laptop-webcam.md` - Configure webcam
+   - `19-laptop-ir-camera.md` - Configure IR camera (if present)
+   - `20-laptop-fingerprint.md` - Configure fingerprint reader (if present)
 
 ---
 
