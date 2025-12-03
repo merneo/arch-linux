@@ -192,4 +192,41 @@ lsinitcpio /boot/initramfs-linux.img | grep root.key
 
 **Note:** System will now boot without asking for LUKS passphrase (keyfile is in `/boot` partition)
 
+---
+
+## Troubleshooting
+
+For more extensive troubleshooting on LUKS keyfiles, refer to the [ArchWiki on dm-crypt#Troubleshooting](https://wiki.archlinux.org/title/Dm-crypt#Troubleshooting).
+
+### Problem: System still asks for passphrase on boot
+**Solution:**
+1. Verify keyfile is in initramfs: `lsinitcpio /boot/initramfs-linux.img | grep root.key`
+2. Check GRUB config: `grep cryptkey /boot/grub/grub.cfg`
+3. Verify keyfile was added to LUKS: `cryptsetup luksDump /dev/sdX2 | grep "Key Slot"`
+4. Rebuild initramfs: `mkinitcpio -P`
+5. Regenerate GRUB: `grub-mkconfig -o /boot/grub/grub.cfg`
+
+### Problem: Keyfile not found in initramfs
+**Solution:**
+1. Check mkinitcpio.conf: `grep FILES /etc/mkinitcpio.conf`
+2. Verify keyfile path is correct: `ls -la /etc/cryptsetup.d/root.key`
+3. Ensure keyfile has correct permissions: `chmod 600 /etc/cryptsetup.d/root.key`
+4. Rebuild initramfs: `mkinitcpio -P`
+
+### Problem: cryptsetup luksAddKey fails
+**Solution:**
+1. Verify partition is correct: `lsblk` or `fdisk -l`
+2. Check LUKS is already set up: `cryptsetup isLuks /dev/sdX2`
+3. Ensure you're entering correct passphrase
+4. Check for free key slot: `cryptsetup luksDump /dev/sdX2 | grep "Key Slot"`
+
+### Problem: Encrypted swap not activating
+**Solution:**
+1. Check crypttab: `cat /etc/crypttab`
+2. Verify fstab entry: `grep swap /etc/fstab`
+3. Check swap status: `swapon --show`
+4. Enable manually: `cryptsetup open /dev/sdX3 cryptswap --key-file /etc/cryptsetup.d/root.key && swapon /dev/mapper/cryptswap`
+
+---
+
 **Next:** Continue with other configuration modules

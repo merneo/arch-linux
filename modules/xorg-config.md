@@ -71,4 +71,33 @@ This should launch a simple X session with a terminal. To exit, type `exit` in t
 
 **SUCCESS:** Xorg Display Server installed. You can now use display managers (GDM, SDDM, LightDM) or `startx` to launch graphical environments.
 
+---
+
+## Troubleshooting
+
+For more extensive troubleshooting on Xorg, refer to the [ArchWiki on Xorg#Troubleshooting](https://wiki.archlinux.org/title/Xorg#Troubleshooting).
+
+### Problem: Xorg fails to start
+**Solution:**
+1. Check Xorg logs: `cat ~/.local/share/xorg/Xorg.0.log` or `/var/log/Xorg.0.log`
+2. Verify graphics drivers: `lspci | grep VGA`
+3. Install appropriate driver: `pacman -S xf86-video-intel` (Intel) or `xf86-video-amdgpu` (AMD)
+4. Check for conflicting drivers: `pacman -Q | grep xf86-video`
+
+### Problem: No display output
+**Solution:**
+1. Check if Xorg is running: `ps aux | grep Xorg`
+2. Verify display connection: `xrandr` (lists available displays)
+3. Check graphics driver: `glxinfo | grep "OpenGL renderer"`
+4. Test with basic X: `Xorg :1 -configure` (creates test config)
+
+### Problem: Input devices not working
+**Solution:**
+1. Install input drivers: `pacman -S xf86-input-libinput`
+2. Check input devices: `xinput list`
+3. Verify permissions: User should be in `input` group
+4. Check Xorg config: `/etc/X11/xorg.conf` or `/etc/X11/xorg.conf.d/`
+
+---
+
 **Next:** Install a Desktop Environment (if not already done) or configure a Window Manager.

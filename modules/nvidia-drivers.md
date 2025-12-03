@@ -89,4 +89,41 @@ You can also open `nvidia-settings` (usually from your application launcher) to 
 
 **SUCCESS:** NVIDIA proprietary drivers installed and configured.
 
+---
+
+## Troubleshooting
+
+For more extensive troubleshooting on NVIDIA drivers, refer to the [ArchWiki on NVIDIA#Troubleshooting](https://wiki.archlinux.org/title/NVIDIA#Troubleshooting).
+
+### Problem: NVIDIA drivers not loading
+**Solution:**
+1. Check if driver is loaded: `lsmod | grep nvidia`
+2. Verify nouveau is blacklisted: `cat /etc/modprobe.d/blacklist-nouveau.conf`
+3. Rebuild initramfs: `sudo mkinitcpio -P`
+4. Check kernel compatibility: Ensure `nvidia` matches your kernel version
+
+### Problem: Black screen after installing drivers
+**Solution:**
+1. Boot from USB and chroot into system
+2. Remove NVIDIA drivers: `pacman -Rns nvidia nvidia-utils`
+3. Remove blacklist: `rm /etc/modprobe.d/blacklist-nouveau.conf`
+4. Rebuild initramfs: `mkinitcpio -P`
+5. Reboot and try different driver version or use `nvidia-dkms`
+
+### Problem: nvidia-smi shows "NVIDIA-SMI has failed"
+**Solution:**
+1. Check driver version: `pacman -Q nvidia`
+2. Verify kernel module: `modprobe nvidia`
+3. Check logs: `dmesg | grep nvidia`
+4. Reinstall drivers: `pacman -S nvidia nvidia-utils`
+
+### Problem: Poor performance or graphical glitches
+**Solution:**
+1. Check driver version: `nvidia-smi` should show driver version
+2. Verify Xorg config: `cat /etc/X11/xorg.conf`
+3. Update drivers: `pacman -Syu nvidia nvidia-utils`
+4. Check for conflicting drivers: Remove other GPU drivers
+
+---
+
 **Next:** Optimize your display settings with `nvidia-settings` or proceed with other post-installation tasks.

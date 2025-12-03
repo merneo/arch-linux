@@ -198,6 +198,44 @@ lsblk -f
 
 **SUCCESS:** Disk partitioned successfully
 
+---
+
+## Troubleshooting
+
+For more extensive troubleshooting on partitioning, refer to the [ArchWiki on Partitioning#Troubleshooting](https://wiki.archlinux.org/title/Partitioning#Troubleshooting).
+
+### Problem: cfdisk cannot open disk
+**Solution:**
+1. Verify disk exists: `lsblk` or `fdisk -l`
+2. Check if disk is in use: `mount | grep <DISK>`
+3. Ensure you have root permissions: `whoami` should show `root`
+4. Try alternative tool: `fdisk /dev/sdX` or `parted /dev/sdX`
+
+### Problem: Cannot create partition (out of space)
+**Solution:**
+1. Check available space: `lsblk` shows disk size
+2. Verify free space exists: In cfdisk, check "Free space" row
+3. Reduce partition sizes if needed
+4. For dual boot, ensure Windows left enough space
+
+### Problem: Wrong partition type selected
+**Solution:**
+1. In cfdisk, select partition and choose **[ Type ]**
+2. Select correct type:
+   - EFI System (EF00) for EFI partition
+   - Linux filesystem (8300) for root partition
+   - Linux swap (8200) for swap partition
+3. Write changes: **[ Write ]** then type `yes`
+
+### Problem: Partition table write fails
+**Solution:**
+1. Ensure disk is not mounted: `umount /dev/sdX*`
+2. Check for active processes: `lsof /dev/sdX*`
+3. Close any applications using the disk
+4. Try again or reboot if necessary
+
+---
+
 **Next:** Choose your filesystem option:
 - **Btrfs + LUKS (encrypted):** `luks-encryption.md` → `btrfs-filesystem.md`
 - **Btrfs only (no encryption):** `btrfs-filesystem.md` (skip LUKS)

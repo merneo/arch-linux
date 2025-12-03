@@ -51,4 +51,33 @@ After reboot, you should be greeted by the GDM login screen. Log in with your us
 
 **SUCCESS:** GNOME Desktop Environment installed and configured.
 
+---
+
+## Troubleshooting
+
+For more extensive troubleshooting on GNOME, refer to the [ArchWiki on GNOME#Troubleshooting](https://wiki.archlinux.org/title/GNOME#Troubleshooting).
+
+### Problem: GDM login screen doesn't appear
+**Solution:**
+1. Check GDM service: `systemctl status gdm.service`
+2. Enable service: `systemctl enable --now gdm.service`
+3. Check logs: `journalctl -u gdm.service -b`
+4. Verify display server: `echo $XDG_SESSION_TYPE` (should show `wayland` or `x11`)
+
+### Problem: GNOME session fails to start
+**Solution:**
+1. Check session logs: `journalctl --user -b -e`
+2. Verify GNOME is installed: `pacman -Q gnome`
+3. Check for conflicting packages: Remove other desktop environments if installed
+4. Try starting from TTY: `startx` or switch to Wayland session
+
+### Problem: Applications don't appear in GNOME
+**Solution:**
+1. Rebuild application cache: `sudo update-desktop-database`
+2. Restart GNOME Shell: Press Alt+F2, type `r`, press Enter
+3. Check application files: `ls /usr/share/applications/`
+4. Verify .desktop files: Check file permissions and content
+
+---
+
 **Next:** Continue with other configuration modules or customize your GNOME experience.

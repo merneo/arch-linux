@@ -103,4 +103,40 @@ vulkaninfo # Requires 'vulkan-tools' to be installed. For more on Vulkan, refer 
 
 **SUCCESS:** AMD GPU drivers and utilities installed and configured.
 
+---
+
+## Troubleshooting
+
+For more extensive troubleshooting on AMD GPU drivers, refer to the [ArchWiki on AMDGPU#Troubleshooting](https://wiki.archlinux.org/title/AMDGPU#Troubleshooting).
+
+### Problem: amdgpu driver not loading
+**Solution:**
+1. Check if driver is loaded: `lsmod | grep amdgpu`
+2. Verify GPU is detected: `lspci | grep -i amd`
+3. Check kernel support: Ensure kernel version supports your GPU
+4. Check for firmware: `pacman -Q linux-firmware` (should be installed)
+
+### Problem: No display output
+**Solution:**
+1. Check if amdgpu is loaded: `dmesg | grep amdgpu`
+2. Verify firmware: Install `linux-firmware` if missing
+3. Check Xorg/Wayland logs for errors
+4. Try different kernel: Some older GPUs need `linux-lts`
+
+### Problem: Poor performance or graphical glitches
+**Solution:**
+1. Check OpenGL renderer: `glxinfo -B | grep renderer`
+2. Verify Vulkan: `vulkaninfo | grep deviceName`
+3. Update Mesa: `pacman -Syu mesa vulkan-radeon`
+4. Check for kernel parameters: May need `amdgpu.si_support=1` for older GPUs
+
+### Problem: Video acceleration not working
+**Solution:**
+1. Verify VA-API: `vainfo` (install `libva-utils`)
+2. Check VDPAU: `vdpauinfo` (install `libvdpau`)
+3. Ensure correct drivers: `pacman -Q libva-mesa-driver mesa-vdpau`
+4. Check environment: `echo $LIBVA_DRIVER_NAME` (should be `radeonsi`)
+
+---
+
 **Next:** Optimize your display settings or proceed with other post-installation tasks.

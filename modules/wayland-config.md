@@ -77,4 +77,33 @@ This should launch your Sway session.
 
 **SUCCESS:** Basic Wayland display server (via Sway) installed and configured.
 
+---
+
+## Troubleshooting
+
+For more extensive troubleshooting on Wayland, refer to the [ArchWiki on Wayland#Troubleshooting](https://wiki.archlinux.org/title/Wayland#Troubleshooting).
+
+### Problem: Wayland compositor fails to start
+**Solution:**
+1. Check compositor logs: `journalctl --user -b -e` (for user services)
+2. Verify GPU drivers support Wayland: Check compositor documentation
+3. Check environment variables: `echo $XDG_SESSION_TYPE` (should show `wayland`)
+4. Try starting from TTY: Switch to TTY and run compositor manually
+
+### Problem: Applications don't work on Wayland
+**Solution:**
+1. Check if application supports Wayland: Consult application documentation
+2. Use XWayland for X11 apps: `pacman -S xorg-xwayland`
+3. Set environment variables: `export GDK_BACKEND=wayland` (for GTK apps)
+4. For Firefox: `export MOZ_ENABLE_WAYLAND=1`
+
+### Problem: Input devices not working
+**Solution:**
+1. Verify libinput is installed: `pacman -Q libinput`
+2. Check input devices: `libinput list-devices`
+3. Check permissions: User should be in `input` group
+4. Restart compositor or reboot
+
+---
+
 **Next:** Customize your Wayland compositor, install a display manager (if using Sway and want graphical login), or install a full desktop environment that uses Wayland.

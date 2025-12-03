@@ -190,6 +190,34 @@ lsblk -f
 
 **SUCCESS:** Btrfs filesystem with subvolumes created and mounted
 
+---
+
+## Troubleshooting
+
+For more extensive troubleshooting on Btrfs, refer to the [ArchWiki on Btrfs#Troubleshooting](https://wiki.archlinux.org/title/Btrfs#Troubleshooting).
+
+### Problem: Cannot create Btrfs filesystem
+**Solution:**
+1. Verify partition exists: `lsblk` or `fdisk -l`
+2. Check if partition is in use: `mount | grep <PARTITION>`
+3. Unmount if needed: `umount <PARTITION>`
+4. Install Btrfs tools: `pacman -S btrfs-progs`
+
+### Problem: Subvolumes not mounting correctly
+**Solution:**
+1. Verify subvolumes exist: `btrfs subvolume list /mnt`
+2. Check mount options in fstab: `cat /etc/fstab`
+3. Ensure subvol= option is correct: `subvol=@` for root, `subvol=@home` for home
+4. Remount with correct options: `mount -o remount,subvol=@ /mnt`
+
+### Problem: Btrfs filesystem errors
+**Solution:**
+1. Check filesystem: `btrfs check /dev/sdXY`
+2. If errors found, use read-only check: `btrfs check --readonly /dev/sdXY`
+3. For serious issues, refer to [ArchWiki: Btrfs#Troubleshooting](https://wiki.archlinux.org/title/Btrfs#Troubleshooting)
+
+---
+
 **Next:**
 - `mount-partitions.md` - Verify mount setup (if not using Btrfs)
 - `core-installation.md` - Install base system

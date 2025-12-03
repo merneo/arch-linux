@@ -58,4 +58,33 @@ timeshift --restore          # Restore from a snapshot (requires reboot into liv
 
 **SUCCESS:** Timeshift installed and configured for system snapshots. Regularly create and verify your snapshots.
 
+---
+
+## Troubleshooting
+
+For more extensive troubleshooting on Timeshift, refer to the [ArchWiki on Timeshift#Troubleshooting](https://wiki.archlinux.org/title/Timeshift#Troubleshooting).
+
+### Problem: Timeshift cannot create snapshot
+**Solution:**
+1. Check disk space: `df -h` (ensure enough free space)
+2. Verify snapshot location: Ensure it's on a different partition (for rsync)
+3. Check permissions: `ls -la /timeshift` (if using custom location)
+4. Check logs: `journalctl -u timeshift` or `timeshift --check`
+
+### Problem: Snapshot restore fails
+**Solution:**
+1. Boot from live USB (recommended for restore)
+2. Install Timeshift in live environment: `pacman -S timeshift`
+3. Mount your root partition: `mount /dev/sdX2 /mnt`
+4. Run restore from live environment: `timeshift --restore`
+
+### Problem: Btrfs snapshots not working
+**Solution:**
+1. Verify Btrfs filesystem: `btrfs filesystem show`
+2. Check subvolumes: `btrfs subvolume list /`
+3. Ensure Timeshift is configured for Btrfs mode
+4. Check Btrfs space: `btrfs filesystem df /`
+
+---
+
 **Next:** Consider configuring personal data backups (e.g., using `rsync` or cloud sync services) as Timeshift is primarily for system files.

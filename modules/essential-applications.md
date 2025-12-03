@@ -123,4 +123,33 @@ sudo pacman -S zip unzip p7zip unrar
 
 **SUCCESS:** Essential applications installed.
 
+---
+
+## Troubleshooting
+
+For more extensive troubleshooting on package management, refer to the [ArchWiki on Pacman#Troubleshooting](https://wiki.archlinux.org/title/Pacman#Troubleshooting).
+
+### Problem: Package installation fails
+**Solution:**
+1. Update package database: `sudo pacman -Sy`
+2. Check internet connection: `ping archlinux.org`
+3. Clear pacman cache: `sudo pacman -Sc`
+4. Retry installation
+
+### Problem: AUR helper (yay) not working
+**Solution:**
+1. Verify yay is installed: `which yay`
+2. Check AUR access: `ping aur.archlinux.org`
+3. Update yay: `yay -Syu`
+4. Reinstall if needed: `yay -S yay`
+
+### Problem: Application doesn't start
+**Solution:**
+1. Check if installed: `pacman -Q <package>` or `yay -Q <package>`
+2. Verify executable exists: `which <application>`
+3. Check dependencies: `ldd $(which <application>)`
+4. Check logs: `journalctl -xe` for systemd errors
+
+---
+
 **Next:** Explore other software from the official repositories or the AUR to further customize your system.
