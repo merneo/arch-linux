@@ -45,7 +45,7 @@
 - ❌ You want to preserve existing data
 - ❌ You want to keep existing partitions
 
-**For dual boot or preserving data:** Use [`disk-partitioning.md`](06-disk-partitioning.md) instead.
+**For dual boot or preserving data:** Use [`disk-partitioning.md`](disk-partitioning.md) instead.
 
 ---
 

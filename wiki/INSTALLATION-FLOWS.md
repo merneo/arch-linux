@@ -193,4 +193,4 @@ If none of the above scenarios perfectly match your requirements, you can build 
 
 ---
 
-**Back to:** [Home](../HOME.md) | **Complete Guide:** [../COMPLETE-INSTALLATION.md](../COMPLETE-INSTALLATION.md)
+**Back to:** [Home](HOME.md) | **Complete Guide:** [COMPLETE-INSTALLATION.md](COMPLETE-INSTALLATION.md)
