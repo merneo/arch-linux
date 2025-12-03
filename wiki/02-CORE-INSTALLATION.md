@@ -29,7 +29,17 @@ Follow these steps in order:
 
 **Time:** 20-40 minutes
 
+**ENVIRONMENT:** Live USB (root@archiso)
+
 **Note:** This step ONLY installs the base system. All configuration (locale, users, GRUB, etc.) is in post-installation steps.
+
+### Prerequisites Checklist
+
+Before starting, verify:
+
+- [ ] Booted from Arch Linux Live USB
+- [ ] Network connection active (test with `ping archlinux.org`)
+- [ ] Disk partitions created and mounted at `/mnt` (check with `lsblk` and `mount | grep /mnt`)
 
 ### Step 1: Update Pacman Mirror List (Optional)
 
@@ -96,6 +106,8 @@ ls /mnt/bin /mnt/etc /mnt/usr
 
 **Time:** 1 minute
 
+**ENVIRONMENT:** Live USB (root@archiso) → Chroot (root@archiso /)#
+
 ### Enter Chroot
 
 ```bash
@@ -118,6 +130,14 @@ arch-chroot /mnt
 ## Set Root Password
 
 **Time:** 1 minute
+
+**ENVIRONMENT:** Chroot (root@archiso /)#
+
+### Security Notes
+
+- **Root password:** Use a strong password (minimum 12 characters, mix of letters, numbers, symbols)
+- **Never share your root password** - root has full system access
+- **Remember your password** - you'll need it for system recovery and maintenance
 
 ### Set Root Password
 

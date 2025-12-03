@@ -10,6 +10,8 @@
 
 **Time:** 15-30 minutes
 
+**ENVIRONMENT:** Chroot (root@archiso /)# OR After first boot
+
 **Note:** This module is for **LAPTOPS only**. Desktop computers typically don't have built-in IR cameras. IR cameras are used for face recognition (Windows Hello, Howdy, etc.).
 
 ---

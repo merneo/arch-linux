@@ -9,6 +9,8 @@
 
 **Time:** 5-10 minutes
 
+**ENVIRONMENT:** Chroot (root@archiso /)# OR After first boot
+
 **Note:** This module is for **LAPTOPS only**. Desktop computers use external mice and don't have touchpads.
 
 ---

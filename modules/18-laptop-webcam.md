@@ -9,6 +9,8 @@
 
 **Time:** 2-5 minutes
 
+**ENVIRONMENT:** Chroot (root@archiso /)# OR After first boot
+
 **Note:** This module is for **LAPTOPS only**. Desktop computers typically don't have built-in webcams (use external USB webcams if needed).
 
 ---
