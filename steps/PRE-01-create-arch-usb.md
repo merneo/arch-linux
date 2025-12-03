@@ -289,7 +289,7 @@ diskutil list /dev/diskX
 
 **Next:**
 - **For dual boot:** `PRE-02-install-windows.md` - Install Windows first
-- **For single boot:** `00-core-installation.md` - Boot from USB and start installation
+- **For single boot:** `core-installation.md` - Boot from USB and start installation
 
 **Official Resources:**
 - [Arch Linux Download](https://archlinux.org/download/)

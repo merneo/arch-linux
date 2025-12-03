@@ -11,7 +11,7 @@
 
 **ENVIRONMENT:** Windows installation environment
 
-**Note:** This module is **ONLY for dual boot scenario**. If you want only Arch Linux, skip this module and go directly to `00-core-installation.md`.
+**Note:** This module is **ONLY for dual boot scenario**. If you want only Arch Linux, skip this module and go directly to `core-installation.md`.
 
 **⚠️ IMPORTANT:** This module must be completed **BEFORE** installing Arch Linux. Windows must be installed first for dual boot.
 
@@ -320,7 +320,7 @@
 
 **Next:**
 - `PRE-01-create-arch-usb.md` - Create Arch Linux USB (if not done yet)
-- `00-core-installation.md` - Boot from Arch Linux USB and start installation
+- `core-installation.md` - Boot from Arch Linux USB and start installation
 
 **Official Resources:**
 - [Windows 10 Download](https://www.microsoft.com/software-download/windows10)

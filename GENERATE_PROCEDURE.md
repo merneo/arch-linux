@@ -9,85 +9,85 @@
 Answer these questions to select the modules relevant to your installation:
 
 ### Disk Status
-- [ ] Disk is already partitioned → Skip [`06-disk-partitioning.md`](modules/06-disk-partitioning.md) ([ArchWiki: Partitioning](https://wiki.archlinux.org/title/Partitioning))
-- [ ] Disk needs partitioning → Include [`06-disk-partitioning.md`](modules/06-disk-partitioning.md) ([ArchWiki: Partitioning](https://wiki.archlinux.org/title/Partitioning))
+- [ ] Disk is already partitioned → Skip [`disk-partitioning.md`](modules/disk-partitioning.md) ([ArchWiki: Partitioning](https://wiki.archlinux.org/title/Partitioning))
+- [ ] Disk needs partitioning → Include [`disk-partitioning.md`](modules/disk-partitioning.md) ([ArchWiki: Partitioning](https://wiki.archlinux.org/title/Partitioning))
 
 ### Encryption
-- [ ] Want disk encryption → Include [`07-luks-encryption.md`](modules/07-luks-encryption.md) ([ArchWiki: dm-crypt](https://wiki.archlinux.org/title/Dm-crypt))
-- [ ] Want automatic unlock → Include [`10-luks-keyfile-auto-unlock.md`](modules/10-luks-keyfile-auto-unlock.md) ([ArchWiki: dm-crypt/Keyfiles](https://wiki.archlinux.org/title/Dm-crypt#Keyfiles))
+- [ ] Want disk encryption → Include [`luks-encryption.md`](modules/luks-encryption.md) ([ArchWiki: dm-crypt](https://wiki.archlinux.org/title/Dm-crypt))
+- [ ] Want automatic unlock → Include [`luks-keyfile-auto-unlock.md`](modules/luks-keyfile-auto-unlock.md) ([ArchWiki: dm-crypt/Keyfiles](https://wiki.archlinux.org/title/Dm-crypt#Keyfiles))
 - [ ] No encryption needed → Skip LUKS modules
 
 ### Filesystem
-- [ ] Want Btrfs with subvolumes → Include [`08-btrfs-filesystem.md`](modules/08-btrfs-filesystem.md) ([ArchWiki: Btrfs](https://wiki.archlinux.org/title/Btrfs))
-- [ ] Want ext4/xfs → Include [`09-mount-partitions.md`](modules/09-mount-partitions.md) ([ArchWiki: File systems](https://wiki.archlinux.org/title/File_systems))
+- [ ] Want Btrfs with subvolumes → Include [`btrfs-filesystem.md`](modules/btrfs-filesystem.md) ([ArchWiki: Btrfs](https://wiki.archlinux.org/title/Btrfs))
+- [ ] Want ext4/xfs → Include [`mount-partitions.md`](modules/mount-partitions.md) ([ArchWiki: File systems](https://wiki.archlinux.org/title/File_systems))
 - [ ] Filesystem already created → Skip filesystem modules
 
 ### Basic Configuration
-- [ ] Need locale/timezone → Include [`02-locale.md`](modules/02-locale.md) ([ArchWiki: Locale](https://wiki.archlinux.org/title/Locale), [ArchWiki: Time](https://wiki.archlinux.org/title/Time))
-- [ ] Need user account → Include [`04-user-creation.md`](modules/04-user-creation.md) ([ArchWiki: Users and groups](https://wiki.archlinux.org/title/Users_and_groups))
+- [ ] Need locale/timezone → Include [`locale.md`](modules/locale.md) ([ArchWiki: Locale](https://wiki.archlinux.org/title/Locale), [ArchWiki: Time](https://wiki.archlinux.org/title/Time))
+- [ ] Need user account → Include [`user-creation.md`](modules/user-creation.md) ([ArchWiki: Users and groups](https://wiki.archlinux.org/title/Users_and_groups))
 
 ### Bootloader
-- [ ] Need GRUB → Include [`05-grub.md`](modules/05-grub.md) ([ArchWiki: GRUB](https://wiki.archlinux.org/title/GRUB))
+- [ ] Need GRUB → Include [`grub.md`](modules/grub.md) ([ArchWiki: GRUB](https://wiki.archlinux.org/title/GRUB))
 
 ### Network
-- [ ] Need NetworkManager → Include [`11-networkmanager.md`](modules/11-networkmanager.md) ([ArchWiki: NetworkManager](https://wiki.archlinux.org/title/NetworkManager))
-- [ ] Need WiFi → Include [`12-wifi.md`](modules/12-wifi.md) ([ArchWiki: Wireless network configuration](https://wiki.archlinux.org/title/Wireless_network_configuration))
-- [ ] Need Bluetooth → Include [`13-bluetooth.md`](modules/13-bluetooth.md) ([ArchWiki: Bluetooth](https://wiki.archlinux.org/title/Bluetooth))
+- [ ] Need NetworkManager → Include [`networkmanager.md`](modules/networkmanager.md) ([ArchWiki: NetworkManager](https://wiki.archlinux.org/title/NetworkManager))
+- [ ] Need WiFi → Include [`wifi.md`](modules/wifi.md) ([ArchWiki: Wireless network configuration](https://wiki.archlinux.org/title/Wireless_network_configuration))
+- [ ] Need Bluetooth → Include [`bluetooth.md`](modules/bluetooth.md) ([ArchWiki: Bluetooth](https://wiki.archlinux.org/title/Bluetooth))
 
 ### Audio
-- [ ] Need audio → Include [`14-audio.md`](modules/14-audio.md) ([ArchWiki: PipeWire](https://wiki.archlinux.org/title/PipeWire))
+- [ ] Need audio → Include [`audio.md`](modules/audio.md) ([ArchWiki: PipeWire](https://wiki.archlinux.org/title/PipeWire))
 
 ### Security
-- [ ] Need SSH Server → Include [`21-ssh-server.md`](modules/21-ssh-server.md) ([ArchWiki: OpenSSH](https://wiki.archlinux.org/title/OpenSSH))
-- [ ] Need UFW Firewall → Include [`22-ufw-firewall.md`](modules/22-ufw-firewall.md) ([ArchWiki: UFW](https://wiki.archlinux.org/title/Uncomplicated_Firewall))
-- [ ] Need Fail2ban → Include [`23-fail2ban.md`](modules/23-fail2ban.md) ([ArchWiki: Fail2ban](https://wiki.archlinux.org/title/Fail2ban))
+- [ ] Need SSH Server → Include [`ssh-server.md`](modules/ssh-server.md) ([ArchWiki: OpenSSH](https://wiki.archlinux.org/title/OpenSSH))
+- [ ] Need UFW Firewall → Include [`ufw-firewall.md`](modules/ufw-firewall.md) ([ArchWiki: UFW](https://wiki.archlinux.org/title/Uncomplicated_Firewall))
+- [ ] Need Fail2ban → Include [`fail2ban.md`](modules/fail2ban.md) ([ArchWiki: Fail2ban](https://wiki.archlinux.org/title/Fail2ban))
 
-### Laptop Hardware (If applicable)
-- [ ] Need Touchpad config → Include [`17-laptop-touchpad.md`](modules/17-laptop-touchpad.md) ([ArchWiki: Touchpad](https://wiki.archlinux.org/title/Touchpad))
-- [ ] Need Webcam config → Include [`18-laptop-webcam.md`](modules/18-laptop-webcam.md) ([ArchWiki: Webcam setup](https://wiki.archlinux.org/title/Webcam_setup))
-- [ ] Need IR Camera config → Include [`19-laptop-ir-camera.md`](modules/19-laptop-ir-camera.md) ([ArchWiki: Howdy](https://wiki.archlinux.org/title/Howdy))
-- [ ] Need Fingerprint config → Include [`20-laptop-fingerprint.md`](modules/20-laptop-fingerprint.md) ([ArchWiki: Fprint](https://wiki.archlinux.org/title/Fprint))
+### Hardware (If applicable)
+- [ ] Need Touchpad config → Include [`touchpad.md`](modules/touchpad.md) ([ArchWiki: Touchpad](https://wiki.archlinux.org/title/Touchpad))
+- [ ] Need Webcam config → Include [`webcam.md`](modules/webcam.md) ([ArchWiki: Webcam setup](https://wiki.archlinux.org/title/Webcam_setup))
+- [ ] Need IR Camera config → Include [`ir-camera.md`](modules/ir-camera.md) ([ArchWiki: Howdy](https://wiki.archlinux.org/title/Howdy))
+- [ ] Need Fingerprint config → Include [`fingerprint.md`](modules/fingerprint.md) ([ArchWiki: Fprint](https://wiki.archlinux.org/title/Fprint))
 
 ### Desktop Environment / Display Server
-- [ ] Need Xorg Display Server → Include [`27-xorg-config.md`](modules/27-xorg-config.md) ([ArchWiki: Xorg](https://wiki.archlinux.org/title/Xorg))
-- [ ] Need Wayland Display Server → Include [`28-wayland-config.md`](modules/28-wayland-config.md) ([ArchWiki: Wayland](https://wiki.archlinux.org/title/Wayland))
-- [ ] Need GNOME → Include [`24-gnome.md`](modules/24-gnome.md) ([ArchWiki: GNOME](https://wiki.archlinux.org/title/GNOME))
-- [ ] Need KDE Plasma → Include [`25-kde-plasma.md`](modules/25-kde-plasma.md) ([ArchWiki: KDE](https://wiki.archlinux.org/title/KDE))
-- [ ] Need XFCE → Include [`26-xfce.md`](modules/26-xfce.md) ([ArchWiki: Xfce](https://wiki.archlinux.org/title/Xfce))
+- [ ] Need Xorg Display Server → Include [`xorg-config.md`](modules/xorg-config.md) ([ArchWiki: Xorg](https://wiki.archlinux.org/title/Xorg))
+- [ ] Need Wayland Display Server → Include [`wayland-config.md`](modules/wayland-config.md) ([ArchWiki: Wayland](https://wiki.archlinux.org/title/Wayland))
+- [ ] Need GNOME → Include [`gnome.md`](modules/gnome.md) ([ArchWiki: GNOME](https://wiki.archlinux.org/title/GNOME))
+- [ ] Need KDE Plasma → Include [`kde-plasma.md`](modules/kde-plasma.md) ([ArchWiki: KDE](https://wiki.archlinux.org/title/KDE))
+- [ ] Need XFCE → Include [`xfce.md`](modules/xfce.md) ([ArchWiki: Xfce](https://wiki.archlinux.org/title/Xfce))
 
 ### Essential Applications / Backup
-- [ ] Need Essential Applications → Include [`29-essential-applications.md`](modules/29-essential-applications.md) ([ArchWiki: List of applications](https://wiki.archlinux.org/title/List_of_applications))
-- [ ] Need Backup Solution (Timeshift) → Include [`30-timeshift.md`](modules/30-timeshift.md) ([ArchWiki: Timeshift](https://wiki.archlinux.org/title/Timeshift))
+- [ ] Need Essential Applications → Include [`essential-applications.md`](modules/essential-applications.md) ([ArchWiki: List of applications](https://wiki.archlinux.org/title/List_of_applications))
+- [ ] Need Backup Solution (Timeshift) → Include [`timeshift.md`](modules/timeshift.md) ([ArchWiki: Timeshift](https://wiki.archlinux.org/title/Timeshift))
 
 ### GPU Drivers
-- [ ] Need NVIDIA GPU Drivers → Include [`31-nvidia-drivers.md`](modules/31-nvidia-drivers.md) ([ArchWiki: NVIDIA](https://wiki.archlinux.org/title/NVIDIA))
-- [ ] Need AMD GPU Drivers → Include [`32-amd-drivers.md`](modules/32-amd-drivers.md) ([ArchWiki: AMDGPU](https://wiki.archlinux.org/title/AMDGPU))
+- [ ] Need NVIDIA GPU Drivers → Include [`nvidia-drivers.md`](modules/nvidia-drivers.md) ([ArchWiki: NVIDIA](https://wiki.archlinux.org/title/NVIDIA))
+- [ ] Need AMD GPU Drivers → Include [`amd-drivers.md`](modules/amd-drivers.md) ([ArchWiki: AMDGPU](https://wiki.archlinux.org/title/AMDGPU))
 
 ### Security
-- [ ] Need SSH Server → Include `21-ssh-server.md`
-- [ ] Need UFW Firewall → Include `22-ufw-firewall.md`
-- [ ] Need Fail2ban → Include `23-fail2ban.md`
+- [ ] Need SSH Server → Include `ssh-server.md`
+- [ ] Need UFW Firewall → Include `ufw-firewall.md`
+- [ ] Need Fail2ban → Include `fail2ban.md`
 
-### Laptop Hardware (If applicable)
-- [ ] Need Touchpad config → Include `17-laptop-touchpad.md`
-- [ ] Need Webcam config → Include `18-laptop-webcam.md`
-- [ ] Need IR Camera config → Include `19-laptop-ir-camera.md`
-- [ ] Need Fingerprint config → Include `20-laptop-fingerprint.md`
+### Hardware (If applicable)
+- [ ] Need Touchpad config → Include `touchpad.md`
+- [ ] Need Webcam config → Include `webcam.md`
+- [ ] Need IR Camera config → Include `ir-camera.md`
+- [ ] Need Fingerprint config → Include `fingerprint.md`
 
 ### Desktop Environment / Display Server
-- [ ] Need Xorg Display Server → Include `27-xorg-config.md`
-- [ ] Need Wayland Display Server → Include `28-wayland-config.md`
-- [ ] Need GNOME → Include `24-gnome.md`
-- [ ] Need KDE Plasma → Include `25-kde-plasma.md`
-- [ ] Need XFCE → Include `26-xfce.md`
+- [ ] Need Xorg Display Server → Include `xorg-config.md`
+- [ ] Need Wayland Display Server → Include `wayland-config.md`
+- [ ] Need GNOME → Include `gnome.md`
+- [ ] Need KDE Plasma → Include `kde-plasma.md`
+- [ ] Need XFCE → Include `xfce.md`
 
 ### Essential Applications / Backup
-- [ ] Need Essential Applications → Include `29-essential-applications.md`
-- [ ] Need Backup Solution (Timeshift) → Include `30-timeshift.md`
+- [ ] Need Essential Applications → Include `essential-applications.md`
+- [ ] Need Backup Solution (Timeshift) → Include `timeshift.md`
 
 ### GPU Drivers
-- [ ] Need NVIDIA GPU Drivers → Include `31-nvidia-drivers.md`
-- [ ] Need AMD GPU Drivers → Include `32-amd-drivers.md`
+- [ ] Need NVIDIA GPU Drivers → Include `nvidia-drivers.md`
+- [ ] Need AMD GPU Drivers → Include `amd-drivers.md`
 
 ---
 
@@ -95,49 +95,49 @@ Answer these questions to select the modules relevant to your installation:
 
 Start with these **ALWAYS REQUIRED** modules:
 
-1. `00-core-installation.md` - Install base system
-2. `01-chroot.md` - Enter chroot
+1. `core-installation.md` - Install base system
+2. `chroot.md` - Enter chroot
 
 Then add modules based on your answers above, in this order:
 
 ### Disk Setup:
-- `06-disk-partitioning.md` - Create partitions (if needed)
-- `07-luks-encryption.md` - Encrypt partitions (if needed)
-- `08-btrfs-filesystem.md` - Create Btrfs (if needed)
-- `09-mount-partitions.md` - Mount partitions (if needed, non-Btrfs)
+- `disk-partitioning.md` - Create partitions (if needed)
+- `luks-encryption.md` - Encrypt partitions (if needed)
+- `btrfs-filesystem.md` - Create Btrfs (if needed)
+- `mount-partitions.md` - Mount partitions (if needed, non-Btrfs)
 
 ### Configuration (in chroot):
-- `02-locale.md` - Set locale
-- `04-user-creation.md` - Create user
-- `05-grub.md` - Install GRUB
+- `locale.md` - Set locale
+- `user-creation.md` - Create user
+- `grub.md` - Install GRUB
 
 ### Advanced (optional, still in chroot):
-- `10-luks-keyfile-auto-unlock.md` - Auto-unlock (if using LUKS)
-- `11-networkmanager.md` - Enable NetworkManager
-- `12-wifi.md` - WiFi support
-- `13-bluetooth.md` - Bluetooth support
-- `14-audio.md` - Audio server
+- `luks-keyfile-auto-unlock.md` - Auto-unlock (if using LUKS)
+- `networkmanager.md` - Enable NetworkManager
+- `wifi.md` - WiFi support
+- `bluetooth.md` - Bluetooth support
+- `audio.md` - Audio server
 
 ### Final step (in chroot):
-- `15-exit-chroot.md` - Exit and reboot
+- `exit-chroot.md` - Exit and reboot
 
 ### Post-Reboot (after first boot, logged in as user):
-- `21-ssh-server.md` - Configure SSH server
-- `22-ufw-firewall.md` - Configure UFW firewall
-- `23-fail2ban.md` - Configure Fail2ban
-- `17-laptop-touchpad.md` - Configure touchpad
-- `18-laptop-webcam.md` - Configure webcam
-- `19-laptop-ir-camera.md` - Configure IR camera
-- `20-laptop-fingerprint.md` - Configure fingerprint reader
-- `27-xorg-config.md` - Xorg Display Server config
-- `28-wayland-config.md` - Wayland Display Server config
-- `24-gnome.md` - Install GNOME
-- `25-kde-plasma.md` - Install KDE Plasma
-- `26-xfce.md` - Install XFCE
-- `29-essential-applications.md` - Install essential applications
-- `30-timeshift.md` - Timeshift for system snapshots
-- `31-nvidia-drivers.md` - NVIDIA GPU Driver Installation
-- `32-amd-drivers.md` - AMD GPU Driver Installation
+- `ssh-server.md` - Configure SSH server
+- `ufw-firewall.md` - Configure UFW firewall
+- `fail2ban.md` - Configure Fail2ban
+- `touchpad.md` - Configure touchpad
+- `webcam.md` - Configure webcam
+- `ir-camera.md` - Configure IR camera
+- `fingerprint.md` - Configure fingerprint reader
+- `xorg-config.md` - Xorg Display Server config
+- `wayland-config.md` - Wayland Display Server config
+- `gnome.md` - Install GNOME
+- `kde-plasma.md` - Install KDE Plasma
+- `xfce.md` - Install XFCE
+- `essential-applications.md` - Install essential applications
+- `timeshift.md` - Timeshift for system snapshots
+- `nvidia-drivers.md` - NVIDIA GPU Driver Installation
+- `amd-drivers.md` - AMD GPU Driver Installation
 
 ---
 
@@ -146,62 +146,62 @@ Then add modules based on your answers above, in this order:
 ### Scenario 1: New PC, Disk Already Partitioned, No Encryption
 
 **Modules needed:**
-1. `09-mount-partitions.md` - Mount existing partitions
-2. `00-core-installation.md` - Install base system
-3. `01-chroot.md` - Enter chroot
-4. `02-locale.md` - Set locale
-5. `04-user-creation.md` - Create user
-6. `05-grub.md` - Install GRUB
-7. `11-networkmanager.md` - Enable NetworkManager
-8. `15-exit-chroot.md` - Exit and reboot
+1. `mount-partitions.md` - Mount existing partitions
+2. `core-installation.md` - Install base system
+3. `chroot.md` - Enter chroot
+4. `locale.md` - Set locale
+5. `user-creation.md` - Create user
+6. `grub.md` - Install GRUB
+7. `networkmanager.md` - Enable NetworkManager
+8. `exit-chroot.md` - Exit and reboot
 9. **After first boot:**
-   - `27-xorg-config.md` - Xorg (or `28-wayland-config.md`)
-   - `24-gnome.md` - GNOME (or `25-kde-plasma.md`, `26-xfce.md`)
-   - `29-essential-applications.md`
-   - `30-timeshift.md`
+   - `xorg-config.md` - Xorg (or `wayland-config.md`)
+   - `gnome.md` - GNOME (or `kde-plasma.md`, `xfce.md`)
+   - `essential-applications.md`
+   - `timeshift.md`
 
 ### Scenario 2: New PC, Need Full Setup (LUKS + Btrfs + All Features)
 
 **Modules needed:**
-1. `06-disk-partitioning.md` - Create partitions
-2. `07-luks-encryption.md` - Encrypt partitions
-3. `08-btrfs-filesystem.md` - Create Btrfs
-4. `00-core-installation.md` - Install base system
-5. `01-chroot.md` - Enter chroot
-6. `02-locale.md` - Set locale
-7. `04-user-creation.md` - Create user
-8. `05-grub.md` - Install GRUB (with LUKS parameters)
-9. `10-luks-keyfile-auto-unlock.md` - Auto-unlock (optional)
-10. `11-networkmanager.md` - Enable NetworkManager
-11. `12-wifi.md` - WiFi support
-12. `13-bluetooth.md` - Bluetooth support
-13. `14-audio.md` - Audio server
-14. `15-exit-chroot.md` - Exit and reboot
+1. `disk-partitioning.md` - Create partitions
+2. `luks-encryption.md` - Encrypt partitions
+3. `btrfs-filesystem.md` - Create Btrfs
+4. `core-installation.md` - Install base system
+5. `chroot.md` - Enter chroot
+6. `locale.md` - Set locale
+7. `user-creation.md` - Create user
+8. `grub.md` - Install GRUB (with LUKS parameters)
+9. `luks-keyfile-auto-unlock.md` - Auto-unlock (optional)
+10. `networkmanager.md` - Enable NetworkManager
+11. `wifi.md` - WiFi support
+12. `bluetooth.md` - Bluetooth support
+13. `audio.md` - Audio server
+14. `exit-chroot.md` - Exit and reboot
 15. **After first boot:**
-    - `21-ssh-server.md`
-    - `22-ufw-firewall.md`
-    - `23-fail2ban.md`
-    - `17-laptop-touchpad.md` (if laptop)
-    - `18-laptop-webcam.md` (if laptop)
-    - `19-laptop-ir-camera.md` (if laptop)
-    - `20-laptop-fingerprint.md` (if laptop)
-    - `27-xorg-config.md` (or `28-wayland-config.md`)
-    - `24-gnome.md` (or `25-kde-plasma.md`, `26-xfce.md`)
-    - `29-essential-applications.md`
-    - `30-timeshift.md`
-    - `31-nvidia-drivers.md` (if NVIDIA)
-    - `32-amd-drivers.md` (if AMD)
+    - `ssh-server.md`
+    - `ufw-firewall.md`
+    - `fail2ban.md`
+    - `touchpad.md` (if laptop)
+    - `webcam.md` (if laptop)
+    - `ir-camera.md` (if laptop)
+    - `fingerprint.md` (if laptop)
+    - `xorg-config.md` (or `wayland-config.md`)
+    - `gnome.md` (or `kde-plasma.md`, `xfce.md`)
+    - `essential-applications.md`
+    - `timeshift.md`
+    - `nvidia-drivers.md` (if NVIDIA)
+    - `amd-drivers.md` (if AMD)
 
 ### Scenario 3: Minimal Installation (Just System + User + Network)
 
 **Modules needed:**
-1. `00-core-installation.md` - Install base system (assumes `/mnt` is already mounted)
-2. `01-chroot.md` - Enter chroot
-3. `02-locale.md` - Set locale
-4. `04-user-creation.md` - Create user
-5. `05-grub.md` - Install GRUB
-6. `11-networkmanager.md` - Enable NetworkManager
-7. `15-exit-chroot.md` - Exit and reboot
+1. `core-installation.md` - Install base system (assumes `/mnt` is already mounted)
+2. `chroot.md` - Enter chroot
+3. `locale.md` - Set locale
+4. `user-creation.md` - Create user
+5. `grub.md` - Install GRUB
+6. `networkmanager.md` - Enable NetworkManager
+7. `exit-chroot.md` - Exit and reboot
 
 ---
 
@@ -209,7 +209,7 @@ Then add modules based on your answers above, in this order:
 
 Before starting, check each module's prerequisites:
 
-- Most modules require `01-chroot.md` (you must be in [chroot](https://wiki.archlinux.org/title/Chroot) environment)
+- Most modules require `chroot.md` (you must be in [chroot](https://wiki.archlinux.org/title/Chroot) environment)
 - [GRUB](https://wiki.archlinux.org/title/GRUB) requires partitions to be mounted
 - [LUKS](https://wiki.archlinux.org/title/Dm-crypt) modules require disk partitioning
 - [Btrfs](https://wiki.archlinux.org/title/Btrfs) can work with or without LUKS

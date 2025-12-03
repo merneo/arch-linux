@@ -1,0 +1,102 @@
+# Module: Essential Applications
+
+**Purpose:** Install a set of common and essential applications for daily use. This module provides a foundation for productivity, communication, and basic system interaction. For a broader selection of software available in Arch Linux, refer to the [ArchWiki on Applications](https://wiki.archlinux.org/title/List_of_applications).
+
+**Prerequisites:**
+- After first boot (not in chroot)
+- User account created with sudo access (see `user-creation.md`)
+- Network connectivity (see `networkmanager.md`)
+- (Optional) Desktop environment installed (e.g., GNOME, KDE, XFCE)
+
+**Time:** 10-20 minutes (depending on selected applications and internet speed)
+
+**ENVIRONMENT:** After first boot (logged in as user)
+
+---
+
+## Step 1: Install a Web Browser
+
+A web browser is fundamental for internet access and is often one of the first applications users install. [Firefox](https://wiki.archlinux.org/title/Firefox) is a popular open-source choice, known for its privacy features and extensive customization.
+
+```bash
+sudo pacman -S firefox
+```
+
+---
+
+## Step 2: Install a Text Editor / IDE
+
+Choosing the right text editor or Integrated Development Environment (IDE) is a personal preference that significantly impacts productivity.
+
+**Option A: Visual Studio Code (via AUR helper)**
+[Visual Studio Code](https://wiki.archlinux.org/title/Visual_Studio_Code) is a highly popular and feature-rich code editor with extensive language support and extensions. It's available in the AUR, meaning you'll need an AUR helper (like `yay`) installed.
+
+```bash
+yay -S visual-studio-code-bin
+```
+
+**Option B: Neovim (Terminal-based text editor)**
+[Neovim](https://wiki.archlinux.org/title/Neovim) is a modern, extensible Vim-based text editor that runs in the terminal, favored by many developers for its speed and powerful customization.
+
+```bash
+sudo pacman -S neovim
+```
+
+**Option C: Nano (Simple terminal-based text editor)**
+[Nano](https://wiki.archlinux.org/title/Nano) is a very simple and user-friendly terminal-based text editor, often a good choice for quick edits or beginners. It's often already installed as part of the base system.
+
+```bash
+sudo pacman -S nano
+```
+
+---
+
+## Step 3: Install an Office Suite
+
+An office suite is essential for document creation, spreadsheets, and presentations. [LibreOffice](https://wiki.archlinux.org/title/LibreOffice) is a free and open-source office suite, a powerful and popular alternative to proprietary software.
+
+```bash
+sudo pacman -S libreoffice-still
+```
+
+**Note:** `libreoffice-fresh` is also available for the latest features, while `libreoffice-still` offers greater stability.
+
+---
+
+## Step 4: Install a Terminal Emulator (if not part of DE)
+
+A terminal emulator provides a text-based interface to the operating system, essential for command-line operations. While most desktop environments include one, standalone options like Alacritty offer high performance. For more options, see [ArchWiki: Terminal emulators](https://wiki.archlinux.org/title/Terminal_emulators).
+
+If you're running a minimal setup without a full desktop environment, you might need a dedicated terminal emulator. If using a DE, it likely comes with one (e.g., GNOME Terminal, Konsole, Xfce Terminal).
+
+```bash
+sudo pacman -S alacritty # or kitty, terminator, etc. [ArchWiki: Alacritty](https://wiki.archlinux.org/title/Alacritty)
+```
+
+---
+
+## Step 5: Install a File Manager (if not part of DE)
+
+A file manager provides a graphical interface for navigating and managing files and directories. Like terminal emulators, most desktop environments include one. For more options, see [ArchWiki: File managers](https://wiki.archlinux.org/title/File_manager).
+
+Similar to terminal emulators, if you're not using a full DE, you might want a standalone file manager.
+
+```bash
+sudo pacman -S thunar # or pcmanfm, nemo, etc. [ArchWiki: Thunar](https://wiki.archlinux.org/title/Thunar)
+```
+
+---
+
+## Step 6: Install an Archiving Tool
+
+Tools for creating and extracting archives are essential for handling compressed files. For more information on compression utilities, refer to the [ArchWiki on Archiving and compression](https://wiki.archlinux.org/title/Archiving_and_compression).
+
+```bash
+sudo pacman -S zip unzip p7zip unrar
+```
+
+---
+
+**SUCCESS:** Essential applications installed.
+
+**Next:** Explore other software from the official repositories or the AUR to further customize your system.

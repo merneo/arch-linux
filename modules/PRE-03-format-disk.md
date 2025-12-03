@@ -16,7 +16,7 @@
 - You're doing a fresh install (no existing data to preserve)
 - You're not dual booting (single boot scenario)
 
-**⚠️ WARNING:** If you're dual booting, **DO NOT** use this module. Use `06-disk-partitioning.md` instead to create partitions alongside Windows.
+**⚠️ WARNING:** If you're dual booting, **DO NOT** use this module. Use `disk-partitioning.md` instead to create partitions alongside Windows.
 
 ---
 
@@ -45,7 +45,7 @@
 - ❌ You want to preserve existing data
 - ❌ You want to keep existing partitions
 
-**For dual boot or preserving data:** Use [`06-disk-partitioning.md`](06-disk-partitioning.md) instead.
+**For dual boot or preserving data:** Use [`disk-partitioning.md`](06-disk-partitioning.md) instead.
 
 ---
 
@@ -175,7 +175,7 @@ parted /dev/nvme0n1 mklabel gpt
 lsblk
 ```
 
-**Note:** This step is optional. You can create partition table later in `06-disk-partitioning.md`.
+**Note:** This step is optional. You can create partition table later in `disk-partitioning.md`.
 
 ---
 
@@ -236,9 +236,9 @@ nvme format /dev/nvme0n1 --ses=1
 **SUCCESS:** Disk wiped and ready for fresh installation
 
 **Next:**
-- `06-disk-partitioning.md` - Create new partitions for Arch Linux
-- `07-luks-encryption.md` - Encrypt partitions (if needed)
-- `08-btrfs-filesystem.md` - Create Btrfs filesystem
+- `disk-partitioning.md` - Create new partitions for Arch Linux
+- `luks-encryption.md` - Encrypt partitions (if needed)
+- `btrfs-filesystem.md` - Create Btrfs filesystem
 
 **Official Resources:**
 - [ArchWiki: Partitioning](https://wiki.archlinux.org/title/Partitioning)

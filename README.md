@@ -13,7 +13,7 @@ This repository provides a **modular installation system** for Arch Linux. This 
 **Or browse:**
 - [Phases](phases/) - Organized installation phases (recommended)
 - [Steps](steps/) - Individual installation steps
-- [Home](wiki/00-HOME.md) - Installation menu
+- [Home](wiki/HOME.md) - Installation menu
 - [Complete Guide](wiki/COMPLETE-INSTALLATION.md) - All steps in one document
 
 ---
@@ -38,82 +38,82 @@ arch-linux/
 ├── MODULE_INDEX.md             # Quick reference for all modules
 ├── GENERATE_PROCEDURE.md       # How to generate custom procedure
 ├── phases/                     # Installation phases (10 phases)
-│   ├── 00-PREPARATION.md       # Phase 0: USB, Windows, disk formatting
-│   ├── 01-DISK_SETUP.md        # Phase 1: Partitioning, encryption, filesystem
-│   ├── 02-SYSTEM_INSTALL.md    # Phase 2: Base system, chroot
-│   ├── 03-BASIC_CONFIG.md      # Phase 3: Locale, user, root password
-│   ├── 04-BOOTLOADER.md        # Phase 4: GRUB, LUKS auto-unlock
-│   ├── 05-NETWORK.md           # Phase 5: NetworkManager, WiFi, Bluetooth
-│   ├── 06-AUDIO.md             # Phase 6: PipeWire audio
-│   ├── 07-SECURITY.md          # Phase 7: SSH, UFW, fail2ban
-│   ├── 08-LAPTOP_HARDWARE.md   # Phase 8: Touchpad, webcam, IR, fingerprint
-│   └── 09-FINALIZE.md          # Phase 9: Exit chroot, reboot
+│   ├── PREPARATION.md          # Phase 0: USB, Windows, disk formatting
+│   ├── DISK_SETUP.md           # Phase 1: Partitioning, encryption, filesystem
+│   ├── SYSTEM_INSTALL.md       # Phase 2: Base system, chroot
+│   ├── BASIC_CONFIG.md         # Phase 3: Locale, user, root password
+│   ├── BOOTLOADER.md           # Phase 4: GRUB, LUKS auto-unlock
+│   ├── NETWORK.md              # Phase 5: NetworkManager, WiFi, Bluetooth
+│   ├── AUDIO.md                # Phase 6: PipeWire audio
+│   ├── SECURITY.md             # Phase 7: SSH, UFW, fail2ban
+│   ├── HARDWARE.md      # Phase 8: Touchpad, webcam, IR, fingerprint
+│   └── FINALIZE.md             # Phase 9: Exit chroot, reboot
 ├── steps/                      # Individual steps (25 steps: commands only)
 │   ├── PRE-01-create-arch-usb.md
 │   ├── PRE-02-install-windows.md
 │   ├── PRE-03-format-disk.md
-│   ├── 00-core-installation.md
-│   ├── 01-chroot.md
-│   ├── 02-locale.md
-│   ├── 04-user-creation.md
-│   ├── 05-grub.md
-│   ├── 06-disk-partitioning.md
-│   ├── 07-luks-encryption.md
-│   ├── 08-btrfs-filesystem.md
-│   ├── 09-mount-partitions.md
-│   ├── 10-luks-keyfile-auto-unlock.md
-│   ├── 11-networkmanager.md
-│   ├── 12-wifi.md
-│   ├── 13-bluetooth.md
-│   ├── 14-audio.md
-│   ├── 15-exit-chroot.md
-│   ├── 17-laptop-touchpad.md
-│   ├── 18-laptop-webcam.md
-│   ├── 19-laptop-ir-camera.md
-│   ├── 20-laptop-fingerprint.md
-│   ├── 21-ssh-server.md
-│   ├── 22-ufw-firewall.md
-│   └── 23-fail2ban.md
+│   ├── core-installation.md
+│   ├── chroot.md
+│   ├── locale.md
+│   ├── user-creation.md
+│   ├── grub.md
+│   ├── disk-partitioning.md
+│   ├── luks-encryption.md
+│   ├── btrfs-filesystem.md
+│   ├── mount-partitions.md
+│   ├── luks-keyfile-auto-unlock.md
+│   ├── networkmanager.md
+│   ├── wifi.md
+│   ├── bluetooth.md
+│   ├── audio.md
+│   ├── exit-chroot.md
+│   ├── touchpad.md
+│   ├── webcam.md
+│   ├── ir-camera.md
+│   ├── fingerprint.md
+│   ├── ssh-server.md
+│   ├── ufw-firewall.md
+│   └── fail2ban.md
 ├── modules/                    # Detailed modules (33 modules)
 │   ├── PRE-01-create-arch-usb.md
 │   ├── PRE-02-install-windows.md
 │   ├── PRE-03-format-disk.md
-│   ├── 00-core-installation.md
-│   ├── 01-chroot.md
-│   ├── 02-locale.md
-│   ├── 04-user-creation.md
-│   ├── 05-grub.md
-│   ├── 06-disk-partitioning.md
-│   ├── 07-luks-encryption.md
-│   ├── 08-btrfs-filesystem.md
-│   ├── 09-mount-partitions.md
-│   ├── 10-luks-keyfile-auto-unlock.md
-│   ├── 11-networkmanager.md
-│   ├── 12-wifi.md
-│   ├── 13-bluetooth.md
-│   ├── 14-audio.md
-│   ├── 15-exit-chroot.md
-│   ├── 17-laptop-touchpad.md
-│   ├── 18-laptop-webcam.md
-│   ├── 19-laptop-ir-camera.md
-│   ├── 20-laptop-fingerprint.md
-│   ├── 21-ssh-server.md
-│   ├── 22-ufw-firewall.md
-│   ├── 23-fail2ban.md
-│   ├── 24-gnome.md
-│   ├── 25-kde-plasma.md
-│   ├── 26-xfce.md
-│   ├── 27-xorg-config.md
-│   ├── 28-wayland-config.md
-│   ├── 29-essential-applications.md
-│   ├── 30-timeshift.md
-│   ├── 31-nvidia-drivers.md
-│   └── 32-amd-drivers.md
+│   ├── core-installation.md
+│   ├── chroot.md
+│   ├── locale.md
+│   ├── user-creation.md
+│   ├── grub.md
+│   ├── disk-partitioning.md
+│   ├── luks-encryption.md
+│   ├── btrfs-filesystem.md
+│   ├── mount-partitions.md
+│   ├── luks-keyfile-auto-unlock.md
+│   ├── networkmanager.md
+│   ├── wifi.md
+│   ├── bluetooth.md
+│   ├── audio.md
+│   ├── exit-chroot.md
+│   ├── touchpad.md
+│   ├── webcam.md
+│   ├── ir-camera.md
+│   ├── fingerprint.md
+│   ├── ssh-server.md
+│   ├── ufw-firewall.md
+│   ├── fail2ban.md
+│   ├── gnome.md
+│   ├── kde-plasma.md
+│   ├── xfce.md
+│   ├── xorg-config.md
+│   ├── wayland-config.md
+│   ├── essential-applications.md
+│   ├── timeshift.md
+│   ├── nvidia-drivers.md
+│   └── amd-drivers.md
 └── wiki/                       # Wiki documentation
-    ├── 00-HOME.md              # Home page with menu
-    ├── 01-PRE-INSTALLATION.md  # Pre-installation steps
-    ├── 02-CORE-INSTALLATION.md # Core installation (DEFAULT VIEW)
-    ├── 03-POST-INSTALLATION.md # Post-installation configuration
+    ├── HOME.md                 # Home page with menu
+    ├── PRE-INSTALLATION.md     # Pre-installation steps
+    ├── CORE-INSTALLATION.md    # Core installation (DEFAULT VIEW)
+    ├── POST-INSTALLATION.md    # Post-installation configuration
     ├── COMPLETE-INSTALLATION.md # Complete guide (all steps)
     └── INSTALLATION-FLOWS.md   # Pre-built installation scenarios
 
@@ -131,73 +131,73 @@ arch-linux/
 
 ## Example Installation Flows
 
-These examples demonstrate how to combine modules for common installation types. For a detailed decision tree, refer to [Installation Flows](INSTALLATION-FLOWS.md).
+These examples demonstrate how to combine modules for common installation types. For a detailed decision tree, refer to [Installation Flows](wiki/INSTALLATION-FLOWS.md).
 
 ### Desktop Computer (Minimal)
-1. `00-core-installation.md`
-2. `01-chroot.md`
-3. `05-grub.md`
-4. `11-networkmanager.md` (if using Ethernet)
-5. `15-exit-chroot.md`
+1. `core-installation.md`
+2. `chroot.md`
+3. `grub.md`
+4. `networkmanager.md` (if using Ethernet)
+5. `exit-chroot.md`
 6. **After first boot:**
-   - `27-xorg-config.md` or `28-wayland-config.md` (display server)
-   - `29-essential-applications.md` (web browser, etc.)
+   - `xorg-config.md` or `wayland-config.md` (display server)
+   - `essential-applications.md` (web browser, etc.)
 
 ### Desktop Computer (Full)
-1. `06-disk-partitioning.md` (if needed)
-2. `07-luks-encryption.md`
-3. `08-btrfs-filesystem.md`
-4. `00-core-installation.md`
-5. `01-chroot.md`
-6. `02-locale.md`
-7. `04-user-creation.md`
-8. `05-grub.md`
-9. `10-luks-keyfile-auto-unlock.md`
-10. `11-networkmanager.md`
-11. `14-audio.md`
-12. `15-exit-chroot.md`
+1. `disk-partitioning.md` (if needed)
+2. `luks-encryption.md`
+3. `btrfs-filesystem.md`
+4. `core-installation.md`
+5. `chroot.md`
+6. `locale.md`
+7. `user-creation.md`
+8. `grub.md`
+9. `luks-keyfile-auto-unlock.md`
+10. `networkmanager.md`
+11. `audio.md`
+12. `exit-chroot.md`
 13. **After first boot:**
-    - `27-xorg-config.md` or `28-wayland-config.md`
-    - `24-gnome.md`, `25-kde-plasma.md`, or `26-xfce.md` (desktop environment)
-    - `29-essential-applications.md`
-    - `30-timeshift.md` (backup)
-    - `31-nvidia-drivers.md` or `32-amd-drivers.md` (GPU drivers)
+    - `xorg-config.md` or `wayland-config.md`
+    - `gnome.md`, `kde-plasma.md`, or `xfce.md` (desktop environment)
+    - `essential-applications.md`
+    - `timeshift.md` (backup)
+    - `nvidia-drivers.md` or `amd-drivers.md` (GPU drivers)
 
 ### Laptop (Minimal)
-1. `00-core-installation.md`
-2. `01-chroot.md`
-3. `05-grub.md`
-4. `11-networkmanager.md`
-5. `12-wifi.md`
-6. `15-exit-chroot.md`
+1. `core-installation.md`
+2. `chroot.md`
+3. `grub.md`
+4. `networkmanager.md`
+5. `wifi.md`
+6. `exit-chroot.md`
 7. **After first boot:**
-   - `17-laptop-touchpad.md`
-   - `18-laptop-webcam.md`
-   - `27-xorg-config.md` or `28-wayland-config.md` (display server)
-   - `29-essential-applications.md` (web browser, etc.)
+   - `touchpad.md`
+   - `webcam.md`
+   - `xorg-config.md` or `wayland-config.md` (display server)
+   - `essential-applications.md` (web browser, etc.)
 
 ### Laptop (Full with Biometrics)
-1. `06-disk-partitioning.md` (if needed)
-2. `07-luks-encryption.md`
-3. `08-btrfs-filesystem.md`
-4. `00-core-installation`
-5. `01-chroot.md`
-6. `02-locale.md`
-7. `04-user-creation.md`
-8. `05-grub.md`
-9. `10-luks-keyfile-auto-unlock.md`
-10. `11-networkmanager.md`
-11. `12-wifi.md`
-12. `13-bluetooth.md`
-13. `14-audio.md`
-14. `15-exit-chroot.md`
+1. `disk-partitioning.md` (if needed)
+2. `luks-encryption.md`
+3. `btrfs-filesystem.md`
+4. `core-installation.md`
+5. `chroot.md`
+6. `locale.md`
+7. `user-creation.md`
+8. `grub.md`
+9. `luks-keyfile-auto-unlock.md`
+10. `networkmanager.md`
+11. `wifi.md`
+12. `bluetooth.md`
+13. `audio.md`
+14. `exit-chroot.md`
 15. **After first boot:**
-    - `17-laptop-touchpad.md`
-    - `18-laptop-webcam.md`
-    - `19-laptop-ir-camera.md` (if IR camera present)
-    - `20-laptop-fingerprint.md` (if fingerprint reader present)
-    - `27-xorg-config.md` or `28-wayland-config.md`
-    - `24-gnome.md`, `25-kde-plasma.md`, or `26-xfce.md`
-    - `29-essential-applications.md`
-    - `30-timeshift.md`
-    - `31-nvidia-drivers.md` or `32-amd-drivers.md`
+    - `touchpad.md`
+    - `webcam.md`
+    - `ir-camera.md` (if IR camera present)
+    - `fingerprint.md` (if fingerprint reader present)
+    - `xorg-config.md` or `wayland-config.md`
+    - `gnome.md`, `kde-plasma.md`, or `xfce.md`
+    - `essential-applications.md`
+    - `timeshift.md`
+    - `nvidia-drivers.md` or `amd-drivers.md`

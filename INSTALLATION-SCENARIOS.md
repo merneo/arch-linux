@@ -18,30 +18,30 @@
 
 **Required Phases:**
 
-1. **[Phase 00: Preparation](phases/00-PREPARATION.md)**
+1. **[Phase 00: Preparation](phases/PREPARATION.md)**
    - Create Arch Linux USB
    - Install Windows (if not already installed)
    - Format disk (optional, if fresh install)
 
-2. **[Phase 01: Disk Setup](phases/01-DISK_SETUP.md)**
+2. **[Phase 01: Disk Setup](phases/DISK_SETUP.md)**
    - Disk partitioning (dual boot section)
    - Choose filesystem:
      - **Option A:** LUKS encryption → Btrfs (Btrfs + LUKS)
      - **Option B:** Btrfs only (no LUKS)
 
-3. **[Phase 02: System Install](phases/02-SYSTEM_INSTALL.md)**
+3. **[Phase 02: System Install](phases/SYSTEM_INSTALL.md)**
    - Install base system
    - Enter chroot
 
-4. **[Phase 03: Basic Config](phases/03-BASIC_CONFIG.md)**
+4. **[Phase 03: Basic Config](phases/BASIC_CONFIG.md)**
    - Set locale
    - Set root password
    - Create user
 
-5. **[Phase 04: Bootloader](phases/04-BOOTLOADER.md)**
+5. **[Phase 04: Bootloader](phases/BOOTLOADER.md)**
    - Install GRUB (will detect Windows automatically)
 
-6. **[Phase 09: Finalize](phases/09-FINALIZE.md)**
+6. **[Phase 09: Finalize](phases/FINALIZE.md)**
    - Exit chroot and reboot
 
 **Important Notes:**
@@ -62,29 +62,29 @@
 
 **Required Phases:**
 
-1. **[Phase 00: Preparation](phases/00-PREPARATION.md)**
+1. **[Phase 00: Preparation](phases/PREPARATION.md)**
    - Create Arch Linux USB
    - Format disk (optional, if fresh start)
 
-2. **[Phase 01: Disk Setup](phases/01-DISK_SETUP.md)**
+2. **[Phase 01: Disk Setup](phases/DISK_SETUP.md)**
    - Disk partitioning (single boot section)
    - LUKS encryption
    - Btrfs filesystem on encrypted partition
 
-3. **[Phase 02: System Install](phases/02-SYSTEM_INSTALL.md)**
+3. **[Phase 02: System Install](phases/SYSTEM_INSTALL.md)**
    - Install base system
    - Enter chroot
 
-4. **[Phase 03: Basic Config](phases/03-BASIC_CONFIG.md)**
+4. **[Phase 03: Basic Config](phases/BASIC_CONFIG.md)**
    - Set locale
    - Set root password
    - Create user
 
-5. **[Phase 04: Bootloader](phases/04-BOOTLOADER.md)**
+5. **[Phase 04: Bootloader](phases/BOOTLOADER.md)**
    - Install GRUB (with LUKS parameters)
    - LUKS auto-unlock (optional)
 
-6. **[Phase 09: Finalize](phases/09-FINALIZE.md)**
+6. **[Phase 09: Finalize](phases/FINALIZE.md)**
    - Exit chroot and reboot
 
 **Security:**
@@ -105,27 +105,27 @@
 
 **Required Phases:**
 
-1. **[Phase 00: Preparation](phases/00-PREPARATION.md)**
+1. **[Phase 00: Preparation](phases/PREPARATION.md)**
    - Create Arch Linux USB
    - Format disk (optional, if fresh start)
 
-2. **[Phase 01: Disk Setup](phases/01-DISK_SETUP.md)**
+2. **[Phase 01: Disk Setup](phases/DISK_SETUP.md)**
    - Disk partitioning (single boot section)
    - Btrfs filesystem (skip LUKS encryption)
 
-3. **[Phase 02: System Install](phases/02-SYSTEM_INSTALL.md)**
+3. **[Phase 02: System Install](phases/SYSTEM_INSTALL.md)**
    - Install base system
    - Enter chroot
 
-4. **[Phase 03: Basic Config](phases/03-BASIC_CONFIG.md)**
+4. **[Phase 03: Basic Config](phases/BASIC_CONFIG.md)**
    - Set locale
    - Set root password
    - Create user
 
-5. **[Phase 04: Bootloader](phases/04-BOOTLOADER.md)**
+5. **[Phase 04: Bootloader](phases/BOOTLOADER.md)**
    - Install GRUB (standard, no LUKS parameters)
 
-6. **[Phase 09: Finalize](phases/09-FINALIZE.md)**
+6. **[Phase 09: Finalize](phases/FINALIZE.md)**
    - Exit chroot and reboot
 
 **Note:**
@@ -167,7 +167,7 @@
 | **05-NETWORK** | ⚠️ Optional | ⚠️ Optional | ⚠️ Optional |
 | **06-AUDIO** | ⚠️ Optional | ⚠️ Optional | ⚠️ Optional |
 | **07-SECURITY** | ⚠️ Optional | ⚠️ Optional | ⚠️ Optional |
-| **08-LAPTOP_HARDWARE** | ⚠️ Optional (laptops) | ⚠️ Optional (laptops) | ⚠️ Optional (laptops) |
+| **08-HARDWARE** | ⚠️ Optional (laptops) | ⚠️ Optional (laptops) | ⚠️ Optional (laptops) |
 | **09-FINALIZE** | ✅ Required | ✅ Required | ✅ Required |
 
 ---
@@ -177,36 +177,36 @@
 ### For Dual Boot Scenario
 
 **Follow phases in order:**
-1. **[Phase 00: Preparation](phases/00-PREPARATION.md)** - Create USB, install Windows
-2. **[Phase 01: Disk Setup](phases/01-DISK_SETUP.md)** - Partition (dual boot section), choose filesystem
-3. **[Phase 02: System Install](phases/02-SYSTEM_INSTALL.md)** - Install base system
-4. **[Phase 03: Basic Config](phases/03-BASIC_CONFIG.md)** - Locale, user, root password
-5. **[Phase 04: Bootloader](phases/04-BOOTLOADER.md)** - GRUB (auto-detects Windows)
-6. **[Phase 09: Finalize](phases/09-FINALIZE.md)** - Exit and reboot
+1. **[Phase 00: Preparation](phases/PREPARATION.md)** - Create USB, install Windows
+2. **[Phase 01: Disk Setup](phases/DISK_SETUP.md)** - Partition (dual boot section), choose filesystem
+3. **[Phase 02: System Install](phases/SYSTEM_INSTALL.md)** - Install base system
+4. **[Phase 03: Basic Config](phases/BASIC_CONFIG.md)** - Locale, user, root password
+5. **[Phase 04: Bootloader](phases/BOOTLOADER.md)** - GRUB (auto-detects Windows)
+6. **[Phase 09: Finalize](phases/FINALIZE.md)** - Exit and reboot
 
 **Note:** GRUB will automatically detect Windows and add it to boot menu
 
 ### For Single Boot - Btrfs + LUKS
 
 **Follow phases in order:**
-1. **[Phase 00: Preparation](phases/00-PREPARATION.md)** - Create USB, format disk (optional)
-2. **[Phase 01: Disk Setup](phases/01-DISK_SETUP.md)** - Partition (single boot), LUKS encryption, Btrfs
-3. **[Phase 02: System Install](phases/02-SYSTEM_INSTALL.md)** - Install base system
-4. **[Phase 03: Basic Config](phases/03-BASIC_CONFIG.md)** - Locale, user, root password
-5. **[Phase 04: Bootloader](phases/04-BOOTLOADER.md)** - GRUB (with LUKS), auto-unlock (optional)
-6. **[Phase 09: Finalize](phases/09-FINALIZE.md)** - Exit and reboot
+1. **[Phase 00: Preparation](phases/PREPARATION.md)** - Create USB, format disk (optional)
+2. **[Phase 01: Disk Setup](phases/DISK_SETUP.md)** - Partition (single boot), LUKS encryption, Btrfs
+3. **[Phase 02: System Install](phases/SYSTEM_INSTALL.md)** - Install base system
+4. **[Phase 03: Basic Config](phases/BASIC_CONFIG.md)** - Locale, user, root password
+5. **[Phase 04: Bootloader](phases/BOOTLOADER.md)** - GRUB (with LUKS), auto-unlock (optional)
+6. **[Phase 09: Finalize](phases/FINALIZE.md)** - Exit and reboot
 
 **Note:** System will prompt for LUKS passphrase on boot (unless auto-unlock configured)
 
 ### For Single Boot - Btrfs Only
 
 **Follow phases in order:**
-1. **[Phase 00: Preparation](phases/00-PREPARATION.md)** - Create USB, format disk (optional)
-2. **[Phase 01: Disk Setup](phases/01-DISK_SETUP.md)** - Partition (single boot), Btrfs (no LUKS)
-3. **[Phase 02: System Install](phases/02-SYSTEM_INSTALL.md)** - Install base system
-4. **[Phase 03: Basic Config](phases/03-BASIC_CONFIG.md)** - Locale, user, root password
-5. **[Phase 04: Bootloader](phases/04-BOOTLOADER.md)** - GRUB (standard, no LUKS)
-6. **[Phase 09: Finalize](phases/09-FINALIZE.md)** - Exit and reboot
+1. **[Phase 00: Preparation](phases/PREPARATION.md)** - Create USB, format disk (optional)
+2. **[Phase 01: Disk Setup](phases/DISK_SETUP.md)** - Partition (single boot), Btrfs (no LUKS)
+3. **[Phase 02: System Install](phases/SYSTEM_INSTALL.md)** - Install base system
+4. **[Phase 03: Basic Config](phases/BASIC_CONFIG.md)** - Locale, user, root password
+5. **[Phase 04: Bootloader](phases/BOOTLOADER.md)** - GRUB (standard, no LUKS)
+6. **[Phase 09: Finalize](phases/FINALIZE.md)** - Exit and reboot
 
 **Note:** System boots directly without passphrase
 
