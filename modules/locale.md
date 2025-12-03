@@ -93,6 +93,11 @@ timedatectl status
 # Should show your configured timezone (e.g., Time zone: Europe/Prague (CET, +0100))
 ```
 
+**Related Modules:**
+- `user-creation.md` - Create user account (typically done after locale)
+- `grub.md` - Install GRUB bootloader
+- `networkmanager.md` - Enable NetworkManager
+
 **Next:** Continue with other configuration modules
 
 ---

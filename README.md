@@ -130,6 +130,7 @@ arch-linux/
 - **[Step Index](STEP_INDEX.md)** - Quick reference for all steps
 - **[Module Index](MODULE_INDEX.md)** - Quick reference for all modules
 - **[Module Dependencies](MODULE_DEPENDENCIES.md)** - Dependency graph and relationships
+- **[Module Finder](MODULE_FINDER.md)** - Find modules by use case, hardware, or scenario
 - **[Quick Reference](QUICK_REFERENCE.md)** - Cheat sheet and quick lookup
 - **[Desktop vs Laptop](DESKTOP_VS_LAPTOP.md)** - Guide to choose steps based on hardware type
 - **[Generate Procedure](GENERATE_PROCEDURE.md)** - How to generate custom installation procedure
