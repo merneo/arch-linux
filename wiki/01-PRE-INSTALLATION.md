@@ -8,12 +8,14 @@
 
 ## Menu: Pre-Installation Steps
 
-Choose what you need:
+**First, choose your installation scenario:** See [Installation Scenarios](../INSTALLATION-SCENARIOS.md) for detailed guidance.
 
-- **[Disk Partitioning](#disk-partitioning)** - Create disk partitions (only if needed)
-- **[LUKS Encryption](#luks-encryption)** - Encrypt partitions
-- **[Btrfs Filesystem](#btrfs-filesystem)** - Create Btrfs with subvolumes
-- **[Mount Partitions](#mount-partitions)** - Mount partitions (non-Btrfs)
+**Then choose what you need:**
+
+- **[Disk Partitioning](#disk-partitioning)** - Create disk partitions (single boot or dual boot)
+- **[LUKS Encryption](#luks-encryption)** - Encrypt partitions (optional, for Btrfs + LUKS scenario)
+- **[Btrfs Filesystem](#btrfs-filesystem)** - Create Btrfs with subvolumes (with or without LUKS)
+- **[Mount Partitions](#mount-partitions)** - Mount partitions (non-Btrfs filesystems)
 
 ---
 

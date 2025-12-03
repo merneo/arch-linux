@@ -53,9 +53,21 @@ cfdisk /dev/nvme0n1
 
 ---
 
-## Step 3: Create Partitions
+## Step 3: Choose Installation Scenario
 
-**Create EFI System Partition:**
+**Before creating partitions, decide your installation scenario:**
+
+- **Single Boot (Arch Linux only)** → Go to [Single Boot Section](#single-boot-arch-linux-only)
+- **Dual Boot (Arch Linux + Windows)** → Go to [Dual Boot Section](#dual-boot-arch-linux--windows)
+
+---
+
+## Single Boot (Arch Linux Only)
+
+**Use this if:** You want to install Arch Linux on the entire disk (no Windows).
+
+### Create EFI System Partition
+
 1. Navigate to **Free space** row
 2. Press Enter on **[ New ]** menu option
 3. **Partition size**: Type `512M` (minimum 512 MB for EFI) and press Enter
@@ -64,20 +76,83 @@ cfdisk /dev/nvme0n1
 6. Scroll down to find **EFI System** (type code EF00)
 7. Press Enter to select EFI System
 
-**Create Linux Root Partition:**
+### Create Linux Root Partition
+
 1. Navigate to remaining **Free space** row
 2. Press Enter on **[ New ]** menu option
-3. **Partition size**: Type `70%` (or specific size like `350G`) and press Enter
+3. **Partition size**: Type `90%` (or leave remaining space for Arch Linux) and press Enter
+4. Partition type will default to **Linux filesystem** (correct, do not change)
+
+### Create Swap Partition (Optional)
+
+1. Navigate to remaining **Free space** row
+2. Press Enter on **[ New ]** menu option
+3. **Partition size**: Type `10%` (or `8G` minimum) and press Enter
+4. Navigate to the newly created partition
+5. Press Enter on **[ Type ]** menu option
+6. Scroll down to find **Linux swap** (type code 19 or 82)
+7. Press Enter to select Linux swap
+
+**Expected Layout:**
+- EFI System Partition (512 MB)
+- Linux Root Partition (90% of disk)
+- Linux Swap (10% of disk, optional)
+
+---
+
+## Dual Boot (Arch Linux + Windows)
+
+**Use this if:** You want to keep Windows and install Arch Linux alongside it.
+
+**⚠️ IMPORTANT: Before proceeding:**
+- Windows Fast Startup **MUST BE DISABLED** (prevents filesystem corruption)
+- BitLocker encryption in Windows **MUST BE DISABLED**
+- Back up important data before resizing partitions
+
+### Option A: Use Free Space (Windows Already Installed)
+
+**If Windows is already installed and you have free space:**
+
+1. Check existing partitions with `lsblk`
+2. Identify free space (unallocated space on disk)
+3. Use free space for Arch Linux partitions
+
+**Create Linux Root Partition:**
+1. Navigate to **Free space** row
+2. Press Enter on **[ New ]** menu option
+3. **Partition size**: Use available free space (e.g., `70G` or `50%` of free space)
 4. Partition type will default to **Linux filesystem** (correct, do not change)
 
 **Create Swap Partition (Optional):**
 1. Navigate to remaining **Free space** row
 2. Press Enter on **[ New ]** menu option
-3. **Partition size**: Type `5%` (or `8G` minimum) and press Enter
+3. **Partition size**: Type `8G` (minimum) and press Enter
 4. Navigate to the newly created partition
 5. Press Enter on **[ Type ]** menu option
 6. Scroll down to find **Linux swap** (type code 19 or 82)
 7. Press Enter to select Linux swap
+
+**Note:** EFI System Partition should already exist (created by Windows). Verify with `lsblk -f` - it should show FAT32 EFI partition.
+
+### Option B: Resize Windows Partition (Advanced)
+
+**If you need to shrink Windows partition to make space:**
+
+**⚠️ WARNING:** Resizing Windows partitions can cause data loss. Always back up first.
+
+1. Use Windows Disk Management or `gparted` to shrink Windows partition
+2. Leave free space for Arch Linux
+3. Then follow "Option A" above to create Arch Linux partitions
+
+**Expected Layout:**
+- EFI System Partition (512 MB, shared with Windows)
+- Windows partition (NTFS)
+- Linux Root Partition (Arch Linux)
+- Linux Swap (optional)
+
+---
+
+**Continue to Step 4** after creating partitions for your chosen scenario.
 
 ---
 
@@ -113,7 +188,9 @@ lsblk -f
 
 **SUCCESS:** Disk partitioned successfully
 
-**Next:** 
-- `07-luks-encryption.md` - Encrypt partitions (if needed)
-- `08-btrfs-filesystem.md` - Create Btrfs filesystem
-- `09-mount-partitions.md` - Mount partitions before installation
+**Next:** Choose your filesystem option:
+- **Btrfs + LUKS (encrypted):** `07-luks-encryption.md` → `08-btrfs-filesystem.md`
+- **Btrfs only (no encryption):** `08-btrfs-filesystem.md` (skip LUKS)
+- **Other filesystems:** `09-mount-partitions.md`
+
+**See also:** `INSTALLATION-SCENARIOS.md` for detailed scenario guidance

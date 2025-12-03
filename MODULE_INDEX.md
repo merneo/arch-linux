@@ -2,6 +2,8 @@
 
 **Purpose:** Quick reference to find the right modules for your installation
 
+**Before choosing modules:** See [Installation Scenarios](../INSTALLATION-SCENARIOS.md) to choose your installation scenario (dual boot, single boot, with/without LUKS).
+
 ---
 
 ## Core Installation (Required)

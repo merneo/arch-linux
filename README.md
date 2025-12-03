@@ -74,8 +74,9 @@ This repository provides a **modular installation system** for Arch Linux. Each 
 
 ## Quick Reference
 
+- **`INSTALLATION-SCENARIOS.md`** - **NEW!** Choose installation scenario (dual boot, single boot, with/without LUKS)
 - **`MODULE_INDEX.md`** - Detailed module reference and installation flows
-- **`DESKTOP_VS_LAPTOP.md`** - **NEW!** Guide to choose modules based on hardware type (Desktop vs Laptop)
+- **`DESKTOP_VS_LAPTOP.md`** - Guide to choose modules based on hardware type (Desktop vs Laptop)
 - **`GENERATE_PROCEDURE.md`** - How to generate custom installation procedure
 
 ## Example Installation Flows
