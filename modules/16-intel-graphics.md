@@ -7,6 +7,8 @@
 
 **Time:** 3-5 minutes
 
+**ENVIRONMENT:** Chroot (root@archiso /)#
+
 ---
 
 ## Step 1: Install Intel Graphics Drivers
