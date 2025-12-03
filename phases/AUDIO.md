@@ -18,6 +18,16 @@ systemctl --user is-enabled pipewire
 systemctl --user is-enabled pipewire-pulse
 ```
 
-## Next Phase
+---
 
-**[Phase 07: Security](SECURITY.md)** (optional) or **[Phase 09: Finalize](FINALIZE.md)**
+## Navigation
+
+**Previous:** **[← Phase 05: Network](NETWORK.md)**
+
+**Next:**
+- **[Phase 07: Security →](SECURITY.md)** (optional - recommended)
+- **[Phase 09: Finalize →](FINALIZE.md)** (if skipping security)
+
+---
+
+**Back to:** [Main Index](../INDEX.md) | [Repository Root](../README.md)

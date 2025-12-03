@@ -25,6 +25,17 @@ systemctl is-enabled NetworkManager
 systemctl is-enabled bluetooth
 ```
 
-## Next Phase
+---
 
-**[Phase 06: Audio](AUDIO.md)** (optional) or **[Phase 07: Security](SECURITY.md)** (optional) or **[Phase 09: Finalize](FINALIZE.md)**
+## Navigation
+
+**Previous:** **[← Phase 04: Bootloader](BOOTLOADER.md)**
+
+**Next:**
+- **[Phase 06: Audio →](AUDIO.md)** (optional - if you need sound)
+- **[Phase 07: Security →](SECURITY.md)** (optional - recommended)
+- **[Phase 09: Finalize →](FINALIZE.md)** (if skipping audio/security)
+
+---
+
+**Back to:** [Main Index](../INDEX.md) | [Repository Root](../README.md)

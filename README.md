@@ -6,15 +6,20 @@ This repository provides a **modular installation system** for Arch Linux. This 
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Start Here
 
-**Start here:** [Installation Scenarios](INSTALLATION-SCENARIOS.md) - Choose your scenario
+**👉 [Main Index](INDEX.md) - Choose your hardware and configuration**
 
-**Or browse:**
-- [Phases](phases/) - Organized installation phases (recommended)
-- [Steps](steps/) - Individual installation steps
-- [Home](wiki/HOME.md) - Installation menu
-- [Complete Guide](wiki/COMPLETE-INSTALLATION.md) - All steps in one document
+The main index provides links to all installation scenarios organized by:
+- Hardware type (Desktop/Laptop, Intel/AMD, NVIDIA/AMD GPU)
+- Installation type (Single boot/Dual boot, Encrypted/Non-encrypted)
+- Desktop environment preferences
+- Complete phase-by-phase navigation
+
+**Quick Links:**
+- **[Installation Phases](phases/PREPARATION.md)** - Follow phases in order (recommended)
+- **[Installation Scenarios](INSTALLATION-SCENARIOS.md)** - Pre-built scenarios
+- **[Complete Guide](wiki/COMPLETE-INSTALLATION.md)** - All steps in one document
 
 ---
 

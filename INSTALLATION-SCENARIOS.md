@@ -1,10 +1,159 @@
 # Installation Scenarios
 
-**Purpose:** Guide to choose the right modules based on your installation scenario
+**Purpose:** Detailed installation guides organized by hardware type and configuration. Choose your specific hardware combination below for customized installation instructions.
+
+**Quick Navigation:**
+- [Desktop Configurations](#desktop-configurations)
+- [Laptop Configurations](#laptop-configurations)
+- [Installation Types](#installation-types)
 
 ---
 
-## Installation Scenarios
+## Desktop Configurations
+
+### Desktop: Intel CPU + NVIDIA GPU
+
+**Hardware:**
+- CPU: Intel
+- GPU: NVIDIA (dedicated)
+- Type: Desktop computer
+
+**Recommended Phases:**
+1. [Phase 00: Preparation](phases/PREPARATION.md)
+2. [Phase 01: Disk Setup](phases/DISK_SETUP.md) (choose encryption if desired)
+3. [Phase 02: System Install](phases/SYSTEM_INSTALL.md)
+4. [Phase 03: Basic Config](phases/BASIC_CONFIG.md)
+5. [Phase 04: Bootloader](phases/BOOTLOADER.md)
+6. [Phase 05: Network](phases/NETWORK.md)
+7. [Phase 09: Finalize](phases/FINALIZE.md)
+
+**After First Boot:**
+- [NVIDIA Drivers](modules/nvidia-drivers.md) - **Required for NVIDIA GPU**
+- [Xorg Configuration](modules/xorg-config.md) or [Wayland Configuration](modules/wayland-config.md)
+- Desktop Environment: [GNOME](modules/gnome.md), [KDE Plasma](modules/kde-plasma.md), or [XFCE](modules/xfce.md)
+- [Essential Applications](modules/essential-applications.md)
+
+---
+
+### Desktop: Intel CPU + AMD GPU
+
+**Hardware:**
+- CPU: Intel
+- GPU: AMD (dedicated)
+- Type: Desktop computer
+
+**Recommended Phases:**
+1. [Phase 00: Preparation](phases/PREPARATION.md)
+2. [Phase 01: Disk Setup](phases/DISK_SETUP.md)
+3. [Phase 02: System Install](phases/SYSTEM_INSTALL.md)
+4. [Phase 03: Basic Config](phases/BASIC_CONFIG.md)
+5. [Phase 04: Bootloader](phases/BOOTLOADER.md)
+6. [Phase 05: Network](phases/NETWORK.md)
+7. [Phase 09: Finalize](phases/FINALIZE.md)
+
+**After First Boot:**
+- [AMD Drivers](modules/amd-drivers.md) - **Recommended for AMD GPU**
+- [Xorg Configuration](modules/xorg-config.md) or [Wayland Configuration](modules/wayland-config.md)
+- Desktop Environment: [GNOME](modules/gnome.md), [KDE Plasma](modules/kde-plasma.md), or [XFCE](modules/xfce.md)
+
+---
+
+### Desktop: AMD CPU + NVIDIA GPU
+
+**Hardware:**
+- CPU: AMD
+- GPU: NVIDIA (dedicated)
+- Type: Desktop computer
+
+**Recommended Phases:**
+Same as Intel + NVIDIA, but ensure AMD CPU microcode is included in core installation.
+
+**After First Boot:**
+- [NVIDIA Drivers](modules/nvidia-drivers.md) - **Required for NVIDIA GPU**
+- Desktop Environment as above
+
+---
+
+### Desktop: AMD CPU + AMD GPU
+
+**Hardware:**
+- CPU: AMD
+- GPU: AMD (dedicated or integrated)
+- Type: Desktop computer
+
+**Recommended Phases:**
+Same as Intel + AMD GPU.
+
+**After First Boot:**
+- [AMD Drivers](modules/amd-drivers.md) - **Recommended**
+- Desktop Environment as above
+
+---
+
+## Laptop Configurations
+
+### Laptop: Intel CPU + NVIDIA GPU
+
+**Hardware:**
+- CPU: Intel
+- GPU: NVIDIA (dedicated, often with Intel integrated)
+- Type: Laptop
+
+**Recommended Phases:**
+1. [Phase 00: Preparation](phases/PREPARATION.md)
+2. [Phase 01: Disk Setup](phases/DISK_SETUP.md)
+3. [Phase 02: System Install](phases/SYSTEM_INSTALL.md)
+4. [Phase 03: Basic Config](phases/BASIC_CONFIG.md)
+5. [Phase 04: Bootloader](phases/BOOTLOADER.md)
+6. [Phase 05: Network](phases/NETWORK.md) - **Include WiFi**
+7. [Phase 06: Audio](phases/AUDIO.md)
+8. [Phase 07: Security](phases/SECURITY.md)
+9. [Phase 08: Hardware](phases/HARDWARE.md) - **Laptop hardware**
+10. [Phase 09: Finalize](phases/FINALIZE.md)
+
+**After First Boot:**
+- [NVIDIA Drivers](modules/nvidia-drivers.md) - **Required**
+- [Touchpad](modules/touchpad.md) - **Laptops**
+- [Webcam](modules/webcam.md) - **If present**
+- Desktop Environment
+
+---
+
+### Laptop: Intel CPU + Integrated Graphics
+
+**Hardware:**
+- CPU: Intel (with integrated graphics)
+- GPU: Intel integrated
+- Type: Laptop
+
+**Recommended Phases:**
+Same as above, but skip NVIDIA drivers.
+
+**After First Boot:**
+- Intel graphics usually work out of the box
+- [Touchpad](modules/touchpad.md), [Webcam](modules/webcam.md)
+- Desktop Environment
+
+---
+
+### Laptop: AMD CPU + Integrated Graphics
+
+**Hardware:**
+- CPU: AMD (with integrated graphics)
+- GPU: AMD integrated
+- Type: Laptop
+
+**Recommended Phases:**
+Same as Intel laptop.
+
+**After First Boot:**
+- [AMD Drivers](modules/amd-drivers.md) - **Recommended for better performance**
+- Laptop hardware modules
+- Desktop Environment
+
+---
+
+## Installation Scenarios (By Type)
 
 ### Scenario 1: Dual Boot (Arch Linux + Windows)
 

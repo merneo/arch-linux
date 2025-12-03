@@ -29,4 +29,20 @@
 - Login with created user
 - Continue with post-installation configuration (if needed)
 
+---
+
+## Navigation
+
+**Previous:**
+- **[← Phase 08: Hardware](HARDWARE.md)** (if you configured hardware)
+- **[← Phase 07: Security](SECURITY.md)** (if you skipped hardware)
+
+**Next:** This is the final phase. Installation complete!
+
+---
+
+**Back to:** [Main Index](../INDEX.md) | [Repository Root](../README.md)
+
+---
+
 **INSTALLATION COMPLETE!**

@@ -23,6 +23,14 @@ timedatectl status
 id <USERNAME>
 ```
 
-## Next Phase
+---
 
-**[Phase 04: Bootloader](BOOTLOADER.md)**
+## Navigation
+
+**Previous:** **[← Phase 02: System Install](SYSTEM_INSTALL.md)**
+
+**Next:** **[Phase 04: Bootloader →](BOOTLOADER.md)**
+
+---
+
+**Back to:** [Main Index](../INDEX.md) | [Repository Root](../README.md)

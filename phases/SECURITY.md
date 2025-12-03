@@ -28,6 +28,18 @@ ufw status
 fail2ban-client status sshd
 ```
 
-## Next Phase
+---
 
-**[Phase 08: Hardware](HARDWARE.md)** (laptops only) or **[Phase 09: Finalize](FINALIZE.md)**
+## Navigation
+
+**Previous:** 
+- **[← Phase 06: Audio](AUDIO.md)** (if you did audio)
+- **[← Phase 05: Network](NETWORK.md)** (if you skipped audio)
+
+**Next:**
+- **[Phase 08: Hardware →](HARDWARE.md)** (laptops only - if you have laptop hardware)
+- **[Phase 09: Finalize →](FINALIZE.md)** (desktops or if skipping hardware)
+
+---
+
+**Back to:** [Main Index](../INDEX.md) | [Repository Root](../README.md)

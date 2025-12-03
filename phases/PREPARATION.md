@@ -29,6 +29,14 @@
 - [ ] Windows configured for dual boot (if dual booting)
 - [ ] Disk formatted (if fresh install)
 
-## Next Phase
+---
 
-**[Phase 01: Disk Setup](DISK_SETUP.md)**
+## Navigation
+
+**Previous:** This is the first phase (no previous phase)
+
+**Next:** **[Phase 01: Disk Setup →](DISK_SETUP.md)**
+
+---
+
+**Back to:** [Main Index](../INDEX.md) | [Repository Root](../README.md)

@@ -25,6 +25,16 @@ ls -la /boot/EFI/GRUB/
 grep "GRUB_CMDLINE_LINUX" /etc/default/grub
 ```
 
-## Next Phase
+---
 
-**[Phase 05: Network](NETWORK.md)** (optional) or **[Phase 09: Finalize](FINALIZE.md)**
+## Navigation
+
+**Previous:** **[← Phase 03: Basic Config](BASIC_CONFIG.md)**
+
+**Next:** 
+- **[Phase 05: Network →](NETWORK.md)** (optional - if you need network)
+- **[Phase 09: Finalize →](FINALIZE.md)** (if skipping network/audio/security)
+
+---
+
+**Back to:** [Main Index](../INDEX.md) | [Repository Root](../README.md)

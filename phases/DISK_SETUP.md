@@ -33,6 +33,14 @@ lsblk -f
 mount | grep /mnt
 ```
 
-## Next Phase
+---
 
-**[Phase 02: System Install](SYSTEM_INSTALL.md)**
+## Navigation
+
+**Previous:** **[← Phase 00: Preparation](PREPARATION.md)**
+
+**Next:** **[Phase 02: System Install →](SYSTEM_INSTALL.md)**
+
+---
+
+**Back to:** [Main Index](../INDEX.md) | [Repository Root](../README.md)

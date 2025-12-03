@@ -28,6 +28,14 @@ lsusb | grep -i camera
 lsusb | grep -i fingerprint
 ```
 
-## Next Phase
+---
 
-**[Phase 09: Finalize](FINALIZE.md)**
+## Navigation
+
+**Previous:** **[← Phase 07: Security](SECURITY.md)**
+
+**Next:** **[Phase 09: Finalize →](FINALIZE.md)**
+
+---
+
+**Back to:** [Main Index](../INDEX.md) | [Repository Root](../README.md)

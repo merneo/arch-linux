@@ -25,6 +25,14 @@ ls -la /mnt/bin /mnt/etc /mnt/usr
 arch-chroot /mnt
 ```
 
-## Next Phase
+---
 
-**[Phase 03: Basic Config](BASIC_CONFIG.md)**
+## Navigation
+
+**Previous:** **[← Phase 01: Disk Setup](DISK_SETUP.md)**
+
+**Next:** **[Phase 03: Basic Config →](BASIC_CONFIG.md)**
+
+---
+
+**Back to:** [Main Index](../INDEX.md) | [Repository Root](../README.md)
