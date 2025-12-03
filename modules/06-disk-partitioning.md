@@ -8,6 +8,8 @@
 
 **Time:** 10-15 minutes
 
+**Note:** This module is **OPTIONAL**. Only use if your disk is not already partitioned. If disk is already partitioned, skip to mounting modules (`08-btrfs-filesystem.md` or `09-mount-partitions.md`).
+
 ---
 
 ## Step 1: Identify Disk Device

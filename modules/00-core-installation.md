@@ -1,13 +1,15 @@
 # Module: Core System Installation
 
-**Purpose:** Install base Arch Linux system using pacstrap (assumes you're already booted from USB)
+**Purpose:** Install base Arch Linux system using pacstrap. This is the CORE module - only installs the system, nothing else.
 
 **Prerequisites:**
 - Booted from Arch Linux Live USB
 - Network connection established
-- Disk partitions created and mounted at `/mnt`
+- Disk partitions created and mounted at `/mnt` (use `06-disk-partitioning.md` if needed)
 
 **Time:** 20-40 minutes
+
+**Note:** This module ONLY installs the base system. All configuration (locale, users, GRUB, etc.) is in separate modules.
 
 ---
 
