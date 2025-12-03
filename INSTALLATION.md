@@ -5,7 +5,7 @@
 **Language:** US English (Academic Publication Standard)  
 **Purpose:** Arch Linux installation guide with Intel CPU microcode and graphics drivers
 
-This document provides a comprehensive guide for installing Arch Linux on Intel-based x86-64 systems for installing Arch Linux on a modern x86-64 system with full-disk encryption, Btrfs filesystem, and a minimal window manager setup. This guide excludes vendor-specific microcode and graphics drivers, making it suitable as a base template for any hardware configuration.
+This document provides a comprehensive guide for installing Arch Linux on Intel-based x86-64 systems with full-disk encryption, Btrfs filesystem, and a minimal window manager setup. This guide includes Intel-specific microcode updates and Intel integrated graphics drivers (Intel HD Graphics, Intel Iris, Intel Arc).
 
 ---
 
