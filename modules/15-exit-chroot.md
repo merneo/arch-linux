@@ -8,6 +8,8 @@
 
 **Time:** 5 minutes
 
+**ENVIRONMENT:** Chroot (root@archiso /)# → Live USB (root@archiso)
+
 ---
 
 ## Step 1: Exit Chroot Environment

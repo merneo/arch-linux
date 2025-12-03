@@ -9,6 +9,17 @@
 
 **Time:** 10-15 minutes
 
+**ENVIRONMENT:** Chroot (root@archiso /)#
+
+---
+
+## Security Notes
+
+- **Keyfile security:** The keyfile is embedded in initramfs, which means anyone with physical access to the disk can boot without a passphrase
+- **Trade-off:** Convenience vs. security - auto-unlock makes boot easier but reduces security
+- **Backup keyfile:** Store a backup securely (not on the same disk)
+- **Alternative:** Use TPM (Trusted Platform Module) for more secure auto-unlock (advanced)
+
 ---
 
 ## Step 1: Create Keyfile Directory

@@ -8,13 +8,19 @@
 
 **Time:** 2-3 minutes
 
+**ENVIRONMENT:** Chroot (root@archiso /)#
+
 ---
 
 ## Step 1: Create User
 
 ```bash
-# Replace "username" with your desired username
-useradd -m -G wheel,video,audio,storage,input,power,network -s /bin/bash username
+# Replace <USERNAME> with your desired username
+useradd -m -G wheel,video,audio,storage,input,power,network -s /bin/bash <USERNAME>
+```
+
+**Placeholders:**
+- `<USERNAME>`: Your desired username (lowercase, no spaces, e.g., `john`, `alice`)
 
 # Explanation:
 # -m: Create home directory (/home/username)
@@ -34,10 +40,15 @@ useradd -m -G wheel,video,audio,storage,input,power,network -s /bin/bash usernam
 ## Step 2: Set User Password
 
 ```bash
-passwd username
+passwd <USERNAME>
 ```
 
 **Enter password** for the user.
+
+**Security Notes:**
+- Use a strong password (minimum 12 characters recommended)
+- Consider using a password manager
+- This password is for daily use (less critical than root password, but still important)
 
 ---
 
@@ -64,11 +75,16 @@ EDITOR=nano visudo
 ## Step 4: Verify User
 
 ```bash
-id username
+id <USERNAME>
 
 # Should show:
-# uid=1000(username) gid=1000(username) groups=1000(username),wheel,video,audio,storage,input,power,network
+# uid=1000(<USERNAME>) gid=1000(<USERNAME>) groups=1000(<USERNAME>),wheel,video,audio,storage,input,power,network
 ```
+
+**Verification:**
+- User ID (uid) should be 1000 (first user)
+- Group ID (gid) should match username
+- Groups should include: wheel, video, audio, storage, input, power, network
 
 ---
 
