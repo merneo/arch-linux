@@ -446,7 +446,7 @@ lsblk -f
 
 ---
 
-## Core Installation - Intel Hardware
+## Core Installation
 
 **Purpose:** Install base Arch Linux system and set root password
 
@@ -459,7 +459,7 @@ lsblk -f
 
 ---
 
-### Core Installation - Intel Hardware Steps
+### Core Installation Steps
 
 Follow these steps in order:
 
@@ -593,7 +593,7 @@ New password:
 
 ---
 
-## Post-Installation Configuration - Intel Hardware
+## Post-Installation Configuration
 
 **Purpose:** Configure system after core installation
 

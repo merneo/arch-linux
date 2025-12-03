@@ -10,6 +10,19 @@
 
 **Note:** This module is **OPTIONAL**. Only use if your disk is not already partitioned. If disk is already partitioned, skip to mounting modules (`08-btrfs-filesystem.md` or `09-mount-partitions.md`).
 
+**ENVIRONMENT:** Live USB (root@archiso)
+
+---
+
+## ⚠️ WARNING: Data Loss
+
+**This module will PERMANENTLY DELETE all data on the target disk.**
+
+- Make sure you have backups of important data
+- Double-check disk names before proceeding (use `lsblk` to verify)
+- This operation CANNOT be undone
+- Verify you're working with the correct disk - **wrong disk selection will destroy data**
+
 ---
 
 ## Step 1: Identify Disk Device

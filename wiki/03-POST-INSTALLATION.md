@@ -1,4 +1,4 @@
-# Post-Installation Configuration - Intel Hardware
+# Post-Installation Configuration
 
 **Purpose:** Configure system after core installation
 
@@ -22,6 +22,10 @@ Choose what you need:
 - **[Audio Server](#audio-server)** - PipeWire audio
 - **[Intel Graphics Drivers](#intel-graphics-drivers)** - Intel graphics (Intel version only)
 - **[AMD Graphics Drivers](#amd-graphics-drivers)** - AMD graphics (AMD version only)
+- **[Laptop Touchpad](#laptop-touchpad)** - Touchpad configuration (laptops only)
+- **[Laptop Webcam](#laptop-webcam)** - Webcam configuration (laptops only)
+- **[Laptop IR Camera](#laptop-ir-camera)** - IR camera for face recognition (laptops only)
+- **[Laptop Fingerprint](#laptop-fingerprint)** - Fingerprint reader (laptops only)
 - **[Exit & Reboot](#exit-reboot)** - Final step
 
 ---
@@ -635,6 +639,229 @@ pacman -S mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon \
 **Official Resources:**
 - [AMD Graphics on ArchWiki](https://wiki.archlinux.org/title/AMDGPU)
 - [Mesa 3D Graphics Library](https://www.mesa3d.org/)
+
+**Next:** Continue with other configuration steps or [Exit & Reboot](#exit-reboot)
+
+---
+
+## Laptop Touchpad
+
+**Purpose:** Configure touchpad/trackpad for laptops
+
+**Prerequisites:**
+- After first boot (not in chroot)
+- Laptop hardware (not desktop)
+- Window manager or desktop environment installed
+
+**Time:** 5-10 minutes
+
+**Note:** This is for **LAPTOPS only**. Desktop computers use external mice.
+
+### Step 1: Verify Touchpad Detection
+
+```bash
+libinput list-devices | grep -i touchpad
+```
+
+### Step 2: Install Required Packages
+
+```bash
+pacman -S libinput xf86-input-libinput
+```
+
+### Step 3: Configure Touchpad
+
+**For Hyprland (Wayland):**
+
+Edit `~/.config/hypr/hyprland.conf`:
+```ini
+input {
+    touchpad {
+        natural_scroll = false
+        tap-to-click = true
+        disable_while_typing = true
+        clickfinger_behavior = true
+    }
+}
+```
+
+**For X11:**
+
+Create `/etc/X11/xorg.conf.d/40-libinput.conf`:
+```
+Section "InputClass"
+    Identifier "libinput touchpad catchall"
+    MatchIsTouchpad "on"
+    Driver "libinput"
+    Option "Tapping" "on"
+    Option "DisableWhileTyping" "on"
+EndSection
+```
+
+**SUCCESS:** Touchpad configured and working
+
+**Official Resources:**
+- [ArchWiki: Touchpad Synaptics](https://wiki.archlinux.org/title/Touchpad_Synaptics)
+- [ArchWiki: libinput](https://wiki.archlinux.org/title/Libinput)
+
+**Next:** Continue with other configuration steps or [Exit & Reboot](#exit-reboot)
+
+---
+
+## Laptop Webcam
+
+**Purpose:** Configure built-in webcam for laptops
+
+**Prerequisites:**
+- After first boot (not in chroot)
+- Laptop hardware (not desktop)
+- Webcam hardware present
+
+**Time:** 2-5 minutes
+
+**Note:** This is for **LAPTOPS only**. Desktop computers typically don't have built-in webcams.
+
+### Step 1: Verify Webcam Detection
+
+```bash
+lsusb | grep -i camera
+ls -la /dev/video*
+```
+
+### Step 2: Install Required Packages
+
+```bash
+pacman -S v4l-utils
+```
+
+### Step 3: Test Webcam
+
+```bash
+v4l2-ctl --list-devices
+```
+
+**SUCCESS:** Webcam detected and working
+
+**Official Resources:**
+- [ArchWiki: Webcam Setup](https://wiki.archlinux.org/title/Webcam_setup)
+
+**Next:** Continue with other configuration steps or [Exit & Reboot](#exit-reboot)
+
+---
+
+## Laptop IR Camera
+
+**Purpose:** Configure IR camera for face recognition (Howdy)
+
+**Prerequisites:**
+- After first boot (not in chroot)
+- Laptop hardware (not desktop)
+- IR camera hardware present (business laptops)
+- Webcam configured (module `18-laptop-webcam.md`)
+
+**Time:** 15-30 minutes
+
+**Note:** This is for **LAPTOPS only**. Desktop computers typically don't have built-in IR cameras.
+
+### Step 1: Verify IR Camera Detection
+
+```bash
+lsusb | grep -i "ir\|camera"
+ls -la /dev/video*
+```
+
+### Step 2: Install Howdy
+
+```bash
+yay -S howdy-bin
+```
+
+### Step 3: Configure Howdy
+
+```bash
+sudo nano /lib/security/howdy/config.ini
+# Set device_path = /dev/video2 (or your IR camera device)
+```
+
+### Step 4: Enroll Face
+
+```bash
+sudo howdy add
+```
+
+**SUCCESS:** IR camera configured and face recognition working
+
+**Official Resources:**
+- [Howdy GitHub](https://github.com/boltgolt/howdy)
+- [ArchWiki: Howdy](https://wiki.archlinux.org/title/Howdy)
+
+**Next:** Continue with other configuration steps or [Exit & Reboot](#exit-reboot)
+
+---
+
+## Laptop Fingerprint
+
+**Purpose:** Configure fingerprint reader for laptops
+
+**Prerequisites:**
+- After first boot (not in chroot)
+- Laptop hardware (not desktop)
+- Fingerprint reader hardware present
+- **CRITICAL:** BIOS reset may be required
+
+**Time:** 20-30 minutes
+
+**Note:** This is for **LAPTOPS only**. Desktop computers typically don't have built-in fingerprint readers.
+
+### ⚠️ CRITICAL: BIOS Reset (May Be Required)
+
+Some fingerprint readers require BIOS reset:
+1. Restart → Press **F10** during boot
+2. Navigate: **Security → Fingerprint Reader Reset**
+3. Enable reset on next boot
+4. Save and restart
+
+### Step 1: Verify Fingerprint Reader Detection
+
+```bash
+lsusb | grep -i "fingerprint\|validity"
+```
+
+### Step 2: Install Required Packages
+
+```bash
+yay -S python-validity-git
+pacman -S fprintd
+```
+
+### Step 3: Configure udev Rules
+
+```bash
+sudo tee /etc/udev/rules.d/60-validity.rules << 'EOF'
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="138a", MODE="0666"
+EOF
+
+sudo udevadm control --reload
+sudo usermod -a -G input $USER
+```
+
+### Step 4: Start Service
+
+```bash
+sudo systemctl enable --now python3-validity
+```
+
+### Step 5: Enroll Fingerprint
+
+```bash
+fprintd-enroll $USER
+```
+
+**SUCCESS:** Fingerprint reader configured and working
+
+**Official Resources:**
+- [ArchWiki: Fprint](https://wiki.archlinux.org/title/Fprint)
+- [python-validity GitHub](https://github.com/uunicorn/python-validity)
 
 **Next:** Continue with other configuration steps or [Exit & Reboot](#exit-reboot)
 

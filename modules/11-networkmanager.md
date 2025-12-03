@@ -8,6 +8,8 @@
 
 **Time:** 1 minute
 
+**ENVIRONMENT:** Chroot (root@archiso /)#
+
 ---
 
 ## Enable NetworkManager Service

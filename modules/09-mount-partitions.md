@@ -8,6 +8,8 @@
 
 **Time:** 2-3 minutes
 
+**ENVIRONMENT:** Live USB (root@archiso)
+
 ---
 
 ## Step 1: Create Filesystem on Root Partition

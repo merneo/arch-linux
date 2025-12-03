@@ -1,6 +1,6 @@
-# Arch Linux Modular Installation System - Intel Hardware
+# Arch Linux Modular Installation System
 
-**Welcome to the Arch Linux Modular Installation System - Intel Hardware**
+**Welcome to the Arch Linux Modular Installation System**
 
 This repository provides a **modular installation system** for Arch Linux. Each component is a separate module that can be used independently or combined as needed.
 
@@ -25,7 +25,7 @@ Choose what you need before installing the system:
 - **[Btrfs Filesystem](01-PRE-INSTALLATION.md#btrfs-filesystem)** - Create Btrfs with subvolumes
 - **[Mount Partitions](01-PRE-INSTALLATION.md#mount-partitions)** - Mount partitions (non-Btrfs)
 
-### Core Installation - Intel Hardware
+### Core Installation
 
 **Required steps - follow in order:**
 
@@ -33,7 +33,7 @@ Choose what you need before installing the system:
 2. **[Enter Chroot](02-CORE-INSTALLATION.md#enter-chroot)** - Enter chroot environment
 3. **[Set Root Password](02-CORE-INSTALLATION.md#set-root-password)** - Set root password
 
-### Post-Installation Configuration - Intel Hardware
+### Post-Installation Configuration
 
 Choose what you need after core installation:
 

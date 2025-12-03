@@ -5,9 +5,28 @@
 **Prerequisites:**
 - Root partition ready (encrypted or unencrypted)
   - If encrypted: LUKS container opened (module `07-luks-encryption.md`)
-  - If unencrypted: Partition identified (e.g., `/dev/sdX2`)
+  - If unencrypted: Partition identified (e.g., `<ROOT_PARTITION>`)
 
 **Time:** 5-10 minutes
+
+**ENVIRONMENT:** Live USB (root@archiso)
+
+---
+
+## ⚠️ WARNING: Data Loss
+
+**This module will PERMANENTLY DELETE all data on the target partition.**
+
+- Make sure you have backups of important data
+- Double-check partition names before proceeding
+- This operation CANNOT be undone
+
+---
+
+## Placeholders Used in This Module
+
+- `<ROOT_PARTITION>`: Your root partition device (e.g., `/dev/sda2`, `/dev/nvme0n1p2`)
+- `<EFI_PARTITION>`: Your EFI boot partition device (e.g., `/dev/sda1`, `/dev/nvme0n1p1`)
 
 ---
 
