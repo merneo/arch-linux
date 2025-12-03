@@ -123,23 +123,24 @@ Each module follows this structure:
 ```
 arch-linux/
 ├── README.md                    # This file
+├── MODULE_INDEX.md             # Quick reference for all modules
 └── modules/
-    ├── 00-core-installation.md
-    ├── 01-chroot.md
-    ├── 02-locale.md
-    ├── 03-root-password.md
-    ├── 04-user-creation.md
-    ├── 05-grub.md
-    ├── 06-disk-partitioning.md
-    ├── 07-luks-encryption.md
-    ├── 08-btrfs-filesystem.md
-    ├── 09-mount-partitions.md
-    ├── 10-luks-keyfile-auto-unlock.md
-    ├── 11-networkmanager.md
-    ├── 12-wifi.md
-    ├── 13-bluetooth.md
-    ├── 14-audio.md
-    └── 15-exit-chroot.md
+    ├── 00-core-installation.md # CORE: Install base system
+    ├── 01-chroot.md            # Enter chroot
+    ├── 02-locale.md            # Set locale and timezone
+    ├── 03-root-password.md     # Set root password
+    ├── 04-user-creation.md    # Create user account
+    ├── 05-grub.md              # Install GRUB bootloader
+    ├── 06-disk-partitioning.md # OPTIONAL: Create partitions
+    ├── 07-luks-encryption.md   # OPTIONAL: Encrypt partitions
+    ├── 08-btrfs-filesystem.md  # OPTIONAL: Create Btrfs
+    ├── 09-mount-partitions.md  # OPTIONAL: Mount partitions
+    ├── 10-luks-keyfile-auto-unlock.md # OPTIONAL: Auto-unlock
+    ├── 11-networkmanager.md    # Enable NetworkManager
+    ├── 12-wifi.md              # WiFi support
+    ├── 13-bluetooth.md         # Bluetooth support
+    ├── 14-audio.md             # Audio server
+    └── 15-exit-chroot.md       # Exit and reboot
 ```
 
 ---
