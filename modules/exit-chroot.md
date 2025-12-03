@@ -82,6 +82,55 @@ reboot
 
 **SUCCESS:** System ready for first boot
 
+---
+
+## Verification
+
+Before rebooting, verify:
+
+```bash
+# Check partitions are unmounted
+mount | grep /mnt
+# Should show nothing (all unmounted)
+
+# Check encrypted volumes are closed (if used)
+ls /dev/mapper/
+# Should show only: control
+
+# Verify USB can be removed
+lsblk
+# USB drive should not be in use
+```
+
+---
+
+## Troubleshooting
+
+For more extensive troubleshooting on final steps, refer to the [ArchWiki Installation Guide#Troubleshooting](https://wiki.archlinux.org/title/Installation_guide#Troubleshooting).
+
+### Problem: Cannot unmount /mnt (target is busy)
+**Solution:**
+1. Check what's using /mnt: `lsof /mnt`
+2. Close any processes using /mnt
+3. Use lazy unmount: `umount -lR /mnt`
+4. If still fails, check for open files: `fuser -m /mnt`
+
+### Problem: Encrypted volumes won't close
+**Solution:**
+1. Check active volumes: `ls /dev/mapper/`
+2. Force close if needed: `cryptsetup close --force cryptroot`
+3. Verify: `ls /dev/mapper/` should show only `control`
+
+### Problem: System doesn't boot after reboot
+**Solution:**
+1. Boot from USB again
+2. Mount partitions: `mount /dev/sdX2 /mnt` and `mount /dev/sdX1 /mnt/boot`
+3. Check GRUB installation: `arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot`
+4. Regenerate GRUB config: `arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg`
+5. Verify fstab: `arch-chroot /mnt cat /etc/fstab`
+
+---
+
 **After reboot:**
 - GRUB menu appears
 - Select Arch Linux
