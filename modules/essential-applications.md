@@ -16,10 +16,34 @@
 
 ## Step 1: Install a Web Browser
 
-A web browser is fundamental for internet access and is often one of the first applications users install. [Firefox](https://wiki.archlinux.org/title/Firefox) is a popular open-source choice, known for its privacy features and extensive customization.
+A web browser is fundamental for internet access and is often one of the first applications users install. Here are several popular options:
+
+### Option A: Firefox (Open-Source, Official Repository)
+[Firefox](https://wiki.archlinux.org/title/Firefox) is a popular open-source choice, known for its strong privacy features, extensive customization, and is directly available in the official Arch Linux repositories.
 
 ```bash
 sudo pacman -S firefox
+```
+
+### Option B: Google Chrome (Proprietary, AUR)
+[Google Chrome](https://wiki.archlinux.org/title/Google_Chrome) is a widely used proprietary browser known for its performance and extensive ecosystem of extensions. It is available via the Arch User Repository (AUR) and requires an [AUR helper](https://wiki.archlinux.org/title/AUR_helpers) like `yay`.
+
+```bash
+yay -S google-chrome
+```
+
+### Option C: Brave Browser (Open-Source, AUR)
+[Brave Browser](https://brave.com/linux/) is an open-source browser focused on privacy, blocking ads and trackers by default, and integrating a cryptocurrency-based reward system. It is available via the AUR.
+
+```bash
+yay -S brave-bin
+```
+
+### Option D: Opera Browser (Proprietary, Official Repository via `opera-beta`)
+[Opera Browser](https://www.opera.com/browsers/opera-for-linux) is a proprietary browser known for its unique features like a built-in VPN, ad blocker, and workspace management. It can be installed from the Arch User Repository (AUR) or sometimes directly from a custom repository. For consistency, we'll suggest the AUR package `opera-beta` or `opera`.
+
+```bash
+yay -S opera
 ```
 
 ---

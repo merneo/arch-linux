@@ -57,7 +57,9 @@ passwd <USERNAME>
 
 ## Step 3: Configure Sudo Access
 
-The `visudo` command allows safe editing of the `sudoers` file, which controls who can use `sudo` and for which commands. For a detailed guide on configuring `sudo`, refer to the [ArchWiki on Sudo](https://wiki.archlinux.org/title/Sudo).
+[Sudo](https://wiki.archlinux.org/title/Sudo) (Superuser Do) allows a permitted user to execute a command as the superuser or another user. It's a critical tool for system administration, enabling non-root users to perform privileged operations safely.
+
+The `visudo` command provides a safe and recommended way to edit the `/etc/sudoers` file, which defines `sudo` policies. `visudo` performs syntax checking before saving, preventing common configuration errors that could lock out `sudo` access. For a detailed guide on configuring `sudo`, refer to the [ArchWiki on Sudo](https://wiki.archlinux.org/title/Sudo) and consult `man sudoers` for the file format.
 
 ```bash
 EDITOR=nano visudo
@@ -68,7 +70,7 @@ EDITOR=nano visudo
 # %wheel ALL=(ALL:ALL) ALL
 ```
 
-**Uncomment (remove #):**
+**Uncomment (remove #):** This line grants all members of the `wheel` group the ability to run any command as any user (including root) without needing to re-authenticate if they've recently provided their own password.
 ```bash
 %wheel ALL=(ALL:ALL) ALL
 ```

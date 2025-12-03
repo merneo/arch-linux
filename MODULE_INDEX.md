@@ -100,6 +100,8 @@
 | `gnome.md` | Install GNOME Desktop | **Optional** - If you prefer the GNOME desktop environment. |
 | `kde-plasma.md` | Install KDE Plasma Desktop | **Optional** - If you prefer the KDE Plasma desktop environment. |
 | `xfce.md` | Install XFCE Desktop | **Optional** - If you prefer the XFCE desktop environment. |
+| `i3wm.md` | i3 Window Manager | **Optional** - If you prefer a tiling window manager. |
+| `hyprland.md` | Hyprland Window Manager | **Optional** - If you prefer a dynamic tiling Wayland compositor. |
 | `xorg-config.md` | Xorg Display Server config | **Optional** - If using Xorg-based DEs/WMs. |
 | `wayland-config.md` | Wayland Display Server config | **Optional** - If using Wayland-based DEs/WMs. |
 | `essential-applications.md` | Install essential applications | **Recommended** - For basic daily computing tasks. |

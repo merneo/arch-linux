@@ -54,6 +54,8 @@ Answer these questions to select the modules relevant to your installation:
 - [ ] Need GNOME → Include [`gnome.md`](modules/gnome.md) ([ArchWiki: GNOME](https://wiki.archlinux.org/title/GNOME))
 - [ ] Need KDE Plasma → Include [`kde-plasma.md`](modules/kde-plasma.md) ([ArchWiki: KDE](https://wiki.archlinux.org/title/KDE))
 - [ ] Need XFCE → Include [`xfce.md`](modules/xfce.md) ([ArchWiki: Xfce](https://wiki.archlinux.org/title/Xfce))
+- [ ] Need i3 Window Manager → Include [`i3wm.md`](modules/i3wm.md) ([ArchWiki: i3](https://wiki.archlinux.org/title/I3))
+- [ ] Need Hyprland Window Manager → Include [`hyprland.md`](modules/hyprland.md) ([ArchWiki: Hyprland](https://wiki.archlinux.org/title/Hyprland))
 
 ### Essential Applications / Backup
 - [ ] Need Essential Applications → Include [`essential-applications.md`](modules/essential-applications.md) ([ArchWiki: List of applications](https://wiki.archlinux.org/title/List_of_applications))
@@ -135,6 +137,8 @@ Then add modules based on your answers above, in this order:
 - `gnome.md` - Install GNOME
 - `kde-plasma.md` - Install KDE Plasma
 - `xfce.md` - Install XFCE
+- `i3wm.md` - Install i3 Window Manager
+- `hyprland.md` - Install Hyprland Window Manager
 - `essential-applications.md` - Install essential applications
 - `timeshift.md` - Timeshift for system snapshots
 - `w3m.md` - w3m Terminal Web Browser
@@ -158,7 +162,7 @@ Then add modules based on your answers above, in this order:
 8. `exit-chroot.md` - Exit and reboot
 9. **After first boot:**
    - `xorg-config.md` - Xorg (or `wayland-config.md`)
-   - `gnome.md` - GNOME (or `kde-plasma.md`, `xfce.md`)
+   - `gnome.md` - GNOME (or `kde-plasma.md`, `xfce.md`, `i3wm.md`, `hyprland.md`)
    - `essential-applications.md`
    - `timeshift.md`
    - `w3m.md`
@@ -189,7 +193,7 @@ Then add modules based on your answers above, in this order:
     - `ir-camera.md` (if laptop)
     - `fingerprint.md` (if laptop)
     - `xorg-config.md` (or `wayland-config.md`)
-    - `gnome.md` (or `kde-plasma.md`, `xfce.md`)
+    - `gnome.md` (or `kde-plasma.md`, `xfce.md`, `i3wm.md`, `hyprland.md`)
     - `essential-applications.md`
     - `timeshift.md`
     - `w3m.md`
@@ -208,6 +212,8 @@ Then add modules based on your answers above, in this order:
 7. `exit-chroot.md` - Exit and reboot
 8. **After first boot:**
    - `w3m.md`
+   - `i3wm.md` (minimal WM option)
+   - `hyprland.md` (minimal Wayland compositor option)
 
 ---
 

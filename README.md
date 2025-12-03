@@ -74,7 +74,7 @@ arch-linux/
 │   ├── ssh-server.md
 │   ├── ufw-firewall.md
 │   └── fail2ban.md
-├── modules/                    # Detailed modules (33 modules)
+├── modules/                    # Detailed modules (34 modules)
 │   ├── PRE-01-create-arch-usb.md
 │   ├── PRE-02-install-windows.md
 │   ├── PRE-03-format-disk.md
@@ -103,6 +103,7 @@ arch-linux/
 │   ├── gnome.md
 │   ├── kde-plasma.md
 │   ├── xfce.md
+│   ├── i3wm.md
 │   ├── xorg-config.md
 │   ├── wayland-config.md
 │   ├── essential-applications.md

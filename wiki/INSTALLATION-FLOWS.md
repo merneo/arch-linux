@@ -70,9 +70,6 @@ This flow guides you through a complete Arch Linux installation with LUKS disk e
     *   Install Fail2ban for SSH brute-force protection.
 9.  **[Hardware (Optional)](../phases/HARDWARE.md)**
     *   Configure touchpad, webcam, IR camera, fingerprint reader if applicable.
-10. **[FINALIZE: Exit & Reboot](../phases/FINALIZE.md)**
-    *   Exit chroot, unmount, and reboot into your new system!
-
 **Post-Installation Choices (after rebooting into your new system):**
 
 *   **[AUR Helper (e.g., yay)](../wiki/POST-INSTALLATION.md#aur-helper-eg-yay)**: Highly recommended for easy access to community packages.
@@ -80,7 +77,7 @@ This flow guides you through a complete Arch Linux installation with LUKS disk e
 *   **[Essential Applications](../wiki/POST-INSTALLATION.md#essential-applications)**: Install web browser, office suite, etc.
 *   **[Backup Solution (Timeshift)](../wiki/POST-INSTALLATION.md#backup-solutions)**: Set up system snapshots.
 *   **[Terminal Tools (w3m)](../wiki/POST-INSTALLATION.md#w3m-terminal-web-browser)**: For text-based web browsing in console/minimal environments.
-*   **[Desktop Environment](../wiki/POST-INSTALLATION.md#desktop-environments)**: Install GNOME, KDE Plasma, XFCE, or a Window Manager.
+*   **[Desktop Environment](../wiki/POST-INSTALLATION.md#desktop-environments)**: Install GNOME, KDE Plasma, XFCE, i3, Hyprland, or another Window Manager.
 
 ---
 
@@ -138,7 +135,7 @@ This flow focuses on installing Arch Linux alongside an existing Windows install
 *   **[Essential Applications](../wiki/POST-INSTALLATION.md#essential-applications)**: Install web browser, office suite, etc.
 *   **[Backup Solution (Timeshift)](../wiki/POST-INSTALLATION.md#backup-solutions)**: Set up system snapshots.
 *   **[Terminal Tools (w3m)](../wiki/POST-INSTALLATION.md#w3m-terminal-web-browser)**: For text-based web browsing in console/minimal environments.
-*   **[Desktop Environment](../wiki/POST-INSTALLATION.md#desktop-environments)**: Install GNOME, KDE Plasma, XFCE, or a Window Manager.
+*   **[Desktop Environment](../wiki/POST-INSTALLATION.md#desktop-environments)**: Install GNOME, KDE Plasma, XFCE, i3, Hyprland, or a Window Manager.
 *   **[Hardware (Optional)](../phases/HARDWARE.md)**: Configure touchpad, webcam, IR camera, fingerprint reader if applicable.
 
 ---
@@ -180,6 +177,7 @@ This flow provides a bare-bones Arch Linux installation, ideal for servers or us
 
 *   **[AUR Helper (e.g., yay)](../wiki/POST-INSTALLATION.md#aur-helper-eg-yay)**: Recommended for easy access to community packages.
 *   **[Terminal Tools (w3m)](../wiki/POST-INSTALLATION.md#w3m-terminal-web-browser)**: For text-based web browsing in console/minimal environments.
+*   **[i3 Window Manager](../wiki/POST-INSTALLATION.md#i3-window-manager)**: As a minimal GUI for server administration.
 *   Install any specific server applications or services as needed.
 
 ---

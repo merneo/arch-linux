@@ -41,6 +41,8 @@ Choose what you need:
   - **[GNOME Desktop Environment](#gnome-desktop-environment)** - Install GNOME
   - **[KDE Plasma Desktop Environment](#kde-plasma-desktop-environment)** - Install KDE Plasma
   - **[XFCE Desktop Environment](#xfce-desktop-environment)** - Install XFCE
+  - **[i3 Window Manager](#i3-window-manager)** - Install i3 Tiling WM
+  - **[Hyprland Window Manager](#hyprland-window-manager)** - Install Hyprland Wayland Compositor
 - **[Exit & Reboot](#exit-reboot)** - Final step
 
 ---
@@ -1764,6 +1766,205 @@ After reboot, you should be greeted by the LightDM login screen. Log in with you
 **SUCCESS:** XFCE Desktop Environment installed and configured.
 
 **Next:** Continue with other configuration modules or customize your XFCE experience.
+
+---
+
+## i3 Window Manager
+
+**Purpose:** Install and configure `i3`, a popular tiling window manager, for efficient keyboard-driven workflow and resource efficiency.
+
+**Prerequisites:**
+- After first boot (not in chroot)
+- User account created with sudo access (see [User Creation](#user-creation))
+- Xorg Display Server installed (see [Xorg Display Server Configuration](#xorg-display-server-configuration))
+- Network connectivity (see [NetworkManager](#networkmanager))
+
+**Time:** 10-20 minutes
+
+**ENVIRONMENT:** After first boot (logged in as user)
+
+---
+
+## What is i3?
+
+[i3 (i3wm)](https://wiki.archlinux.org/title/I3) is a tiling window manager for X11, designed primarily for advanced users and developers who prefer a keyboard-driven workflow. Unlike traditional floating window managers or desktop environments, i3 arranges windows into a non-overlapping grid, maximizing screen real estate and eliminating the need for mouse interaction for window management. Its configuration is based on plain text files, making it highly customizable.
+
+---
+
+## Step 1: Install i3 and Essential Components
+
+```bash
+sudo pacman -S i3-wm i3status dmenu i3lock xorg-xrandr
+```
+
+**Package breakdown:**
+- `i3-wm`: The core i3 tiling window manager.
+- `i3status`: A compact status bar program that displays system information (e.g., CPU load, memory, battery, time).
+- `dmenu`: A fast, lightweight dynamic menu, often used to launch applications in i3.
+- `i3lock`: A simple screen locker for i3.
+- `xorg-xrandr`: Essential for display management, especially for multi-monitor setups.
+
+---
+
+## Step 2: Configure i3
+
+Upon first login to an i3 session, you will be prompted to generate a configuration file.
+
+### First-time Configuration:
+
+1.  **Default config:** When i3 starts for the first time, it will ask if you want to generate a default configuration file. Choose **"Yes"**.
+2.  **Mod key:** It will then ask you to choose a "Mod key" (modifier key) for keyboard shortcuts. `Alt` (Mod1) or `Windows key` (Mod4) are common choices. `Windows key` (Mod4) is generally recommended to avoid conflicts with application shortcuts.
+3.  **Automatic launch:** i3 will automatically restart, and you will see your first i3 desktop.
+
+The default configuration file will be created at `~/.config/i3/config`. You can edit this file to customize keybindings, workspace behavior, status bar, and more.
+
+```bash
+# Edit i3 configuration file
+nano ~/.config/i3/config
+```
+
+---
+
+## Step 3: Start i3 Session
+
+After installation, you can start an i3 session from your display manager (e.g., GDM, SDDM, LightDM) by selecting "i3" or "i3 (with extras)" from the session selector.
+
+If you are not using a display manager, you can start i3 manually from a TTY using `startx`:
+
+```bash
+# Add this to your ~/.xinitrc file
+echo "exec i3" >> ~/.xinitrc
+
+# Then start X from TTY
+startx
+```
+
+---
+
+## Troubleshooting
+
+For more extensive troubleshooting on i3, refer to the [ArchWiki on i3#Troubleshooting](https://wiki.archlinux.org/title/I3#Troubleshooting).
+
+### Problem: i3 not starting
+**Solution:**
+1. **Check Xorg installation:** Ensure Xorg is installed and functional.
+2. **Verify `.xinitrc`:** If using `startx`, ensure `exec i3` is the last line in `~/.xinitrc`.
+3. **Check display manager logs:** `journalctl -u <display_manager_service>` (e.g., `gdm.service`, `sddm.service`).
+4. **i3 log:** `cat ~/.local/share/i3/i3.log`
+
+---
+
+**SUCCESS:** i3 Window Manager installed and configured.
+
+**Official Resources:**
+- [ArchWiki: i3](https://wiki.archlinux.org/title/I3)
+- [i3 User's Guide](https://i3wm.org/docs/userguide.html)
+- [i3 GitHub Repository](https://github.com/i3/i3)
+
+**Next:** Customize your `i3` configuration (`~/.config/i3/config`) and explore the `i3` user's guide.
+
+---
+
+## Hyprland Window Manager
+
+**Purpose:** Install and configure `Hyprland`, a dynamic tiling Wayland compositor, for a modern, fluid, and highly customizable desktop experience.
+
+**Prerequisites:**
+- After first boot (not in chroot)
+- User account created with sudo access (see [User Creation](#user-creation))
+- Wayland Display Server is implicit as Hyprland is a Wayland compositor.
+- Network connectivity (see [NetworkManager](#networkmanager))
+- (Optional but Recommended) A terminal emulator like `foot` or `kitty`.
+
+**Time:** 15-30 minutes
+
+**ENVIRONMENT:** After first boot (logged in as user)
+
+---
+
+## What is Hyprland?
+
+[Hyprland](https://wiki.archlinux.org/title/Hyprland) is a dynamic tiling Wayland compositor built on [`wlroots`](https://gitlab.freedesktop.org/wlroots/wlroots), designed to offer a fluid and highly customizable experience with eye-candy animations. It combines the efficiency of a tiling window manager with the modern features and security benefits of the [Wayland protocol](https://wiki.archlinux.org/title/Wayland). It's an excellent choice for users seeking a powerful and visually appealing Wayland-native desktop.
+
+---
+
+## Step 1: Install Hyprland and Essential Components
+
+```bash
+sudo pacman -S hyprland kitty waybar wofi grim slurp
+```
+
+**Package breakdown:**
+- `hyprland`: The core [Hyprland Wayland compositor](https://wiki.archlinux.org/title/Hyprland).
+- `kitty`: A fast, feature-rich, GPU-accelerated [terminal emulator](https://wiki.archlinux.org/title/Kitty) that works well on Wayland.
+- `waybar`: A highly customizable [Wayland bar](https://wiki.archlinux.org/title/Waybar) for status display.
+- `wofi`: A [launcher for Wayland](https://wiki.archlinux.org/title/Wofi) (dmenu-like) for running applications.
+- `grim`: A utility for [screenshotting Wayland](https://wiki.archlinux.org/title/Take_screenshot#Wayland) desktops.
+- `slurp`: A tool to select a region for `grim`.
+
+---
+
+## Step 2: Configure Hyprland
+
+Hyprland's configuration is done via a single file, typically located at `~/.config/hypr/hyprland.conf`. The default configuration provides a functional setup, but extensive customization is possible.
+
+```bash
+# Copy default config (if not already present)
+mkdir -p ~/.config/hypr
+cp /etc/xdg/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
+
+# Edit Hyprland configuration file
+nano ~/.config/hypr/hyprland.conf
+```
+
+**Key configuration areas include:**
+*   **`monitor` settings:** Define resolution, refresh rate, and position for each display.
+*   **`input` settings:** Configure keyboard, mouse, touchpad behavior.
+*   **`bind` rules:** Define keyboard shortcuts for launching applications, managing windows, and switching workspaces.
+*   **`windowrule`s:** Apply specific rules to windows (e.g., floating, sticky).
+*   **`exec` commands:** Autostart applications or services.
+
+---
+
+## Step 3: Start Hyprland Session
+
+After installation, you can start a Hyprland session from your display manager (e.g., GDM, SDDM, LightDM) by selecting "Hyprland" from the session selector. Ensure your display manager is configured to support Wayland sessions.
+
+Alternatively, you can start Hyprland manually from a TTY (though this setup is more common for i3/Sway, it can be adapted):
+
+```bash
+# Typically, display managers handle starting Wayland compositors.
+# If starting manually from TTY, you might use a command like:
+# Hyprland # (after having configured ~/.profile or ~/.bashrc to launch it)
+```
+
+---
+
+## Troubleshooting
+
+For more extensive troubleshooting on Hyprland, refer to the [ArchWiki on Hyprland#Troubleshooting](https://wiki.archlinux.org/title/Hyprland#Troubleshooting) or the [official Hyprland Wiki](https://wiki.hyprland.org/Hyprland-Setup/Troubleshooting/).
+
+### Problem: Hyprland not starting
+**Solution:**
+1.  **Check Wayland support:** Ensure your GPU drivers support Wayland.
+2.  **Verify configuration:** Check `~/.config/hypr/hyprland.conf` for syntax errors. `hyprctl reload` can sometimes show errors.
+3.  **Check logs:** `journalctl --user -b -e` (for user systemd services) or `Hyprland` output from TTY can provide diagnostics.
+
+### Problem: Applications not launching or behaving correctly
+**Solution:**
+1.  **Environment variables:** Ensure necessary Wayland environment variables are set (e.g., `XDG_SESSION_TYPE=wayland`, `MOZ_ENABLE_WAYLAND=1` for Firefox).
+2.  **XWayland:** Some applications still require XWayland. Ensure it's installed (`xorg-xwayland`).
+
+---
+
+**SUCCESS:** Hyprland Window Manager installed and configured.
+
+**Official Resources:**
+- [ArchWiki: Hyprland](https://wiki.archlinux.org/title/Hyprland)
+- [Hyprland Wiki](https://wiki.hyprland.org/)
+- [Hyprland GitHub Repository](https://github.com/hyprwm/Hyprland)
+
+**Next:** Customize your Hyprland configuration (`~/.config/hypr/hyprland.conf`) and explore the Hyprland Wiki for plugins and further customization.
 
 ---
 
