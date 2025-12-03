@@ -129,11 +129,15 @@ cat /mnt/etc/fstab
 ```
 
 **Next:** Use other modules to configure the system:
-- `chroot.md` - Enter chroot environment
+- `chroot.md` - Enter chroot environment (required for all configuration)
 - `locale.md` - Set locale and timezone
 - `user-creation.md` - Create user account
 - `grub.md` - Install GRUB bootloader
-- etc.
+
+**Related Modules:**
+- `disk-partitioning.md` - If you need to create partitions first
+- `btrfs-filesystem.md` - If using Btrfs instead of ext4/xfs
+- `mount-partitions.md` - If using ext4/xfs filesystem
 
 ---
 

@@ -99,4 +99,31 @@ id <USERNAME>
 
 **SUCCESS:** User created with sudo access
 
+---
+
+## Troubleshooting
+
+For more extensive troubleshooting on user management, refer to the [ArchWiki on Users and groups#Troubleshooting](https://wiki.archlinux.org/title/Users_and_groups#Troubleshooting).
+
+### Problem: useradd command fails
+**Solution:**
+1. Verify you're in chroot environment: `hostname` should show `archiso`
+2. Check that base system is installed: `ls /usr/bin/useradd`
+3. Ensure you're running as root: `whoami` should show `root`
+
+### Problem: User cannot use sudo
+**Solution:**
+1. Verify user is in wheel group: `groups <USERNAME>` should show `wheel`
+2. Check sudoers file: `grep wheel /etc/sudoers` should show uncommented line
+3. Verify sudo package is installed: `pacman -Q sudo`
+4. Test sudo access: `su - <USERNAME>` then `sudo whoami` (should prompt for password)
+
+### Problem: Home directory not created
+**Solution:**
+1. Check if home directory exists: `ls -la /home/<USERNAME>`
+2. Create manually if missing: `mkdir -p /home/<USERNAME> && chown <USERNAME>:<USERNAME> /home/<USERNAME>`
+3. Verify permissions: `ls -ld /home/<USERNAME>` should show correct ownership
+
+---
+
 **Next:** Continue with other configuration modules

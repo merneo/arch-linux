@@ -36,4 +36,30 @@ Created symlink /etc/systemd/system/multi-user.target.wants/NetworkManager.servi
 
 ---
 
+## Troubleshooting
+
+For more extensive troubleshooting on NetworkManager, refer to the [ArchWiki on NetworkManager#Troubleshooting](https://wiki.archlinux.org/title/NetworkManager#Troubleshooting).
+
+### Problem: NetworkManager service fails to start
+**Solution:**
+1. Check service status: `systemctl status NetworkManager`
+2. Verify NetworkManager is installed: `pacman -Q networkmanager`
+3. Check for conflicting services: `systemctl is-active dhcpcd` (should be inactive)
+4. Enable service: `systemctl enable --now NetworkManager`
+
+### Problem: No network connection after reboot
+**Solution:**
+1. Check NetworkManager status: `systemctl status NetworkManager`
+2. List network interfaces: `ip link show`
+3. Check connection status: `nmcli connection show`
+4. Try connecting manually: `nmcli device connect <interface>`
+
+### Problem: Cannot configure WiFi
+**Solution:**
+1. Install WiFi tools: `pacman -S iw wpa_supplicant`
+2. Use `nmtui` for interactive setup: `nmtui`
+3. Or use `nmcli`: `nmcli device wifi list` then `nmcli device wifi connect <SSID> password <PASSWORD>`
+
+---
+
 **Next:** Continue with other configuration modules

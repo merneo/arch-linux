@@ -22,8 +22,8 @@ Start with your primary installation goal (e.g., "Clean Install," "Dual Boot"). 
 
 *   **Have you already installed Windows?**
     *   **No, install Windows first:**
-        1.  **[Create Arch Linux USB](../modules/PRE-01-create-arch-usb.md)** (You'll need this for Arch later)
-        2.  **[Install Windows](../modules/PRE-02-install-windows.md)** (Ensure you leave free space for Arch Linux)
+        1.  **[Create Arch Linux USB](../modules/PRE-create-arch-usb.md)** (You'll need this for Arch later)
+        2.  **[Install Windows](../modules/PRE-install-windows.md)** (Ensure you leave free space for Arch Linux)
         3.  Proceed to **[Dual Boot Installation](#dual-boot-installation)**
     *   **Yes, Windows is already installed:** Proceed to **[Dual Boot Installation](#dual-boot-installation)**
 

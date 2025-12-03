@@ -49,9 +49,9 @@ arch-linux/
 │   ├── HARDWARE.md      # Phase 8: Touchpad, webcam, IR, fingerprint
 │   └── FINALIZE.md             # Phase 9: Exit chroot, reboot
 ├── steps/                      # Individual steps (25 steps: commands only)
-│   ├── PRE-01-create-arch-usb.md
-│   ├── PRE-02-install-windows.md
-│   ├── PRE-03-format-disk.md
+│   ├── PRE-create-arch-usb.md
+│   ├── PRE-install-windows.md
+│   ├── PRE-format-disk.md
 │   ├── core-installation.md
 │   ├── chroot.md
 │   ├── locale.md
@@ -75,9 +75,9 @@ arch-linux/
 │   ├── ufw-firewall.md
 │   └── fail2ban.md
 ├── modules/                    # Detailed modules (34 modules)
-│   ├── PRE-01-create-arch-usb.md
-│   ├── PRE-02-install-windows.md
-│   ├── PRE-03-format-disk.md
+│   ├── PRE-create-arch-usb.md
+│   ├── PRE-install-windows.md
+│   ├── PRE-format-disk.md
 │   ├── core-installation.md
 │   ├── chroot.md
 │   ├── locale.md
@@ -128,6 +128,9 @@ arch-linux/
 - **[Installation Scenarios](INSTALLATION-SCENARIOS.md)** - Choose installation scenario (dual boot, single boot, with/without LUKS)
 - **[Phases](phases/)** - Organized installation phases (recommended approach)
 - **[Step Index](STEP_INDEX.md)** - Quick reference for all steps
+- **[Module Index](MODULE_INDEX.md)** - Quick reference for all modules
+- **[Module Dependencies](MODULE_DEPENDENCIES.md)** - Dependency graph and relationships
+- **[Quick Reference](QUICK_REFERENCE.md)** - Cheat sheet and quick lookup
 - **[Desktop vs Laptop](DESKTOP_VS_LAPTOP.md)** - Guide to choose steps based on hardware type
 - **[Generate Procedure](GENERATE_PROCEDURE.md)** - How to generate custom installation procedure
 

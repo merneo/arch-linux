@@ -9,16 +9,16 @@
 
 **Steps (execute in order):**
 
-1. **[Create Arch Linux USB](../steps/PRE-01-create-arch-usb.md)**
+1. **[Create Arch Linux USB](../steps/PRE-create-arch-usb.md)**
    - Download Arch Linux ISO
    - Create bootable USB drive (Linux, Windows, or macOS)
 
-2. **[Install Windows](../steps/PRE-02-install-windows.md)** (dual boot only)
+2. **[Install Windows](../steps/PRE-install-windows.md)** (dual boot only)
    - Install Windows first (if dual booting)
    - Configure Windows for dual boot (disable Fast Startup, BitLocker)
    - Leave free space for Arch Linux
 
-3. **[Format Disk](../steps/PRE-03-format-disk.md)** (fresh install only)
+3. **[Format Disk](../steps/PRE-format-disk.md)** (fresh install only)
    - Completely wipe disk (optional, if you want fresh start)
    - Only use if you want to remove all existing data
 

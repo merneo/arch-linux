@@ -54,4 +54,31 @@ systemctl --user enable pipewire pipewire-pulse wireplumber
 
 ---
 
+## Troubleshooting
+
+For more extensive troubleshooting on PipeWire, refer to the [ArchWiki on PipeWire#Troubleshooting](https://wiki.archlinux.org/title/PipeWire#Troubleshooting).
+
+### Problem: No sound after installation
+**Solution:**
+1. Check PipeWire service: `systemctl --user status pipewire`
+2. Check PulseAudio compatibility: `systemctl --user status pipewire-pulse`
+3. Restart services: `systemctl --user restart pipewire pipewire-pulse`
+4. Check audio devices: `pactl list short sinks`
+
+### Problem: PipeWire service fails to start
+**Solution:**
+1. Check user services: `systemctl --user status pipewire`
+2. Verify installation: `pacman -Q pipewire pipewire-pulse pipewire-alsa`
+3. Check logs: `journalctl --user -u pipewire`
+4. Reinstall if needed: `pacman -S pipewire pipewire-pulse pipewire-alsa`
+
+### Problem: Applications can't find audio
+**Solution:**
+1. Ensure pipewire-pulse is running: `systemctl --user status pipewire-pulse`
+2. Set environment variables: `export PULSE_RUNTIME_PATH=/run/user/$(id -u)/pulse`
+3. Restart applications
+4. Check ALSA: `aplay -l` should list devices
+
+---
+
 **Next:** Continue with other configuration modules

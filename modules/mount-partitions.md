@@ -81,5 +81,32 @@ lsblk -f
 
 **SUCCESS:** Partitions mounted and ready for installation
 
+---
+
+## Troubleshooting
+
+For more extensive troubleshooting on mounting filesystems, refer to the [ArchWiki on File systems#Troubleshooting](https://wiki.archlinux.org/title/File_systems#Troubleshooting).
+
+### Problem: Cannot mount partition
+**Solution:**
+1. Verify partition exists: `lsblk` or `fdisk -l`
+2. Check partition type: `blkid` should show filesystem type
+3. Verify mount point exists: `ls -la /mnt`
+4. Check if already mounted: `mount | grep /mnt`
+
+### Problem: "mount: /mnt: wrong fs type" error
+**Solution:**
+1. Check filesystem type: `blkid /dev/sdXY`
+2. Install filesystem tools: `pacman -S e2fsprogs` (for ext4) or `pacman -S xfsprogs` (for xfs)
+3. Verify filesystem: `fsck /dev/sdXY` (if needed)
+
+### Problem: EFI partition mount fails
+**Solution:**
+1. Verify partition is EFI: `fdisk -l /dev/sdX` should show EFI System
+2. Check filesystem: `blkid /dev/sdXY` should show `TYPE="vfat"`
+3. Mount with correct options: `mount -t vfat /dev/sdXY /mnt/boot/efi -o rw,umask=0077`
+
+---
+
 **Next:**
 - `core-installation.md` - Install base system

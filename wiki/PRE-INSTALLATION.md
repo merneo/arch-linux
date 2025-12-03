@@ -10,9 +10,9 @@
 
 **⚠️ IMPORTANT:** Before proceeding, complete [Phase 00: Preparation](../phases/PREPARATION.md):
 
-1. **[Create Arch Linux USB](../steps/PRE-01-create-arch-usb.md)** - Create bootable USB drive (required)
-2. **[Install Windows](../steps/PRE-02-install-windows.md)** - Only if dual booting (optional)
-3. **[Format Disk](../steps/PRE-03-format-disk.md)** - Only if you want to completely wipe disk (optional)
+1. **[Create Arch Linux USB](../steps/PRE-create-arch-usb.md)** - Create bootable USB drive (required)
+2. **[Install Windows](../steps/PRE-install-windows.md)** - Only if dual booting (optional)
+3. **[Format Disk](../steps/PRE-format-disk.md)** - Only if you want to completely wipe disk (optional)
 
 **Then choose your installation scenario:** See [Installation Scenarios](../INSTALLATION-SCENARIOS.md) for detailed guidance.
 

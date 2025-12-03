@@ -12,9 +12,9 @@
 
 | Module | Purpose | When to Use |
 |--------|---------|-------------|
-| `PRE-01-create-arch-usb.md` | Create bootable Arch Linux USB drive | **Always** - Required before installation |
-| `PRE-02-install-windows.md` | Install Windows for dual boot | **Dual boot only** - Install Windows before Arch Linux |
-| `PRE-03-format-disk.md` | Completely wipe and format disk | **Fresh install only** - If you want to wipe entire disk |
+| `PRE-create-arch-usb.md` | Create bootable Arch Linux USB drive | **Always** - Required before installation |
+| `PRE-install-windows.md` | Install Windows for dual boot | **Dual boot only** - Install Windows before Arch Linux |
+| `PRE-format-disk.md` | Completely wipe and format disk | **Fresh install only** - If you want to wipe entire disk |
 
 **Note:**
 - `PRE-01` is required for all installations.

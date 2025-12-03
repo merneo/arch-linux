@@ -319,7 +319,7 @@
 **SUCCESS:** Windows installed and configured for dual boot
 
 **Next:**
-- `PRE-01-create-arch-usb.md` - Create Arch Linux USB (if not done yet)
+- `PRE-create-arch-usb.md` - Create Arch Linux USB (if not done yet)
 - `core-installation.md` - Boot from Arch Linux USB and start installation
 
 **Official Resources:**

@@ -1,6 +1,6 @@
 # Module: Create Arch Linux Bootable USB
 
-**Purpose:** Create bootable USB drive with Arch Linux Live ISO. This is the first step in the [Arch Linux installation process](https://wiki.archlinux.org/title/Installation_guide).
+**Purpose:** Create bootable USB drive with Arch Linux Live ISO. For detailed instructions and troubleshooting, refer to the [ArchWiki on USB flash installation media](https://wiki.archlinux.org/title/USB_flash_installation_media).
 
 **Prerequisites:**
 - Second computer (preparation machine) with internet connection
@@ -33,14 +33,14 @@
 ### Linux/macOS:
 
 ```bash
-# Download latest Arch Linux ISO
+# Download latest Arch Linux ISO. See [Arch Linux Download](https://archlinux.org/download/).
 wget https://mirror.rackspace.com/archlinux/iso/latest/archlinux-x86_64.iso
 
 # Download signature for verification (optional but recommended)
 wget https://mirror.rackspace.com/archlinux/iso/latest/archlinux-x86_64.iso.sig
 
-# Verify ISO integrity (optional but recommended), using GnuPG:
-# See: https://wiki.archlinux.org/title/Installation_guide#Verify_signature
+# Verify ISO integrity (optional but recommended), using GnuPG.
+# For details, refer to [ArchWiki: Installation guide#Verify signature](https://wiki.archlinux.org/title/Installation_guide#Verify_signature).
 gpg --verify archlinux-x86_64.iso.sig archlinux-x86_64.iso
 ```
 
@@ -152,7 +152,7 @@ sudo dd if=archlinux-x86_64.iso of=/dev/sdb bs=4M status=progress oflag=sync
 ### Windows (using Rufus):
 
 1. **Download Rufus:**
-   - Visit: https://rufus.ie/
+   - Visit: [https://rufus.ie/](https://rufus.ie/)
    - Download latest version (portable or installer)
 
 2. **Insert USB drive** (8 GB minimum)
@@ -248,7 +248,7 @@ diskutil list /dev/diskX
    - Should see `root@archiso` prompt
 
 **If boot fails:**
-- Verify UEFI boot mode is enabled in BIOS ([ArchWiki: Unified Extensible Firmware Interface (UEFI)](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface))
+- Verify [UEFI boot mode](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface) is enabled in BIOS
 - Try disabling [Secure Boot](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface#Secure_Boot) (temporarily)
 - Try recreating USB with different tool
 - Verify ISO download is complete and not corrupted
@@ -259,8 +259,8 @@ diskutil list /dev/diskX
 
 ### Problem: USB not booting
 **Solution:**
-1. Verify UEFI boot mode is enabled in BIOS ([ArchWiki: Unified Extensible Firmware Interface (UEFI)](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface))
-2. Disable [Secure Boot](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface#Secure_Boot) (temporarily)
+1. Verify UEFI boot mode is enabled in BIOS
+2. Disable Secure Boot (temporarily)
 3. Try recreating USB with different tool
 4. Verify ISO file is not corrupted
 
@@ -288,7 +288,7 @@ diskutil list /dev/diskX
 **SUCCESS:** Arch Linux bootable USB created successfully
 
 **Next:**
-- **For dual boot:** `PRE-02-install-windows.md` - Install Windows first
+- **For dual boot:** `PRE-install-windows.md` - Install Windows first
 - **For single boot:** `core-installation.md` - Boot from USB and start installation
 
 **Official Resources:**

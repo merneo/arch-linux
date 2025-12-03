@@ -29,8 +29,33 @@ arch-chroot /mnt
 
 ---
 
+---
+
+## Troubleshooting
+
+For more extensive troubleshooting on chroot, refer to the [ArchWiki on arch-chroot#Troubleshooting](https://wiki.archlinux.org/title/Arch-chroot#Troubleshooting).
+
+### Problem: arch-chroot command not found
+**Solution:**
+1. Ensure you're booted from Arch Linux Live USB
+2. Verify you're in Live USB environment: `hostname` should show `archiso`
+3. If using regular `chroot`, use `arch-chroot` instead for proper Arch Linux setup
+
+### Problem: Cannot access /mnt
+**Solution:**
+1. Verify base system is installed: `ls /mnt/bin /mnt/etc`
+2. Check partitions are mounted: `mount | grep /mnt`
+3. Ensure fstab was generated: `cat /mnt/etc/fstab`
+
+### Problem: Commands don't work inside chroot
+**Solution:**
+1. Verify you're actually in chroot (prompt should show `/]#`)
+2. Check that base system was installed correctly
+3. Try `arch-chroot /mnt /bin/bash` to explicitly use bash
+
+---
+
 **Next:** Use configuration modules:
 - `locale.md` - Set locale and timezone
-- `03-root-password.md` - Set root password
 - `user-creation.md` - Create user account
 - `grub.md` - Install GRUB bootloader
