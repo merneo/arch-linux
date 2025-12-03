@@ -43,7 +43,7 @@ Choose what you need:
 
 ## Locale & Timezone
 
-**Purpose:** Configure system locale and timezone
+**Purpose:** Configure system locale and timezone. For more detailed information, refer to the [ArchWiki on Locale](https://wiki.archlinux.org/title/Locale) and [ArchWiki on Time](https://wiki.archlinux.org/title/Time).
 
 **Prerequisites:**
 - Inside chroot environment
@@ -103,7 +103,7 @@ cat /etc/locale.conf
 
 ## User Creation
 
-**Purpose:** Create non-root user account with sudo access
+**Purpose:** Create non-root user account with sudo access. For more detailed information on user management, refer to the [ArchWiki on Users and groups](https://wiki.archlinux.org/title/Users_and_groups) and [ArchWiki on Sudo](https://wiki.archlinux.org/title/Sudo).
 
 **Prerequisites:**
 - Inside chroot environment
@@ -172,7 +172,7 @@ id username
 
 ## GRUB Bootloader
 
-**Purpose:** Install and configure GRUB bootloader
+**Purpose:** Install and configure GRUB bootloader. For comprehensive details, refer to the [ArchWiki on GRUB](https://wiki.archlinux.org/title/GRUB) and [ArchWiki on Unified Extensible Firmware Interface (UEFI)](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface).
 
 **Prerequisites:**
 - Inside chroot environment
@@ -257,7 +257,7 @@ done
 
 ## LUKS Auto-Unlock
 
-**Purpose:** Configure automatic LUKS decryption on boot using keyfile
+**Purpose:** Configure automatic LUKS decryption on boot using keyfile. For further reading, consult the [ArchWiki on dm-crypt/Encrypting an entire system](https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system) and [ArchWiki on mkinitcpio](https://wiki.archlinux.org/title/Mkinitcpio).
 
 **Prerequisites:**
 - Inside chroot environment
@@ -409,7 +409,7 @@ lsinitcpio /boot/initramfs-linux.img | grep root.key
 
 ## NetworkManager
 
-**Purpose:** Enable NetworkManager for network connectivity
+**Purpose:** Enable NetworkManager for network connectivity. For more information, refer to the [ArchWiki on NetworkManager](https://wiki.archlinux.org/title/NetworkManager) and its command-line interface [nmcli](https://wiki.archlinux.org/title/NetworkManager#nmcli).
 
 **Prerequisites:**
 - Inside chroot environment
@@ -441,7 +441,7 @@ Created symlink /etc/systemd/system/multi-user.target.wants/NetworkManager.servi
 
 ## WiFi Support
 
-**Purpose:** Install and configure WiFi support
+**Purpose:** Install and configure WiFi support. For a deeper understanding of wireless configuration, consult the [ArchWiki on Wireless network configuration](https://wiki.archlinux.org/title/Wireless_network_configuration) and [wpa_supplicant](https://wiki.archlinux.org/title/WPA_supplicant).
 
 **Prerequisites:**
 - Inside chroot environment
@@ -488,7 +488,7 @@ nmtui
 
 ## Bluetooth
 
-**Purpose:** Install and enable Bluetooth support
+**Purpose:** Install and enable Bluetooth support. For detailed configuration steps and troubleshooting, refer to the [ArchWiki on Bluetooth](https://wiki.archlinux.org/title/Bluetooth) and the [bluetoothctl](https://wiki.archlinux.org/title/Bluetooth#bluetoothctl) utility.
 
 **Prerequisites:**
 - Inside chroot environment
@@ -537,7 +537,7 @@ connect <device-address>
 
 ## Audio Server
 
-**Purpose:** Install and configure audio server (PipeWire)
+**Purpose:** Install and configure audio server (PipeWire). For comprehensive information and advanced configurations, consult the [ArchWiki on PipeWire](https://wiki.archlinux.org/title/PipeWire).
 
 **Prerequisites:**
 - Inside chroot environment
@@ -587,7 +587,7 @@ systemctl --user enable pipewire pipewire-pulse wireplumber
 
 ## AUR Helper (e.g., yay)
 
-**Purpose:** Install an AUR helper to easily install packages from the Arch User Repository (AUR).
+**Purpose:** Install an AUR helper to easily install packages from the Arch User Repository (AUR). The AUR is a community-driven repository for Arch Linux users. For details on the AUR, see the [ArchWiki on the Arch User Repository](https://wiki.archlinux.org/title/Arch_User_Repository). For more information on `yay`, refer to its [GitHub repository](https://github.com/Jguer/yay) or the [ArchWiki on AUR helpers](https://wiki.archlinux.org/title/AUR_helpers#yay).
 
 **Prerequisites:**
 - After first boot (not in chroot)
@@ -634,7 +634,7 @@ rm -rf yay
 
 ## Laptop Touchpad
 
-**Purpose:** Configure touchpad/trackpad for laptops
+**Purpose:** Configure touchpad/trackpad for laptops. For detailed configuration and troubleshooting, refer to the [ArchWiki on Touchpad Synaptics](https://wiki.archlinux.org/title/Touchpad_Synaptics) and [libinput](https://wiki.archlinux.org/title/Libinput).
 
 **Prerequisites:**
 - After first boot (not in chroot)
@@ -698,7 +698,7 @@ EndSection
 
 ## Laptop Webcam
 
-**Purpose:** Configure built-in webcam for laptops
+**Purpose:** Configure built-in webcam for laptops. For comprehensive setup information, consult the [ArchWiki on Webcam setup](https://wiki.archlinux.org/title/Webcam_setup).
 
 **Prerequisites:**
 - After first boot (not in chroot)
@@ -739,7 +739,7 @@ v4l2-ctl --list-devices
 
 ## Laptop IR Camera
 
-**Purpose:** Configure IR camera for face recognition (Howdy)
+**Purpose:** Configure IR camera for face recognition (Howdy). For detailed information on this biometric authentication system, refer to the [Howdy GitHub repository](https://github.com/boltgolt/howdy) or the [ArchWiki on Howdy](https://wiki.archlinux.org/title/Howdy).
 
 **Prerequisites:**
 - After first boot (not in chroot)
@@ -790,7 +790,7 @@ sudo howdy add
 
 ## Laptop Fingerprint
 
-**Purpose:** Configure fingerprint reader for laptops
+**Purpose:** Configure fingerprint reader for laptops. For an in-depth guide, consult the [ArchWiki on Fprint](https://wiki.archlinux.org/title/Fprint) and the [python-validity GitHub repository](https://github.com/uunicorn/python-validity) for specific hardware support.
 
 **Prerequisites:**
 - After first boot (not in chroot)
@@ -859,7 +859,7 @@ fprintd-enroll $USER
 
 ## SSH Server
 
-**Purpose:** Install and configure SSH server with custom port and security
+**Purpose:** Install and configure SSH server with custom port and security. For comprehensive setup instructions and security best practices, refer to the [ArchWiki on OpenSSH](https://wiki.archlinux.org/title/OpenSSH).
 
 **Prerequisites:**
 - After first boot (not in chroot)
@@ -903,7 +903,7 @@ sudo systemctl enable --now sshd
 
 ## UFW Firewall
 
-**Purpose:** Configure UFW firewall (all outgoing, only SSH incoming)
+**Purpose:** Configure UFW firewall (all outgoing, only SSH incoming). For detailed configuration options and security considerations, consult the [ArchWiki on Uncomplicated Firewall (UFW)](https://wiki.archlinux.org/title/Uncomplicated_Firewall).
 
 **Prerequisites:**
 - After first boot (not in chroot)
@@ -949,7 +949,7 @@ sudo ufw enable
 
 ## Fail2ban
 
-**Purpose:** Install fail2ban to prevent SSH brute force attacks
+**Purpose:** Install fail2ban to prevent SSH brute force attacks. For in-depth configuration and usage, refer to the [ArchWiki on Fail2ban](https://wiki.archlinux.org/title/Fail2ban) and the [Fail2ban GitHub repository](https://github.com/fail2ban/fail2ban).
 
 **Prerequisites:**
 - After first boot (not in chroot)
@@ -1001,7 +1001,7 @@ sudo systemctl enable --now fail2ban
 
 ## NVIDIA GPU Driver Installation
 
-**Purpose:** Install proprietary NVIDIA drivers for optimal performance on systems with NVIDIA graphics cards.
+**Purpose:** Install proprietary NVIDIA drivers for optimal performance on systems with NVIDIA graphics cards. For comprehensive installation and configuration details, consult the [ArchWiki on NVIDIA](https://wiki.archlinux.org/title/NVIDIA).
 
 **Prerequisites:**
 - After first boot (not in chroot)
@@ -1097,7 +1097,7 @@ You can also open `nvidia-settings` (usually from your application launcher) to 
 
 ## AMD GPU Driver Installation
 
-**Purpose:** Ensure proper setup for AMD graphics cards, typically using the open-source `amdgpu` driver which is included in the Linux kernel. This module focuses on verifying setup and installing optional utilities.
+**Purpose:** Ensure proper setup for AMD graphics cards, typically using the open-source `amdgpu` driver which is included in the Linux kernel. This module focuses on verifying setup and installing optional utilities. For detailed information, refer to the [ArchWiki on AMDGPU](https://wiki.archlinux.org/title/AMDGPU) and [ArchWiki on Vulkan](https://wiki.archlinux.org/title/Vulkan).
 
 **Prerequisites:**
 - After first boot (not in chroot)
@@ -1206,7 +1206,7 @@ vulkaninfo # Requires 'vulkan-tools' to be installed.
 
 ## Xorg Display Server Configuration
 
-**Purpose:** Install and configure the Xorg Display Server, a foundational component for many desktop environments.
+**Purpose:** Install and configure the Xorg Display Server, a foundational component for many desktop environments. For an in-depth understanding and advanced configurations, refer to the [ArchWiki on Xorg](https://wiki.archlinux.org/title/Xorg).
 
 **Prerequisites:**
 - After first boot (not in chroot)
@@ -1277,7 +1277,7 @@ This should launch a simple X session with a terminal. To exit, type `exit` in t
 
 ## Wayland Display Server Configuration
 
-**Purpose:** Install and configure a basic Wayland display server setup, often through a compositor like Sway or a desktop environment that uses Wayland (e.g., GNOME, KDE).
+**Purpose:** Install and configure a basic Wayland display server setup, often through a compositor like Sway or a desktop environment that uses Wayland (e.g., GNOME, KDE). For a comprehensive overview, refer to the [ArchWiki on Wayland](https://wiki.archlinux.org/title/Wayland) and specific compositors like [Sway](https://wiki.archlinux.org/title/Sway).
 
 **Prerequisites:**
 - After first boot (not in chroot)
@@ -1358,7 +1358,7 @@ This should launch your Sway session.
 
 ## Essential Applications
 
-**Purpose:** Install a set of common and essential applications for daily use.
+**Purpose:** Install a set of common and essential applications for daily use. For a broader selection of software, consult the [ArchWiki on Applications](https://wiki.archlinux.org/title/List_of_applications). Specific applications like [Firefox](https://wiki.archlinux.org/title/Firefox) and [LibreOffice](https://wiki.archlinux.org/title/LibreOffice) also have their own ArchWiki pages.
 
 **Prerequisites:**
 - After first boot (not in chroot)
@@ -1459,7 +1459,7 @@ sudo pacman -S zip unzip p7zip unrar
 
 ## Timeshift for System Snapshots
 
-**Purpose:** Install and configure Timeshift to create and manage system snapshots, providing an easy way to restore your system to a previous working state.
+**Purpose:** Install and configure Timeshift to create and manage system snapshots, providing an easy way to restore your system to a previous working state. For detailed information, refer to the [ArchWiki on Timeshift](https://wiki.archlinux.org/title/Timeshift) and the [Timeshift GitHub repository](https://github.com/teejee2008/timeshift).
 
 **Prerequisites:**
 - After first boot (not in chroot)
@@ -1519,72 +1519,13 @@ timeshift --restore          # Restore from a snapshot (requires reboot into liv
 
 **Next:** Consider configuring personal data backups (e.g., using `rsync` or cloud sync services) as Timeshift is primarily for system files.
 
----
+
 
 # Desktop Environments
 
 ## GNOME Desktop Environment
 
-**Purpose:** Install and configure the GNOME Desktop Environment
-
-**Prerequisites:**
-- After first boot (not in chroot)
-- User account created with sudo access (see [User Creation](#user-creation))
-- Network connectivity (see [NetworkManager](#networkmanager))
-
-**Time:** 15-30 minutes
-
-**ENVIRONMENT:** After first boot (logged in as user)
-
----
-
-### Step 1: Install GNOME Packages
-
-```bash
-sudo pacman -S gnome gnome-extra gnome-tweaks nautilus-share
-```
-
-**Package breakdown:**
-- `gnome`: The core GNOME desktop environment.
-- `gnome-extra`: Additional GNOME applications (e.g., Maps, Weather, Boxes).
-- `gnome-tweaks`: Utility for fine-tuning GNOME settings.
-- `nautilus-share`: Enables file sharing through Nautilus.
-
----
-
-### Step 2: Enable Display Manager
-
-GNOME uses GDM (GNOME Display Manager) by default.
-
-```bash
-sudo systemctl enable gdm.service
-```
-
----
-
-### Step 3: Reboot
-
-Reboot your system to start GNOME.
-
-```bash
-reboot
-```
-
-After reboot, you should be greeted by the GDM login screen. Log in with your user account.
-
----
-
-**SUCCESS:** GNOME Desktop Environment installed and configured.
-
-**Next:** Continue with other configuration modules or customize your GNOME experience.
-
----
-
-# Desktop Environments
-
-## GNOME Desktop Environment
-
-**Purpose:** Install and configure the GNOME Desktop Environment
+**Purpose:** Install and configure the GNOME Desktop Environment. For an in-depth guide on GNOME, refer to the [ArchWiki on GNOME](https://wiki.archlinux.org/title/GNOME) and its display manager, [GDM](https://wiki.archlinux.org/title/GDM).
 
 **Prerequisites:**
 - After first boot (not in chroot)
@@ -1641,7 +1582,7 @@ After reboot, you should be greeted by the GDM login screen. Log in with your us
 
 ## KDE Plasma Desktop Environment
 
-**Purpose:** Install and configure the KDE Plasma Desktop Environment
+**Purpose:** Install and configure the KDE Plasma Desktop Environment. For a comprehensive guide on KDE Plasma, refer to the [ArchWiki on KDE](https://wiki.archlinux.org/title/KDE) and its recommended display manager, [SDDM](https://wiki.archlinux.org/title/SDDM).
 
 **Prerequisites:**
 - After first boot (not in chroot)
@@ -1697,7 +1638,7 @@ After reboot, you should be greeted by the SDDM login screen. Log in with your u
 
 ## XFCE Desktop Environment
 
-**Purpose:** Install and configure the XFCE Desktop Environment
+**Purpose:** Install and configure the XFCE Desktop Environment. For an in-depth guide on XFCE, refer to the [ArchWiki on XFCE](https://wiki.archlinux.org/title/Xfce) and its common display manager, [LightDM](https://wiki.archlinux.org/title/LightDM).
 
 **Prerequisites:**
 - After first boot (not in chroot)
