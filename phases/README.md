@@ -186,10 +186,10 @@ Covers:
 
 ## Quick Reference
 
-- **Installation Flows:** See `../wiki/INSTALLATION-FLOWS.md` for pre-built scenarios
-- **Installation Scenarios:** See `../INSTALLATION-SCENARIOS.md` for different use cases
-- **Complete Guide:** See `../wiki/COMPLETE-INSTALLATION.md` for all phases in one document
-- **Module Index:** See `../MODULE_INDEX.md` for all available modules
+- **Installation Flows:** See `../wiki/installation-flows.md` for pre-built scenarios
+- **Installation Scenarios:** See `../installation-scenarios.md` for different use cases
+- **Complete Guide:** See `../wiki/complete-installation.md` for all phases in one document
+- **Module Index:** See `../MODULE_index.md` for all available modules
 
 ---
 

@@ -94,7 +94,7 @@ Use modules when:
 
 ## Quick Reference
 
-- **Step Index:** See `../STEP_INDEX.md` for complete list
+- **Step Index:** See `../STEP_index.md` for complete list
 - **Detailed Modules:** See `../modules/` for comprehensive guides
 - **Phases:** See `../phases/` for organized installation phases
 

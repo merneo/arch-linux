@@ -146,9 +146,9 @@ HOME.md
 ## Quick Reference
 
 - **Repository Root:** See `../README.md` for overview
-- **Module Index:** See `../MODULE_INDEX.md` for all modules
-- **Step Index:** See `../STEP_INDEX.md` for all steps
-- **Installation Scenarios:** See `../INSTALLATION-SCENARIOS.md`
+- **Module Index:** See `../MODULE_index.md` for all modules
+- **Step Index:** See `../STEP_index.md` for all steps
+- **Installation Scenarios:** See `../installation-scenarios.md`
 
 ---
 

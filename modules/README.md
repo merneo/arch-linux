@@ -118,9 +118,9 @@ Each module typically includes:
 
 ## Quick Reference
 
-- **Module Index:** See `../MODULE_INDEX.md` for complete list
-- **Generate Procedure:** See `../GENERATE_PROCEDURE.md` to build custom installation
-- **Installation Scenarios:** See `../INSTALLATION-SCENARIOS.md` for pre-built scenarios
+- **Module Index:** See `../MODULE_index.md` for complete list
+- **Generate Procedure:** See `../generate-procedure.md` to build custom installation
+- **Installation Scenarios:** See `../installation-scenarios.md` for pre-built scenarios
 - **Phases:** See `../phases/` for organized installation phases
 
 ---

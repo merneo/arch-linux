@@ -241,4 +241,4 @@ For more extensive troubleshooting on partitioning, refer to the [ArchWiki on Pa
 - **Btrfs only (no encryption):** `btrfs-filesystem.md` (skip LUKS)
 - **Other filesystems:** `mount-partitions.md`
 
-**See also:** `INSTALLATION-SCENARIOS.md` for detailed scenario guidance
+**See also:** `installation-scenarios.md` for detailed scenario guidance
