@@ -11,13 +11,13 @@ This is a local copy of the arch-linux repository containing only wiki documenta
 
 ### Contents
 
-- **Root documentation:** 6 markdown files
+- **Root documentation:** 6 markdown files (e.g., README.md, MODULE_INDEX.md)
 - **Phases:** 10 installation phases
-- **Steps:** 25 installation steps
-- **Modules:** 25 legacy modules
+- **Steps:** 25 installation steps (concise commands)
+- **Modules:** 33 detailed modules (now unique, no longer mirroring steps/)
 - **Wiki:** 6 wiki documentation files
 
-**Total:** ~72 markdown files (wiki documentation only)
+**Total:** ~80 markdown files (wiki documentation + various guides)
 
 ### Development Files
 
@@ -29,11 +29,13 @@ This is a local copy of the arch-linux repository containing only wiki documenta
 
 ## Git Configuration
 
+For comprehensive documentation on Git commands, refer to the [Git Reference Manual](https://git-scm.com/docs).
+
 ### If Git Repository Exists
 
 ```bash
 cd ~/arch-linux
-git remote -v
+git remote -v # Lists current remote repositories. See [Git: git-remote](https://git-scm.com/docs/git-remote).
 # Should show: git@github.com:merneo/arch-linux.git
 ```
 
@@ -41,10 +43,10 @@ git remote -v
 
 ```bash
 cd ~/arch-linux
-git init
-git remote add origin git@github.com:merneo/arch-linux.git
-git fetch origin
-git checkout -b main origin/main  # or master, depending on remote
+git init # Initializes a new Git repository. See [Git: git-init](https://git-scm.com/docs/git-init).
+git remote add origin git@github.com:merneo/arch-linux.git # Adds a new remote named 'origin'. See [Git: git-remote](https://git-scm.com/docs/git-remote).
+git fetch origin # Downloads objects and refs from another repository. See [Git: git-fetch](https://git-scm.com/docs/git-fetch).
+git checkout -b main origin/main  # Checks out a branch. See [Git: git-checkout](https://git-scm.com/docs/git-checkout). # or master, depending on remote
 ```
 
 ---
@@ -79,11 +81,11 @@ find . -name "*EDUCATIONAL*" -o -name "*COMMENTED*" -o -name "*CONSISTENCY*" | w
 
 ```bash
 cd ~/arch-linux
-echo "Root files: $(ls -1 *.md | wc -l)"
-echo "Phases: $(find phases -name '*.md' | wc -l)"
-echo "Steps: $(find steps -name '*.md' | wc -l)"
-echo "Modules: $(find modules -name '*.md' | wc -l)"
-echo "Wiki: $(find wiki -name '*.md' | wc -l)"
+echo "Root files: $(ls -1 *.md | wc -l)" # Expected: 6
+echo "Phases: $(find phases -name '*.md' | wc -l)" # Expected: 10
+echo "Steps: $(find steps -name '*.md' | wc -l)" # Expected: 25
+echo "Modules: $(find modules -name '*.md' | wc -l)" # Expected: 33
+echo "Wiki: $(find wiki -name '*.md' | wc -l)" # Expected: 6
 ```
 
 ---

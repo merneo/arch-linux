@@ -1,6 +1,6 @@
 # Phase 09: Finalize Installation
 
-**Purpose:** Exit chroot, unmount partitions, and reboot system
+**Purpose:** Exit chroot, unmount partitions, and reboot the system. This final phase prepares your system for its first boot into the newly installed Arch Linux environment. For a detailed guide on the finalization steps, refer to the [ArchWiki Installation Guide#Reboot](https://wiki.archlinux.org/title/Installation_guide#Reboot).
 
 **Prerequisites:**
 - All configuration completed

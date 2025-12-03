@@ -1,6 +1,6 @@
 # Module: Timeshift for System Snapshots
 
-**Purpose:** Install and configure Timeshift to create and manage system snapshots, providing an easy way to restore your system to a previous working state.
+**Purpose:** Install and configure Timeshift to create and manage system snapshots, providing an easy way to restore your system to a previous working state. [Timeshift](https://github.com/teejee2008/timeshift) is a utility that creates incremental snapshots of the filesystem using `rsync` or Btrfs snapshots, allowing for convenient system rollback. For a comprehensive guide, refer to the [ArchWiki on Timeshift](https://wiki.archlinux.org/title/Timeshift).
 
 **Prerequisites:**
 - After first boot (not in chroot)
@@ -26,14 +26,14 @@ sudo pacman -S timeshift
 
 ## Step 2: Configure Timeshift (GUI)
 
-Timeshift is primarily a GUI tool. After installation, launch it from your application launcher.
+Timeshift is primarily a GUI tool for configuration, but it offers powerful underlying snapshot mechanisms.
 
 1.  **Launch Timeshift:** Open your application launcher and search for "Timeshift".
 2.  **Select Snapshot Type:**
-    *   **RSYNC:** Good for any filesystem. Creates a full backup initially, then incremental backups. Requires more space but is flexible.
-    *   **BTRFS:** Highly efficient for Btrfs filesystems. Creates subvolume snapshots, which are very fast and use less space. **Recommended if your root filesystem is Btrfs.**
+    *   **RSYNC:** This method uses `rsync` to create full system backups that are incrementally updated. It is filesystem-agnostic and works well on any Linux filesystem (Ext4, XFS, etc.). While efficient, it consumes more disk space than Btrfs snapshots for multiple versions.
+    *   **BTRFS:** This method leverages the native snapshot capabilities of the Btrfs filesystem. [Btrfs snapshots](https://wiki.archlinux.org/title/Btrfs#Snapshots) are copy-on-write, meaning they initially take up very little space and only store changes from the original. This is highly efficient and recommended if your root filesystem is Btrfs.
 3.  **Select Snapshot Location:**
-    *   Choose a separate partition or external drive. **Do NOT save snapshots on the same partition as your root filesystem.**
+    *   Choose a separate partition or external drive. **Do NOT save snapshots on the same partition as your root filesystem (for rsync type).**
     *   For Btrfs, you typically select the root Btrfs filesystem, and Timeshift will manage the snapshots as subvolumes.
 4.  **Schedule Snapshots:** Configure the frequency (e.g., daily, weekly) and retention policy.
 5.  **Create First Snapshot:** Once configured, create your first snapshot immediately.

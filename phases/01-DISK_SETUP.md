@@ -1,6 +1,6 @@
 # Phase 01: Disk Setup
 
-**Purpose:** Configure disk partitions, encryption, and filesystem
+**Purpose:** Configure disk partitions, encryption, and filesystem. This phase is critical for preparing your storage device according to your security, performance, and organizational needs. For detailed background, refer to the [ArchWiki on Partitioning](https://wiki.archlinux.org/title/Partitioning), [dm-crypt (disk encryption)](https://wiki.archlinux.org/title/Dm-crypt), and [Btrfs (filesystem)](https://wiki.archlinux.org/title/Btrfs).
 
 **Prerequisites:**
 - Booted from Arch Linux Live USB

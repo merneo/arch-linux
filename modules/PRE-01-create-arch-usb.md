@@ -1,6 +1,6 @@
 # Module: Create Arch Linux Bootable USB
 
-**Purpose:** Create bootable USB drive with Arch Linux Live ISO
+**Purpose:** Create bootable USB drive with Arch Linux Live ISO. This is the first step in the [Arch Linux installation process](https://wiki.archlinux.org/title/Installation_guide).
 
 **Prerequisites:**
 - Second computer (preparation machine) with internet connection
@@ -39,7 +39,8 @@ wget https://mirror.rackspace.com/archlinux/iso/latest/archlinux-x86_64.iso
 # Download signature for verification (optional but recommended)
 wget https://mirror.rackspace.com/archlinux/iso/latest/archlinux-x86_64.iso.sig
 
-# Verify ISO integrity (optional but recommended)
+# Verify ISO integrity (optional but recommended), using GnuPG:
+# See: https://wiki.archlinux.org/title/Installation_guide#Verify_signature
 gpg --verify archlinux-x86_64.iso.sig archlinux-x86_64.iso
 ```
 
@@ -66,7 +67,7 @@ gpg: Good signature from "Pierre Schmitz <pierre@archlinux.org>"
 ### Linux:
 
 ```bash
-# List all block devices
+# List all block devices. For more details on lsblk, refer to the [ArchWiki on lsblk](https://wiki.archlinux.org/title/Lsblk).
 lsblk
 
 # Look for your USB drive (e.g., /dev/sdb, NOT /dev/sdb1)
@@ -96,7 +97,7 @@ In this example, USB drive is `/dev/sdb` (NOT `/dev/sdb1`).
 ### macOS:
 
 ```bash
-# List all disks
+# List all disks. For more information on diskutil, refer to [Apple's diskutil man page](https://ss64.com/osx/diskutil.html).
 diskutil list
 
 # Look for your USB drive (e.g., /dev/disk2)
@@ -124,6 +125,11 @@ In this example, USB drive is `/dev/disk2` (NOT `/dev/disk2s1`).
 sudo umount /dev/sdX1
 
 # Write ISO to USB (**WARNING:** REPLACE /dev/sdX WITH YOUR USB DEVICE)
+# For detailed information on using 'dd' for creating installation media,
+# refer to the [ArchWiki on USB flash installation media](https://wiki.archlinux.org/title/USB_flash_installation_media#Using_dd).
+# The 'bs=4M' sets the block size to 4 megabytes for faster transfer,
+# and 'oflag=sync' ensures data is written synchronously.
+# Consult 'man dd' for more options.
 # Replace /dev/sdX with your actual USB device (e.g., /dev/sdb)
 sudo dd if=archlinux-x86_64.iso of=/dev/sdX bs=4M status=progress oflag=sync
 
@@ -242,7 +248,8 @@ diskutil list /dev/diskX
    - Should see `root@archiso` prompt
 
 **If boot fails:**
-- Verify UEFI boot mode is enabled in BIOS
+- Verify UEFI boot mode is enabled in BIOS ([ArchWiki: Unified Extensible Firmware Interface (UEFI)](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface))
+- Try disabling [Secure Boot](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface#Secure_Boot) (temporarily)
 - Try recreating USB with different tool
 - Verify ISO download is complete and not corrupted
 
@@ -252,8 +259,8 @@ diskutil list /dev/diskX
 
 ### Problem: USB not booting
 **Solution:**
-1. Verify UEFI boot mode is enabled in BIOS
-2. Disable Secure Boot (temporarily)
+1. Verify UEFI boot mode is enabled in BIOS ([ArchWiki: Unified Extensible Firmware Interface (UEFI)](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface))
+2. Disable [Secure Boot](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface#Secure_Boot) (temporarily)
 3. Try recreating USB with different tool
 4. Verify ISO file is not corrupted
 

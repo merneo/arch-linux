@@ -1,6 +1,6 @@
 # Module: Btrfs Filesystem Creation
 
-**Purpose:** Create Btrfs filesystem with subvolumes
+**Purpose:** Create Btrfs filesystem with subvolumes. Btrfs (B-tree file system) is a modern copy-on-write (CoW) filesystem for Linux aimed at implementing advanced features while focusing on fault tolerance, repair, and easy administration. Its key advantages include snapshots, subvolumes, and integrity checks. For comprehensive information, refer to the [ArchWiki on Btrfs](https://wiki.archlinux.org/title/Btrfs).
 
 **Prerequisites:**
 - Root partition ready (encrypted or unencrypted)
@@ -32,6 +32,8 @@
 
 ## Step 1: Format with Btrfs
 
+The `mkfs.btrfs` command is used to create a Btrfs filesystem on a partition. The `-L` option sets a label for the filesystem, which can be useful for identification. For further details, refer to `man mkfs.btrfs` and the [ArchWiki on Btrfs#Formatting](https://wiki.archlinux.org/title/Btrfs#Formatting).
+
 **For encrypted partition:**
 ```bash
 mkfs.btrfs -L "Arch Linux" /dev/mapper/cryptroot
@@ -59,6 +61,14 @@ mount /dev/sdX2 /mnt
 ---
 
 ## Step 3: Create Btrfs Subvolumes
+
+[Btrfs subvolumes](https://wiki.archlinux.org/title/Btrfs#Subvolumes) are independently mountable POSIX file trees that share a common disk space with other subvolumes. They are not like traditional logical volumes; rather, they are flexible units within the Btrfs filesystem that can be snapshotted and managed individually. This setup is optimized for system snapshots and data separation.
+
+-   `@`: This subvolume will serve as the root filesystem (`/`).
+-   `@home`: This subvolume is dedicated to user home directories (`/home`), allowing for easier backups or reinstallation of the root without affecting user data.
+-   `@log`: For system logs (`/var/log`). Isolating logs can prevent them from filling up the root filesystem.
+-   `@cache`: For package caches (`/var/cache`).
+-   `@snapshots`: Dedicated storage for filesystem snapshots.
 
 ```bash
 # Create @ subvolume (root filesystem)
@@ -92,6 +102,8 @@ btrfs subvolume list /mnt
 ---
 
 ## Step 4: Unmount and Remount with Subvolumes
+
+After creating subvolumes, the root filesystem needs to be unmounted and then re-mounted with the correct `subvol` option. Mount options like `compress=zstd` enable transparent compression (beneficial for performance and disk space) and `noatime` disables updating access times (improving SSD longevity). For a detailed list of mount options, see [ArchWiki: Btrfs#Mount options](https://wiki.archlinux.org/title/Btrfs#Mount_options).
 
 ```bash
 # Unmount root
@@ -137,6 +149,8 @@ mount -o subvol=@snapshots,compress=zstd,noatime /dev/sdX2 /mnt/.snapshots
 
 ## Step 7: Mount EFI Boot Partition
 
+The [EFI system partition (ESP)](https://wiki.archlinux.org/title/EFI_system_partition) is where the boot loader (like GRUB) will be installed. It must be mounted at `/mnt/boot`.
+
 ```bash
 # Mount EFI partition (replace /dev/sdX1 with your EFI partition)
 mount /dev/sdX1 /mnt/boot
@@ -145,6 +159,8 @@ mount /dev/sdX1 /mnt/boot
 ---
 
 ## Step 8: Format and Enable Swap (if created)
+
+The [swap partition](https://wiki.archlinux.org/title/Swap) provides virtual memory. The `mkswap` command initializes a Linux swap area on a device, and `swapon` enables devices for paging and swapping.
 
 **For encrypted swap:**
 ```bash
@@ -161,6 +177,8 @@ swapon /dev/sdX3
 ---
 
 ## Step 9: Verify All Mounts
+
+The `lsblk -f` command lists block devices, their filesystems, labels, UUIDs, and mountpoints. This is essential for verifying that all partitions, including subvolumes and the EFI partition, are correctly mounted. Refer to the [ArchWiki on lsblk](https://wiki.archlinux.org/title/Lsblk) for more details.
 
 ```bash
 lsblk -f

@@ -1,6 +1,6 @@
 # Phase 05: Network Configuration
 
-**Purpose:** Configure network connectivity (NetworkManager, WiFi, Bluetooth)
+**Purpose:** Configure network connectivity (NetworkManager, WiFi, Bluetooth). Establishing a reliable network connection is fundamental for system updates, software installation, and internet access. For a comprehensive guide on network setup in Arch Linux, refer to the [ArchWiki on Network configuration](https://wiki.archlinux.org/title/Network_configuration).
 
 **Prerequisites:**
 - Inside chroot environment OR after first boot

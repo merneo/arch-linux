@@ -1,6 +1,6 @@
 # Module: LUKS2 Encryption Setup
 
-**Purpose:** Encrypt disk partitions with LUKS2
+**Purpose:** Encrypt disk partitions with LUKS2. LUKS (Linux Unified Key Setup) is the standard for Linux hard disk encryption, offering a robust and secure way to protect data at rest. LUKS2 is the newer version with improved features and flexibility. For a comprehensive guide, refer to the [ArchWiki on dm-crypt/Encrypting an entire system](https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system).
 
 **Prerequisites:**
 - Disk partitioned (module `06-disk-partitioning.md`)
@@ -39,6 +39,16 @@
 ---
 
 ## Step 1: Encrypt Root Partition
+
+The `cryptsetup luksFormat` command initializes a LUKS encrypted volume. The parameters specify the encryption algorithm and key derivation function.
+
+-   `--type luks2`: Specifies the LUKS2 format, offering advanced features over LUKS1.
+-   `--cipher aes-xts-plain64`: Uses [AES (Advanced Encryption Standard)](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in XTS mode with a 512-bit key. AES is a widely adopted symmetric encryption algorithm.
+-   `--key-size 512`: Sets the key size to 512 bits.
+-   `--pbkdf argon2id`: Uses [Argon2id](https://en.wikipedia.org/wiki/Argon2) as the Password-Based Key Derivation Function, which is designed to resist GPU cracking attacks.
+-   `--iter-time 5000`: Sets the iteration time for the PBKDF to 5000 milliseconds, increasing the effort required for brute-force attacks.
+
+For more details on `cryptsetup` and its options, refer to the [ArchWiki on dm-crypt/Drive encryption](https://wiki.archlinux.org/title/Dm-crypt/Drive_encryption#Encryption_options) or consult `man cryptsetup`.
 
 ```bash
 # Replace /dev/sdX2 with your root partition
@@ -81,6 +91,8 @@ Verify passphrase:
 
 ## Step 2: Open Encrypted Root
 
+After encrypting a partition with `luksFormat`, it must be "opened" to make the underlying unencrypted device available. The `cryptsetup open` command decrypts the volume and maps it to a device in `/dev/mapper/`. For more details, refer to the [ArchWiki on dm-crypt/Device encryption](https://wiki.archlinux.org/title/Dm-crypt/Device_encryption#Using_dm-crypt).
+
 ```bash
 # Unlock LUKS container and map to /dev/mapper/cryptroot
 cryptsetup open /dev/sdX2 cryptroot
@@ -100,6 +112,8 @@ ls -la /dev/mapper/
 
 ## Step 3: Encrypt Swap Partition (Optional)
 
+Encrypting the swap partition is a recommended security measure to prevent sensitive data from being written to unencrypted storage. For best practices regarding swap encryption, refer to the [ArchWiki on dm-crypt/Swap encryption](https://wiki.archlinux.org/title/Dm-crypt/Swap_encryption).
+
 ```bash
 # Replace /dev/sdX3 with your swap partition
 cryptsetup luksFormat --type luks2 \
@@ -118,6 +132,8 @@ cryptsetup open /dev/sdX3 cryptswap
 ---
 
 ## Step 4: Verify Encryption
+
+The `cryptsetup luksDump` command displays detailed information about a LUKS-encrypted volume, including its version, cipher, hash, and key slots. This is useful for verifying the encryption parameters. For more details, consult `man cryptsetup` or the [ArchWiki on dm-crypt/Drive encryption](https://wiki.archlinux.org/title/Dm-crypt/Drive_encryption).
 
 ```bash
 # Display LUKS header information
@@ -168,6 +184,8 @@ ls -la /dev/mapper/cryptroot
 ---
 
 ## Troubleshooting
+
+For more extensive troubleshooting on `dm-crypt` related issues, refer to the [ArchWiki on dm-crypt/Troubleshooting](https://wiki.archlinux.org/title/Dm-crypt/Troubleshooting).
 
 ### Problem: cryptsetup fails with "Device already in use"
 **Solution:**

@@ -1,6 +1,6 @@
 # Module: WiFi Configuration
 
-**Purpose:** Install and configure WiFi support
+**Purpose:** Install and configure WiFi support. For a comprehensive guide on wireless networking in Arch Linux, refer to the [ArchWiki on Wireless network configuration](https://wiki.archlinux.org/title/Wireless_network_configuration).
 
 **Prerequisites:**
 - Inside chroot environment (module `01-chroot.md`)
@@ -19,15 +19,14 @@ pacman -S wireless_tools wpa_supplicant dialog
 ```
 
 **Package breakdown:**
-- `wireless_tools` - WiFi utilities
-- `wpa_supplicant` - WPA/WPA2 authentication
-- `dialog` - TUI dialogs (for WiFi setup)
+- `wireless_tools`: A collection of utilities for configuring wireless network interfaces. See [ArchWiki: Wireless tools](https://wiki.archlinux.org/title/Wireless_tools).
+- `wpa_supplicant`: An implementation of the WPA Supplicant, which is a key component for WPA/WPA2 authentication. See [ArchWiki: wpa_supplicant](https://wiki.archlinux.org/title/WPA_supplicant).
+- `dialog`: A utility that helps to display dialog boxes from shell scripts, often used for text-based UI configuration tools like `nmtui`. See [ArchWiki: Dialog](https://wiki.archlinux.org/title/Dialog).
 
----
 
 ## Step 2: Verify WiFi Support
 
-**After reboot, use NetworkManager to connect:**
+After reboot, you will use NetworkManager to connect to WiFi networks. Command-line tools like `nmcli` and text-based user interfaces like `nmtui` provide flexible ways to manage your wireless connections. For usage details, refer to the [ArchWiki on nmcli](https://wiki.archlinux.org/title/NetworkManager#nmcli) and [ArchWiki on nmtui](https://wiki.archlinux.org/title/NetworkManager#nmtui).
 
 **Command line:**
 ```bash

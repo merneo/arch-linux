@@ -1,6 +1,6 @@
 # Module: AMD GPU Driver Installation
 
-**Purpose:** Ensure proper setup for AMD graphics cards, typically using the open-source `amdgpu` driver which is included in the Linux kernel. This module focuses on verifying setup and installing optional utilities.
+**Purpose:** Ensure proper setup for AMD graphics cards, typically using the open-source `amdgpu` driver which is included in the Linux kernel. This module focuses on verifying setup and installing optional utilities for optimal performance and compatibility. For comprehensive information, refer to the [ArchWiki on AMDGPU](https://wiki.archlinux.org/title/AMDGPU).
 
 **Prerequisites:**
 - After first boot (not in chroot)
@@ -17,7 +17,7 @@
 
 ## Step 1: Verify `amdgpu` Driver
 
-The `amdgpu` open-source driver is typically included and loaded automatically by the Linux kernel for most modern AMD GPUs.
+The `amdgpu` open-source driver is typically included and loaded automatically by the Linux kernel for most modern AMD GPUs. You can use `lspci` to list PCI devices and check which kernel driver is in use. For details, refer to the [ArchWiki on lspci](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Verifying_VT-d_is_enabled) (specifically the `lspci -k` usage for kernel modules).
 
 You can verify if the driver is loaded:
 
@@ -31,23 +31,25 @@ Look for a line similar to `Kernel driver in use: amdgpu`. If you see this, the 
 
 ## Step 2: Install Vulkan Drivers and Other Utilities
 
-For optimal performance and compatibility with modern games and applications, install the Vulkan drivers and a few essential utilities.
+For optimal performance and compatibility with modern games and applications, especially those requiring 3D acceleration, installing Vulkan drivers and multimedia utilities is crucial. For a comprehensive overview of [Vulkan](https://wiki.archlinux.org/title/Vulkan) in Arch Linux, refer to its ArchWiki page.
 
 ```bash
 sudo pacman -S amdvlk vulkan-radeon libva-mesa-driver mesa-vdpau mesa-opencl opencl-amd
 ```
 
 **Package breakdown:**
-- `amdvlk`: AMD's official Vulkan driver (open-source).
-- `vulkan-radeon`: Radeon Vulkan driver (part of Mesa, also open-source). You can choose one or both. `vulkan-radeon` is often preferred for gaming performance.
-- `libva-mesa-driver`: VA-API (Video Acceleration API) for Mesa, enables hardware video decoding.
-- `mesa-vdpau`: VDPAU (Video Decode and Presentation API for Unix) for Mesa, another hardware video decoding API.
-- `mesa-opencl`: OpenCL support for Mesa drivers.
-- `opencl-amd`: AMD's official OpenCL driver for ROCm-compatible GPUs.
+- `amdvlk`: AMD's official [Vulkan driver](https://wiki.archlinux.org/title/Vulkan) (open-source implementation).
+- `vulkan-radeon`: The [Radeon Vulkan driver](https://wiki.archlinux.org/title/Vulkan) from the Mesa project, often preferred for gaming performance on AMD GPUs.
+- `libva-mesa-driver`: Provides [VA-API (Video Acceleration API)](https://wiki.archlinux.org/title/Hardware_video_acceleration) support for Mesa drivers, enabling hardware-accelerated video decoding.
+- `mesa-vdpau`: Provides [VDPAU (Video Decode and Presentation API for Unix)](https://wiki.archlinux.org/title/Hardware_video_acceleration) support for Mesa drivers, another hardware video decoding API.
+- `mesa-opencl`: OpenCL (Open Computing Language) support provided by [Mesa](https://wiki.archlinux.org/title/Mesa).
+- `opencl-amd`: AMD's official OpenCL driver for [ROCm](https://wiki.archlinux.org/title/GPGPU#ROCm)-compatible GPUs.
 
 ---
 
 ## Step 3: Install `xorg-xrandr` (for Xorg)
+
+[XRandr](https://wiki.archlinux.org/title/Xrandr) is an X Window System extension that allows dynamic configuration of output displays. It is a useful utility for setting screen resolution, refresh rate, and managing multiple monitors in an Xorg environment.
 
 If you are using Xorg, `xorg-xrandr` is a useful utility for display configuration.
 
@@ -59,7 +61,7 @@ sudo pacman -S xorg-xrandr
 
 ## Step 4: Configure Xorg (Optional)
 
-In most cases, with modern AMD GPUs and the `amdgpu` driver, explicit Xorg configuration is not required. However, if you encounter issues, you might need a minimal `xorg.conf` file.
+In most cases, with modern AMD GPUs and the `amdgpu` driver, explicit Xorg configuration via `/etc/X11/xorg.conf.d/` files is not strictly required as the driver handles much of the setup automatically. However, specific scenarios or troubleshooting might necessitate a custom configuration. For more details, refer to the [ArchWiki on Xorg#Configuration](https://wiki.archlinux.org/title/Xorg#Configuration).
 
 Example `/etc/X11/xorg.conf.d/20-amdgpu.conf`:
 ```
@@ -85,16 +87,16 @@ reboot
 
 ## Step 6: Verify Installation
 
-After reboot and logging into your desktop environment, you can verify:
+After reboot and logging into your desktop environment, you can verify that the AMDGPU drivers and graphics APIs are correctly installed and functioning.
 
 ```bash
-glxinfo -B # Requires 'mesa-utils' to be installed.
+glxinfo -B # Requires 'mesa-utils' to be installed. For more on OpenGL and glxinfo, refer to the [ArchWiki on OpenGL](https://wiki.archlinux.org/title/OpenGL).
 ```
 This command should show `OpenGL renderer string: AMD ...` and indicate direct rendering.
 
 You can also check Vulkan support:
 ```bash
-vulkaninfo # Requires 'vulkan-tools' to be installed.
+vulkaninfo # Requires 'vulkan-tools' to be installed. For more on Vulkan, refer to the [ArchWiki on Vulkan](https://wiki.archlinux.org/title/Vulkan).
 ```
 
 ---

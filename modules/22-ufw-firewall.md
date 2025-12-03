@@ -1,6 +1,6 @@
 # Module: UFW Firewall Configuration
 
-**Purpose:** Install and configure UFW (Uncomplicated Firewall) with SSH access
+**Purpose:** Install and configure UFW (Uncomplicated Firewall) with SSH access. UFW is a user-friendly frontend for `iptables` that simplifies firewall management, making it easier to secure your system. For a comprehensive guide, refer to the [ArchWiki on Uncomplicated Firewall (UFW)](https://wiki.archlinux.org/title/Uncomplicated_Firewall).
 
 **Prerequisites:**
 - Inside chroot environment (module `01-chroot.md`) OR after first boot
@@ -19,6 +19,8 @@
 
 ## Step 1: Install UFW
 
+The `ufw` package contains the Uncomplicated Firewall utility. It is available in the official Arch Linux repositories.
+
 ```bash
 pacman -S ufw
 ```
@@ -26,6 +28,8 @@ pacman -S ufw
 ---
 
 ## Step 2: Configure UFW Default Policies
+
+UFW operates with default policies that define the behavior for incoming and outgoing connections not explicitly covered by specific rules. It's a security best practice to deny incoming connections by default and allow outgoing. For more details, refer to the [ArchWiki on UFW#Configuration](https://wiki.archlinux.org/title/Uncomplicated_Firewall#Configuration).
 
 ```bash
 # Set default policies:
@@ -42,6 +46,8 @@ ufw default allow outgoing
 ---
 
 ## Step 3: Allow SSH on Port 1991
+
+Specific applications or services need explicit rules to allow their traffic through the firewall. This step creates a rule to permit incoming SSH connections on the custom port 1991. For more information on adding rules, refer to the [ArchWiki on UFW#Rules](https://wiki.archlinux.org/title/Uncomplicated_Firewall#Rules).
 
 ```bash
 # Allow incoming SSH connections on port 1991
@@ -64,6 +70,8 @@ ufw status numbered
 
 ## Step 4: Enable UFW Firewall
 
+Once configured, UFW must be enabled to start enforcing its rules. The `ufw enable` command activates the firewall.
+
 ```bash
 # Enable UFW firewall
 ufw enable
@@ -72,11 +80,13 @@ ufw enable
 # Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
 ```
 
-**Warning:** If you're connected via SSH, enabling UFW will not disconnect you (SSH is already allowed).
+**Warning:** If you're connected via SSH, enabling UFW with an `ufw allow` rule for your SSH port will not immediately disconnect you. For more information on enabling UFW, refer to [ArchWiki: UFW#Enable/Disable](https://wiki.archlinux.org/title/Uncomplicated_Firewall#Enable/Disable).
 
 ---
 
 ## Step 5: Verify UFW Status
+
+Regularly checking the firewall's status ensures that it is active and that your rules are correctly applied. The `ufw status verbose` command provides a detailed output of the firewall's current state. For more information, refer to the [ArchWiki on UFW#Status](https://wiki.archlinux.org/title/Uncomplicated_Firewall#Status).
 
 ```bash
 # Check UFW status
@@ -112,6 +122,8 @@ telnet <SERVER_IP> 80
 ---
 
 ## Additional UFW Rules (Optional)
+
+UFW allows for granular control over network traffic. You can add rules to permit specific services, IP addresses, or network ranges. For a comprehensive list of rule options and examples, refer to the [ArchWiki on UFW#Rules](https://wiki.archlinux.org/title/Uncomplicated_Firewall#Rules).
 
 ### Allow HTTP/HTTPS (if running web server):
 
@@ -166,6 +178,8 @@ ufw status verbose | grep Default
 ---
 
 ## Troubleshooting
+
+For more extensive troubleshooting on UFW related issues, refer to the [ArchWiki on UFW#Troubleshooting](https://wiki.archlinux.org/title/Uncomplicated_Firewall#Troubleshooting).
 
 ### Problem: UFW blocks SSH connection
 **Solution:**

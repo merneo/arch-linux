@@ -8,7 +8,7 @@
 
 ### Scenario 1: Dual Boot (Arch Linux + Windows)
 
-**Use this if:** You want to keep Windows and install Arch Linux alongside it.
+**Use this if:** You want to keep Windows and install Arch Linux alongside it. For detailed information on setting up a dual-boot system, refer to the [ArchWiki on Dual boot with Windows](https://wiki.archlinux.org/title/Dual_boot_with_Windows).
 
 **Disk Layout:**
 - EFI System Partition (shared with Windows)
@@ -45,15 +45,15 @@
    - Exit chroot and reboot
 
 **Important Notes:**
-- Windows Fast Startup **MUST BE DISABLED** (prevents filesystem corruption)
-- BitLocker encryption in Windows **MUST BE DISABLED** before proceeding
-- GRUB will automatically detect Windows and add it to boot menu
+- Windows Fast Startup **MUST BE DISABLED** (prevents filesystem corruption). See [ArchWiki: Dual boot with Windows#Disable Fast Startup](https://wiki.archlinux.org/title/Dual_boot_with_Windows#Disable_Fast_Startup).
+- BitLocker encryption in Windows **MUST BE DISABLED** before proceeding. See [ArchWiki: Dual boot with Windows#Disable BitLocker](https://wiki.archlinux.org/title/Dual_boot_with_Windows#Disable_BitLocker).
+- GRUB will automatically detect Windows and add it to boot menu. See [ArchWiki: GRUB#Detecting other operating systems](https://wiki.archlinux.org/title/GRUB#Detecting_other_operating_systems).
 
 ---
 
 ### Scenario 2: Single Boot - Btrfs + LUKS (Full Disk Encryption)
 
-**Use this if:** You want only Arch Linux with full disk encryption.
+**Use this if:** You want only Arch Linux with full disk encryption. For a detailed guide on disk encryption, refer to the [ArchWiki on dm-crypt/Encrypting an entire system](https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system). For information on Btrfs, refer to the [ArchWiki on Btrfs](https://wiki.archlinux.org/title/Btrfs).
 
 **Disk Layout:**
 - EFI System Partition (512 MB)

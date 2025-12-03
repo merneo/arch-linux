@@ -1,6 +1,6 @@
 # Module: XFCE Desktop Environment
 
-**Purpose:** Install and configure the XFCE Desktop Environment
+**Purpose:** Install and configure the XFCE Desktop Environment. [XFCE](https://wiki.archlinux.org/title/Xfce) is a lightweight, GTK-based desktop environment that aims to be fast and low on system resources while still being visually appealing and user-friendly.
 
 **Prerequisites:**
 - After first boot (not in chroot)
@@ -20,16 +20,16 @@ sudo pacman -S xfce4 xfce4-goodies lightdm lightdm-gtk-greeter
 ```
 
 **Package breakdown:**
-- `xfce4`: The core XFCE desktop environment.
-- `xfce4-goodies`: A collection of useful plugins and applications for XFCE.
-- `lightdm`: A lightweight display manager.
-- `lightdm-gtk-greeter`: The GTK greeter for LightDM.
+- `xfce4`: The core [XFCE desktop environment](https://wiki.archlinux.org/title/Xfce) meta-package.
+- `xfce4-goodies`: A collection of useful plugins and applications that extend [XFCE's functionality](https://wiki.archlinux.org/title/Xfce#Applications).
+- `lightdm`: [LightDM (Light Display Manager)](https://wiki.archlinux.org/title/LightDM), a fast and lightweight display manager commonly used with XFCE.
+- `lightdm-gtk-greeter`: The GTK-based greeter (login screen) for LightDM.
 
 ---
 
 ## Step 2: Enable Display Manager
 
-XFCE typically uses LightDM (Light Display Manager).
+[LightDM (Light Display Manager)](https://wiki.archlinux.org/title/LightDM) is a popular and lightweight display manager often used with XFCE. It provides a graphical login screen.
 
 ```bash
 sudo systemctl enable lightdm.service

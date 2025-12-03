@@ -1,6 +1,6 @@
 # Module Index - Quick Reference
 
-**Purpose:** This index provides a comprehensive list of all available installation and configuration modules, along with their purpose and when to use them. It serves as a quick reference to help you build a custom installation procedure or understand the components of pre-defined installation flows.
+**Purpose:** This index provides a comprehensive list of all available installation and configuration modules, along with their purpose and when to use them. It serves as a quick reference to help you build a custom installation procedure or understand the components of pre-defined installation flows within the broader [Arch Linux Installation Guide](https://wiki.archlinux.org/title/Installation_guide).
 
 **Before building your custom procedure:**
 *   Review the **[Installation Flows](wiki/INSTALLATION-FLOWS.md)** to see if a pre-built scenario matches your needs.

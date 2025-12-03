@@ -1,6 +1,6 @@
 # Module: Core System Installation
 
-**Purpose:** Install base Arch Linux system using pacstrap. This is the CORE module - only installs the system, nothing else.
+**Purpose:** Install base Arch Linux system using pacstrap. This is the CORE module - only installs the system, nothing else. For a general overview of the installation process, refer to the [ArchWiki Installation Guide](https://wiki.archlinux.org/title/Installation_guide). For details on `pacstrap`, see [ArchWiki: pacstrap](https://wiki.archlinux.org/title/Pacstrap).
 
 **Prerequisites:**
 - Booted from Arch Linux Live USB
@@ -20,13 +20,15 @@
 Before starting this module, verify:
 
 - [ ] Booted from Arch Linux Live USB
-- [ ] Network connection active (test with `ping archlinux.org`)
-- [ ] Disk partitions created and mounted at `/mnt` (check with `lsblk` and `mount | grep /mnt`)
+- [ ] Network connection active (test with `ping archlinux.org`). For more on network configuration, see [ArchWiki: Network configuration](https://wiki.archlinux.org/title/Network_configuration).
+- [ ] Disk partitions created and mounted at `/mnt` (check with `lsblk` for device listing and `mount | grep /mnt` for mounted filesystems). Refer to [ArchWiki: Partitioning](https://wiki.archlinux.org/title/Partitioning) and [ArchWiki: File systems#Mounting](https://wiki.archlinux.org/title/File_systems#Mounting).
 - [ ] You are in Live USB environment (not chroot)
 
 ---
 
 ## Step 1: Update Pacman Mirror List (Optional)
+
+For more information on pacman mirrors and `reflector`, refer to the [ArchWiki on Mirrors](https://wiki.archlinux.org/title/Mirrors) and [ArchWiki on reflector](https://wiki.archlinux.org/title/Reflector).
 
 ```bash
 # Backup original mirrorlist
@@ -46,6 +48,8 @@ reflector --country US,Germany,France \
 
 ## Step 2: Install Base System
 
+For a detailed explanation of `pacstrap` and essential packages, refer to the [ArchWiki Installation Guide#Install essential packages](https://wiki.archlinux.org/title/Installation_guide#Install_essential_packages).
+
 ```bash
 pacstrap /mnt \
   base \
@@ -57,7 +61,6 @@ pacstrap /mnt \
   dosfstools \
   e2fsprogs \
   networkmanager \
-  network-manager-applet \
   vim \
   nano \
   git \
@@ -66,11 +69,29 @@ pacstrap /mnt \
   man-pages
 ```
 
+**Package breakdown and further reading:**
+- `base`: The minimal package set to boot an Arch Linux system. See [ArchWiki: base group](https://wiki.archlinux.org/title/Pacstrap#Package_groups).
+- `base-devel`: Required for building packages from AUR. See [ArchWiki: base-devel](https://wiki.archlinux.org/title/Arch_User_Repository#Prerequisites).
+- `linux`: The Linux kernel.
+- `linux-firmware`: Firmware for various hardware. See [ArchWiki: Microcode](https://wiki.archlinux.org/title/Microcode).
+- `linux-headers`: Kernel headers required for building external kernel modules (e.g., some drivers).
+- `btrfs-progs`: Utilities for managing Btrfs filesystems. See [ArchWiki: Btrfs](https://wiki.archlinux.org/title/Btrfs).
+- `dosfstools`: Utilities for managing FAT filesystems (e.g., for EFI partition).
+- `e2fsprogs`: Utilities for managing ext2/ext3/ext4 filesystems.
+- `networkmanager`: A daemon for managing network connections. See [ArchWiki: NetworkManager](https://wiki.archlinux.org/title/NetworkManager).
+- `vim`: A highly configurable text editor. See [ArchWiki: Vim](https://wiki.archlinux.org/title/Vim).
+- `nano`: A simple, user-friendly text editor. See [ArchWiki: Nano](https://wiki.archlinux.org/title/Nano).
+- `git`: A distributed version control system. See [ArchWiki: Git](https://wiki.archlinux.org/title/Git).
+- `sudo`: Allows a permitted user to execute a command as the superuser or another user. See [ArchWiki: Sudo](https://wiki.archlinux.org/title/Sudo).
+- `man-db` / `man-pages`: Provides manual pages for commands.
+
 **Wait for installation** (20-40 minutes depending on internet speed)
 
 ---
 
 ## Step 3: Generate Fstab
+
+The `genfstab` utility is used to generate an `fstab` (filesystem table) entry for the mounted filesystems. This file is crucial for the system to know which partitions to mount at boot. For details, refer to the [ArchWiki on fstab](https://wiki.archlinux.org/title/Fstab) and [ArchWiki: genfstab](https://wiki.archlinux.org/title/Genfstab).
 
 ```bash
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -117,6 +138,8 @@ cat /mnt/etc/fstab
 ---
 
 ## Troubleshooting
+
+For more general troubleshooting tips during installation, refer to the [ArchWiki Installation Guide#Troubleshooting](https://wiki.archlinux.org/title/Installation_guide#Troubleshooting) section.
 
 ### Problem: pacstrap fails with "failed to retrieve files"
 **Solution:**

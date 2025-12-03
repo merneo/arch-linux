@@ -18,6 +18,8 @@
 
 ## Step 1: Verify IR Camera Detection
 
+Verifying that your system correctly detects the IR camera involves checking USB devices and the `/dev/video*` interfaces. For more details on listing USB devices, refer to the [ArchWiki on lsusb](https://wiki.archlinux.org/title/USB#lsusb). IR cameras typically appear as `/dev/videoX`, where `X` is a number, distinct from a standard webcam.
+
 ```bash
 # List USB devices
 lsusb | grep -i "ir\|camera"
@@ -37,12 +39,13 @@ ls -la /dev/video*
 
 ## Step 2: Install Required Packages
 
+The UVC (USB Video Class) driver for webcams is usually included in the Linux kernel and often handles IR cameras as well. `Howdy` is a face recognition program that uses IR cameras for PAM authentication.
+
 ```bash
-# UVC driver (should be in kernel)
+# UVC driver (should be in kernel). For lsmod details, see [ArchWiki: Kernel modules](https://wiki.archlinux.org/title/Kernel_modules).
 lsmod | grep uvcvideo
 
-# Install Howdy for face recognition
-# Note: Howdy requires AUR package
+# Install Howdy for face recognition. Howdy is an AUR package, requiring an [AUR helper](https://wiki.archlinux.org/title/AUR_helpers) like yay.
 yay -S howdy-bin
 
 # Or build from source:
@@ -94,6 +97,8 @@ sudo howdy add
 
 ## Step 6: Configure PAM (Optional)
 
+[PAM (Pluggable Authentication Modules)](https://wiki.archlinux.org/title/PAM) is a system of libraries that handle the authentication tasks of applications and services. Configuring Howdy with PAM allows for face recognition authentication for various system operations like `sudo` or login managers.
+
 **For sudo authentication:**
 
 ```bash
@@ -105,7 +110,7 @@ Add at the top:
 auth      sufficient  pam_python.so /lib/security/howdy/pam.py
 ```
 
-**For SDDM login:**
+**For SDDM login:** If you are using SDDM as your display manager, you can integrate Howdy for login authentication. See [ArchWiki: SDDM](https://wiki.archlinux.org/title/SDDM).
 
 ```bash
 sudo nano /etc/pam.d/sddm
@@ -120,18 +125,20 @@ auth      sufficient  pam_python.so /lib/security/howdy/pam.py
 
 ## Troubleshooting
 
+For more extensive troubleshooting on Howdy and IR camera issues, refer to the [ArchWiki on Howdy#Troubleshooting](https://wiki.archlinux.org/title/Howdy#Troubleshooting) and [ArchWiki on Webcam setup](https://wiki.archlinux.org/title/Webcam_setup).
+
 ### Problem: IR camera not detected
 **Solution:**
 1. Check USB: `lsusb | grep -i "ir\|camera"`
 2. Verify video device: `ls -la /dev/video*`
 3. Check kernel module: `lsmod | grep uvcvideo`
-4. Check dmesg: `dmesg | grep -i video`
+4. Check kernel messages: `dmesg | grep -i video`. For `dmesg` details, see [ArchWiki: dmesg](https://wiki.archlinux.org/title/Dmesg).
 
 ### Problem: IR emitter not activating
 **Solution:**
 1. Check if IR emitter is supported: `v4l2-ctl --list-devices`
 2. Some laptops require specific kernel parameters
-3. Check Howdy logs: `sudo journalctl -u howdy`
+3. Check Howdy logs: `sudo journalctl -u howdy`. For `journalctl` details, see [ArchWiki: Systemd/Journal](https://wiki.archlinux.org/title/Systemd/Journal).
 
 ### Problem: Howdy enrollment fails
 **Solution:**

@@ -2,7 +2,7 @@
 
 **Welcome to the Arch Linux Modular Installation System**
 
-This repository provides a **modular installation system** for Arch Linux. Each component is a separate module that can be used independently or combined as needed.
+This repository provides a **modular installation system** for [Arch Linux](https://wiki.archlinux.org/title/Arch_Linux), a lightweight and flexible Linux® distribution. Each component is a separate module that can be used independently or combined as needed.
 
 ---
 
@@ -33,7 +33,6 @@ Choose what you need before installing the system:
 
 1. **[Core System Installation](02-CORE-INSTALLATION.md)** - Install base Arch Linux system (pacstrap)
 2. **[Enter Chroot](02-CORE-INSTALLATION.md#enter-chroot)** - Enter chroot environment
-3. **[Set Root Password](02-CORE-INSTALLATION.md#set-root-password)** - Set root password
 
 ### Post-Installation Configuration
 

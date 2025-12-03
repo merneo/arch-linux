@@ -1,6 +1,6 @@
 # Module: Fail2ban Configuration for SSH
 
-**Purpose:** Install and configure fail2ban to prevent SSH brute force attacks
+**Purpose:** Install and configure fail2ban to prevent SSH brute force attacks. [Fail2ban](https://wiki.archlinux.org/title/Fail2ban) is an intrusion prevention framework that scans log files (e.g., `/var/log/auth.log` or `journalctl` output) for malicious activity and automatically bans IP addresses that show signs of repeated authentication failures.
 
 **Prerequisites:**
 - Inside chroot environment (module `01-chroot.md`) OR after first boot
@@ -20,6 +20,8 @@
 
 ## Step 1: Install Fail2ban
 
+The `fail2ban` package contains the daemon and configuration files for fail2ban. It is available in the official Arch Linux repositories.
+
 ```bash
 pacman -S fail2ban
 ```
@@ -28,7 +30,7 @@ pacman -S fail2ban
 
 ## Step 2: Create Fail2ban Configuration
 
-**Arch Linux uses systemd journal by default, so we configure fail2ban to use systemd backend:**
+Arch Linux uses the `systemd journal` for logging by default, so fail2ban is configured to use the `systemd` backend for monitoring logs. This configuration defines a "jail" for SSH to specify monitoring parameters.
 
 ```bash
 # Create local configuration directory
@@ -48,19 +50,21 @@ findtime = 600
 EOF
 ```
 
-**Configuration explanation:**
-- `enabled = true`: Enable SSH jail
-- `port = 1991`: Monitor SSH on custom port
-- `filter = sshd`: Use default SSH filter
-- `backend = systemd`: Use systemd journal (Arch Linux default)
-- `journalmatch = _SYSTEMD_UNIT=sshd.service`: Monitor SSH service logs
-- `maxretry = 3`: Ban after 3 failed attempts
-- `bantime = 3600`: Ban for 1 hour (3600 seconds)
-- `findtime = 600`: Count failures within 10 minutes (600 seconds)
+**Configuration explanation:** For a full understanding of these parameters, refer to the [Fail2ban documentation](https://www.fail2ban.org/wiki/index.php/MANUAL_0_8#Jails).
+- `enabled = true`: Activates the SSH jail.
+- `port = 1991`: Specifies the port to monitor for failed SSH attempts (matches our custom SSH port).
+- `filter = sshd`: Uses the default SSH filter defined by Fail2ban to identify login failures.
+- `backend = systemd`: Configures Fail2ban to use the `systemd journal` for log monitoring. See [ArchWiki: systemd/Journal](https://wiki.archlinux.org/title/Systemd/Journal).
+- `journalmatch = _SYSTEMD_UNIT=sshd.service`: Specifies to monitor logs specifically from the `sshd.service` unit.
+- `maxretry = 3`: The number of failed attempts before an IP address is banned.
+- `bantime = 3600`: The duration (in seconds) for which an IP address is banned (here, 1 hour).
+- `findtime = 600`: The duration (in seconds) within which `maxretry` failures must occur to trigger a ban (here, 10 minutes).
 
 ---
 
 ## Step 3: Enable and Start Fail2ban
+
+Like other services in Arch Linux, fail2ban is managed by `systemd`. Enabling the service ensures it starts automatically at boot, and starting it immediately activates the protection. For details on `systemd` service management, refer to the [ArchWiki on systemd](https://wiki.archlinux.org/title/Systemd).
 
 ```bash
 # Enable fail2ban service
@@ -75,6 +79,8 @@ systemctl start fail2ban
 ---
 
 ## Step 4: Verify Fail2ban Configuration
+
+Verifying the status of fail2ban and its configured jails is important to ensure it's actively protecting your services. The `fail2ban-client` utility provides commands to interact with the fail2ban server. For more details, consult `man fail2ban-client`.
 
 ```bash
 # Check fail2ban service status
@@ -108,6 +114,8 @@ fail2ban-client status sshd
 ---
 
 ## Step 5: Test Fail2ban (After First Boot)
+
+Testing Fail2ban's effectiveness involves intentionally triggering its ban mechanism by attempting multiple failed SSH logins. The `ssh` client will be used for these attempts. For more on SSH client usage, refer to the [ArchWiki on OpenSSH#Usage](https://wiki.archlinux.org/title/OpenSSH#Usage).
 
 **From another computer (or terminal):**
 
@@ -156,10 +164,12 @@ fail2ban-client status sshd | grep "Banned IP"
 
 ## Troubleshooting
 
+For more extensive troubleshooting on Fail2ban related issues, refer to the [ArchWiki on Fail2ban#Troubleshooting](https://wiki.archlinux.org/title/Fail2ban#Troubleshooting).
+
 ### Problem: Fail2ban not detecting failed logins
 **Solution:**
 1. Check backend: `fail2ban-client status sshd | grep -i backend`
-2. Verify SSH logs are being written: `journalctl -u sshd -n 50`
+2. Verify SSH logs are being written: `journalctl -u sshd`. For `journalctl` details, see [ArchWiki: systemd/Journal](https://wiki.archlinux.org/title/Systemd/Journal).
 3. Test filter with systemd: `fail2ban-regex "journalctl _SYSTEMD_UNIT=sshd.service" /etc/fail2ban/filter.d/sshd.conf`
 
 ### Problem: Fail2ban not banning IPs

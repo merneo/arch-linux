@@ -1,6 +1,6 @@
 # Module: Enter Chroot Environment
 
-**Purpose:** Change root into the installed system to configure it
+**Purpose:** Change root into the installed system to configure it. This is a critical step in the Arch Linux installation, effectively placing your shell environment inside the newly installed system's filesystem hierarchy. For more details, refer to the [ArchWiki on arch-chroot](https://wiki.archlinux.org/title/Arch-chroot).
 
 **Prerequisites:**
 - Base system installed (module `00-core-installation.md`)
@@ -25,7 +25,7 @@ arch-chroot /mnt
 
 **SUCCESS:** You are now inside the new Arch system
 
-**Note:** All following commands run inside chroot until you type `exit`
+**Note:** All following commands run inside chroot until you type `exit`. The `chroot` command changes the apparent root directory for the current running process and its children. It is commonly used for system recovery, building packages, or performing maintenance on a system when not running from its native root. For further reading, see the [ArchWiki on chroot](https://wiki.archlinux.org/title/Chroot).
 
 ---
 

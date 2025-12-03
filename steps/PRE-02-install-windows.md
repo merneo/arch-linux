@@ -30,7 +30,7 @@
 
 ## Step 1: Prepare BIOS Settings
 
-**Before installing Windows:**
+**Before installing Windows:** For a deeper understanding of these settings, refer to the [ArchWiki on Unified Extensible Firmware Interface (UEFI)](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface) and [ArchWiki on Secure Boot](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface#Secure_Boot).
 
 1. **Power on target computer**
 2. **Enter BIOS Setup:**
@@ -39,8 +39,8 @@
 
 3. **Configure Boot Settings:**
    - **Boot Mode**: Set to **UEFI** (not Legacy/CSM)
-   - **Secure Boot**: **Disable** (temporarily, can re-enable later)
-   - **Fast Boot**: **Disable** (if available)
+   - **Secure Boot**: **Disable** (temporarily, can re-enable later, refer to [ArchWiki: Secure Boot](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface#Secure_Boot))
+   - **Fast Boot**: **Disable** (if available, prevents proper shutdown, refer to [ArchWiki: Dual boot with Windows#Disable Fast Startup](https://wiki.archlinux.org/title/Dual_boot_with_Windows#Disable_Fast_Startup))
 
 4. **Save and Exit** (usually F10 → Yes)
 
@@ -218,7 +218,7 @@
 
 ## Step 7: Configure Windows for Dual Boot
 
-**⚠️ CRITICAL:** These settings **MUST** be configured before installing Arch Linux.
+**⚠️ CRITICAL:** These settings **MUST** be configured before installing Arch Linux. For more detailed explanations, refer to the [ArchWiki on Dual boot with Windows](https://wiki.archlinux.org/title/Dual_boot_with_Windows).
 
 ### Disable Fast Startup
 
@@ -239,7 +239,7 @@
    - **Uncheck** the box
    - Click **"Save changes"**
 
-**Why:** Fast Startup prevents proper shutdown and can cause filesystem corruption when dual booting.
+**Why:** Fast Startup prevents proper shutdown and can cause filesystem corruption when dual booting. See [ArchWiki: Dual boot with Windows#Disable Fast Startup](https://wiki.archlinux.org/title/Dual_boot_with_Windows#Disable_Fast_Startup) for more information.
 
 ### Disable BitLocker (if enabled)
 
@@ -254,7 +254,7 @@
    - Confirm decryption
    - Wait for decryption to complete (may take hours if disk is large)
 
-**Why:** BitLocker encryption can interfere with Arch Linux installation and GRUB.
+**Why:** BitLocker encryption can interfere with Arch Linux installation and GRUB. Refer to [ArchWiki: Dual boot with Windows#Disable BitLocker](https://wiki.archlinux.org/title/Dual_boot_with_Windows#Disable_BitLocker) for further context.
 
 ### Verify EFI System Partition
 
@@ -264,7 +264,7 @@
 
 2. **Verify EFI partition exists:**
    - Should see **EFI System Partition** (512 MB, FAT32)
-   - This partition will be shared with Arch Linux
+   - This partition will be shared with Arch Linux. For details on EFI system partition, refer to [ArchWiki: EFI system partition](https://wiki.archlinux.org/title/EFI_system_partition).
 
 ---
 

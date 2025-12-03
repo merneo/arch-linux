@@ -32,6 +32,8 @@
 
 ## Step 1: Verify Fingerprint Reader Detection
 
+Verify that your system detects the fingerprint reader as a USB device. The `lsusb` command lists USB devices and their IDs. For details, refer to the [ArchWiki on lsusb](https://wiki.archlinux.org/title/USB#lsusb).
+
 ```bash
 # List USB devices
 lsusb | grep -i "fingerprint\|validity"
@@ -46,13 +48,15 @@ lsusb | grep -i "fingerprint\|validity"
 
 ## Step 2: Identify Your Fingerprint Reader Model
 
+Identifying the specific model of your fingerprint reader is crucial as some require device-specific drivers or configurations. The `lsusb -v` command provides verbose details about USB devices.
+
 **Common models:**
 - **Validity Sensors 138a:0092** (Synaptics VFS7552) - requires device/0092 branch
 - **Validity Sensors 138a:0017** (Synaptics VFS5011)
 - **Upek TouchChip** (various models)
 - **AuthenTec** (various models)
 
-**Check your model:**
+**Check your model (for more verbose output, refer to [ArchWiki: lsusb](https://wiki.archlinux.org/title/USB#lsusb)):**
 ```bash
 lsusb -v | grep -A 5 "idVendor.*138a"
 ```
@@ -60,6 +64,8 @@ lsusb -v | grep -A 5 "idVendor.*138a"
 ---
 
 ## Step 3: Install Required Packages
+
+Depending on your fingerprint reader model, you will typically need a specific driver (like `python-validity`) and the `fprintd` daemon. `yay` is an [AUR helper](https://wiki.archlinux.org/title/AUR_helpers) used to install packages from the Arch User Repository. `fprintd` is a system daemon that provides a D-Bus interface for fingerprint readers. For more information, refer to the [ArchWiki on Fprint](https://wiki.archlinux.org/title/Fprint).
 
 ### For Validity Sensors (most common):
 
@@ -85,6 +91,8 @@ fprintd-list $USER
 
 ## Step 4: Install Device-Specific Support (if needed)
 
+Some fingerprint readers, particularly certain Validity Sensors models, require specific branches or patches to their drivers. This step involves cloning a specific Git repository branch and manually copying files. For basic usage of Git, refer to the [ArchWiki on Git](https://wiki.archlinux.org/title/Git).
+
 **For Validity Sensors 138a:0092 (requires special branch):**
 
 ```bash
@@ -109,6 +117,8 @@ ls -la $VALIDITY_DIR/blobs_92.py
 
 ## Step 5: Configure udev Rules
 
+[udev](https://wiki.archlinux.org/title/Udev) provides a dynamic device management system for Linux. Custom udev rules are often necessary to grant appropriate permissions to non-root users for specific hardware, such as fingerprint readers. Adding the user to the `input` group grants access to input devices. See [ArchWiki: Users and groups](https://wiki.archlinux.org/title/Users_and_groups) for group management.
+
 ```bash
 # Create udev rules for fingerprint reader
 sudo tee /etc/udev/rules.d/60-validity.rules << 'EOF'
@@ -131,6 +141,8 @@ sudo usermod -a -G input $USER
 
 ## Step 6: Start Fingerprint Service
 
+Services in Arch Linux are managed by `systemd`. The `systemctl enable --now` command enables a service to start at boot and immediately starts it. For more details on `systemd` and service management, refer to the [ArchWiki on systemd](https://wiki.archlinux.org/title/Systemd).
+
 ```bash
 # Enable and start python3-validity service
 sudo systemctl enable --now python3-validity
@@ -142,6 +154,8 @@ systemctl status python3-validity
 ---
 
 ## Step 7: Verify Detection
+
+After starting the `fprintd` service, you should verify that it detects your fingerprint device. The `fprintd-list` command provides information about detected fingerprint readers. For more details, consult `man fprintd` or the [ArchWiki on Fprint](https://wiki.archlinux.org/title/Fprint).
 
 ```bash
 # List available fingerprint devices
@@ -155,6 +169,8 @@ fprintd-list $USER
 ---
 
 ## Step 8: Enroll Fingerprint
+
+Enrolling your fingerprint registers it with the system, allowing it to be used for authentication. The `fprintd-enroll` command guides you through this process. For more details, consult `man fprintd-enroll` or the [ArchWiki on Fprint](https://wiki.archlinux.org/title/Fprint).
 
 ```bash
 # Enroll fingerprint
@@ -170,6 +186,8 @@ fprintd-enroll $USER
 
 ## Step 9: Test Verification
 
+After enrollment, it's important to test that the fingerprint reader can successfully verify your enrolled fingerprint. The `fprintd-verify` command facilitates this testing. For more details, consult `man fprintd-verify` or the [ArchWiki on Fprint](https://wiki.archlinux.org/title/Fprint).
+
 ```bash
 # Test fingerprint verification
 fprintd-verify $USER
@@ -182,7 +200,9 @@ fprintd-verify $USER
 
 ## Step 10: Configure PAM (Optional - for Authentication)
 
-**For sudo authentication:**
+[PAM (Pluggable Authentication Modules)](https://wiki.archlinux.org/title/PAM) allows for flexible configuration of authentication methods. Integrating `pam_fprintd.so` enables fingerprint authentication for various system services.
+
+**For sudo authentication:** This allows using your fingerprint instead of a password for `sudo` commands. See [ArchWiki: Sudo#Fingerprint_authentication](https://wiki.archlinux.org/title/Sudo#Fingerprint_authentication).
 
 ```bash
 sudo nano /etc/pam.d/sudo
@@ -193,7 +213,7 @@ Add at the top:
 auth      sufficient  pam_fprintd.so
 ```
 
-**For SDDM login:**
+**For SDDM login:** If you are using SDDM as your display manager, you can integrate fingerprint for login authentication. See [ArchWiki: SDDM#Fingerprint_authentication](https://wiki.archlinux.org/title/SDDM#Fingerprint_authentication).
 
 ```bash
 sudo nano /etc/pam.d/sddm
@@ -208,6 +228,8 @@ auth      sufficient  pam_fprintd.so
 
 ## Troubleshooting
 
+For more extensive troubleshooting on fingerprint reader issues, refer to the [ArchWiki on Fprint#Troubleshooting](https://wiki.archlinux.org/title/Fprint#Troubleshooting).
+
 ### Problem: Fingerprint reader not detected
 **Solution:**
 1. Check USB: `lsusb | grep -i "fingerprint\|validity"`
@@ -218,7 +240,7 @@ auth      sufficient  pam_fprintd.so
 ### Problem: fprintd-list shows "found 0 devices"
 **Solution:**
 1. Check service: `systemctl status python3-validity`
-2. Check logs: `journalctl -u python3-validity`
+2. Check logs: `journalctl -u python3-validity`. For `journalctl` details, see [ArchWiki: Systemd/Journal](https://wiki.archlinux.org/title/Systemd/Journal).
 3. Verify device-specific support is installed (for 138a:0092)
 4. Try BIOS reset
 

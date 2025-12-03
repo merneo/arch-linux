@@ -1,6 +1,6 @@
 # Phase 08: Laptop Hardware Configuration
 
-**Purpose:** Configure laptop-specific hardware (touchpad, webcam, IR camera, fingerprint)
+**Purpose:** Configure laptop-specific hardware (touchpad, webcam, IR camera, fingerprint). This phase addresses the integration and configuration of specialized hardware often found in laptops, enhancing user experience and functionality. For general laptop-related information and common issues, refer to the [ArchWiki on Laptop](https://wiki.archlinux.org/title/Laptop).
 
 **Prerequisites:**
 - After first boot (not in chroot)

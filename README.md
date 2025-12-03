@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/merneo/arch-linux
 
-This repository provides a **modular installation system** for Arch Linux. Each component is a separate module that can be used independently or combined as needed.
+This repository provides a **modular installation system** for Arch Linux. This approach allows users to build a customized installation procedure by selecting and combining independent modules. For a comprehensive overview of the Arch Linux installation process, refer to the [ArchWiki Installation Guide](https://wiki.archlinux.org/title/Installation_guide).
 
 ---
 
@@ -24,153 +24,9 @@ This repository provides a **modular installation system** for Arch Linux. Each 
 
 **Complete Installation System:** This system covers the entire installation process from USB creation to system configuration, including Windows installation for dual boot scenarios.
 
-**Core is Minimal:** Core installation = pacstrap + root password. Nothing else.
+**Core is Minimal:** Core installation = pacstrap + initial configuration. Nothing else.
 
 **Flexibility:** Combine modules in any order to create your custom installation procedure.
-
----
-
-## Installation Structure
-
-**New Structure: Phases → Steps → Commands**
-
-### Installation Phases (Recommended)
-
-**Follow phases for organized installation:**
-
-1. **[Phase 00: Preparation](phases/00-PREPARATION.md)** - USB creation, Windows installation, disk formatting
-2. **[Phase 01: Disk Setup](phases/01-DISK_SETUP.md)** - Partitioning, encryption, filesystem
-3. **[Phase 02: System Install](phases/02-SYSTEM_INSTALL.md)** - Base system installation, chroot
-4. **[Phase 03: Basic Config](phases/03-BASIC_CONFIG.md)** - Locale, root password, user creation
-5. **[Phase 04: Bootloader](phases/04-BOOTLOADER.md)** - GRUB installation, LUKS auto-unlock
-6. **[Phase 05: Network](phases/05-NETWORK.md)** - NetworkManager, WiFi, Bluetooth
-7. **[Phase 06: Audio](phases/06-AUDIO.md)** - PipeWire audio
-8. **[Phase 07: Security](phases/07-SECURITY.md)** - SSH, UFW, fail2ban
-9. **[Phase 08: Laptop Hardware](phases/08-LAPTOP_HARDWARE.md)** - Touchpad, webcam, IR camera, fingerprint
-10. **[Phase 09: Finalize](phases/09-FINALIZE.md)** - Exit chroot, reboot
-
-### Individual Steps
-
-**For custom procedures, use individual [steps](steps/):**
-
-- **Preparation:** `PRE-01-create-arch-usb.md`, `PRE-02-install-windows.md`, `PRE-03-format-disk.md`
-- **Core:** `00-core-installation.md`, `01-chroot.md`
-- **Configuration:** `02-locale.md`, `03-root-password.md`, `04-user-creation.md`, `05-grub.md`
-- **Disk:** `06-disk-partitioning.md`, `07-luks-encryption.md`, `08-btrfs-filesystem.md`, `09-mount-partitions.md`
-- **Advanced:** `10-luks-keyfile-auto-unlock.md`, `11-networkmanager.md`, `12-wifi.md`, `13-bluetooth.md`, `14-audio.md`
-- **Security:** `21-ssh-server.md`, `22-ufw-firewall.md`, `23-fail2ban.md`
-- **Laptop:** `17-laptop-touchpad.md`, `18-laptop-webcam.md`, `19-laptop-ir-camera.md`, `20-laptop-fingerprint.md`
-- **Final:** `15-exit-chroot.md`
-
----
-
-## Quick Reference
-
-- **[Installation Scenarios](INSTALLATION-SCENARIOS.md)** - Choose installation scenario (dual boot, single boot, with/without LUKS)
-- **[Phases](phases/)** - Organized installation phases (recommended approach)
-- **[Steps](steps/)** - Individual installation steps (for custom procedures)
-- **[Step Index](STEP_INDEX.md)** - Quick reference for all steps
-- **[Desktop vs Laptop](DESKTOP_VS_LAPTOP.md)** - Guide to choose steps based on hardware type
-- **[Generate Procedure](GENERATE_PROCEDURE.md)** - How to generate custom installation procedure
-
-## Example Installation Flows
-
-### Minimal Installation (Just System + Root Password)
-
-1. `00-core-installation.md` - Install base system
-2. `01-chroot.md` - Enter chroot
-3. `03-root-password.md` - Set root password
-4. `05-grub.md` - Install GRUB
-5. `15-exit-chroot.md` - Exit and reboot
-
-**Note:** Assumes disk is already partitioned and mounted at `/mnt`
-
-### Full Installation (LUKS + Btrfs + All Features)
-
-1. `06-disk-partitioning.md` - Create partitions (if needed)
-2. `07-luks-encryption.md` - Encrypt partitions
-3. `08-btrfs-filesystem.md` - Create Btrfs with subvolumes
-4. `00-core-installation.md` - Install base system
-5. `01-chroot.md` - Enter chroot
-6. `02-locale.md` - Set locale
-7. `03-root-password.md` - Set root password
-8. `04-user-creation.md` - Create user
-9. `05-grub.md` - Install GRUB (with LUKS parameters)
-10. `10-luks-keyfile-auto-unlock.md` - Auto-unlock (optional)
-11. `11-networkmanager.md` - Enable NetworkManager
-12. `12-wifi.md` - WiFi support
-13. `13-bluetooth.md` - Bluetooth
-14. `14-audio.md` - Audio server
-15. `15-exit-chroot.md` - Exit and reboot
-
-### Custom Flow
-
-Pick modules you need and follow them in logical order. Each module lists its prerequisites.
-
----
-
-## Module Structure
-
-Each module follows this structure:
-
-1. **Purpose** - What this module does
-2. **Prerequisites** - Required modules or conditions
-3. **Time** - Estimated time to complete
-4. **Steps** - Detailed instructions
-5. **Success** - Verification steps
-6. **Next** - Suggested following modules
-
----
-
-## Usage Tips
-
-- **Read prerequisites** before starting each module
-- **Verify success** after each module
-- **Customize** commands (usernames, timezones, etc.)
-- **Skip modules** you don't need
-- **Combine** modules in any logical order
-
----
-
-## Documentation
-
-### Wiki Documentation (User-Friendly)
-
-- **[Home](wiki/00-HOME.md)** - Installation menu
-- **[Core Installation](wiki/02-CORE-INSTALLATION.md)** - **DEFAULT VIEW** - Core installation steps
-- **[Pre-Installation](wiki/01-PRE-INSTALLATION.md)** - Disk partitioning, LUKS, Btrfs
-- **[Post-Installation](wiki/03-POST-INSTALLATION.md)** - Configuration menu
-- **[Complete Guide](wiki/COMPLETE-INSTALLATION.md)** - All steps in one document
-- **[Installation Flows](wiki/INSTALLATION-FLOWS.md)** - Pre-built scenarios
-
-### Step Documentation (Technical)
-
-- **[Step Index](STEP_INDEX.md)** - Quick reference for all steps
-- **[Phases](phases/)** - Organized installation phases
-- **[Steps](steps/)** - Individual step files (commands only)
-- **[Generate Procedure](GENERATE_PROCEDURE.md)** - How to generate custom procedure
-
----
-
-## Contributing
-
-Each module is independent. To add a new module:
-
-1. Create `XX-module-name.md` in `modules/` directory
-2. Follow the module structure (Purpose, Prerequisites, Time, Steps, Success, Next)
-3. Update this README with the new module
-4. Number modules logically (00-99)
-
----
-
-## Maintenance and Contributing Guidelines
-
-To ensure the high quality and accuracy of this modular installation system, please adhere to the following guidelines:
-
-*   **Regular Review Cycle:** Arch Linux is a rolling release distribution, meaning packages and configurations can change over time. It is crucial to conduct periodic reviews (e.g., quarterly or semi-annually) of all modules to ensure commands, package names, and configuration instructions remain current and technically accurate.
-*   **Version Control for Modules:** When making changes to existing modules or adding new ones, please ensure your commit messages clearly explain *what* was changed and, more importantly, *why*. Reference any relevant ArchWiki pages, forum discussions, or upstream documentation to justify technical decisions. This helps maintain a clear history and aids in future debugging or updates.
-*   **Consistency:** Maintain a consistent style, formatting, and terminology across all modules and documentation files. This improves readability and ease of use.
-*   **Testing:** Whenever possible, test changes to modules in a virtual machine or a separate test environment before submitting them.
 
 ---
 
@@ -192,14 +48,39 @@ arch-linux/
 │   ├── 07-SECURITY.md          # Phase 7: SSH, UFW, fail2ban
 │   ├── 08-LAPTOP_HARDWARE.md   # Phase 8: Touchpad, webcam, IR, fingerprint
 │   └── 09-FINALIZE.md          # Phase 9: Exit chroot, reboot
-├── steps/                      # Individual steps (24 steps: commands only)
+├── steps/                      # Individual steps (25 steps: commands only)
 │   ├── PRE-01-create-arch-usb.md
 │   ├── PRE-02-install-windows.md
 │   ├── PRE-03-format-disk.md
 │   ├── 00-core-installation.md
 │   ├── 01-chroot.md
 │   ├── 02-locale.md
-│   ├── 03-root-password.md
+│   ├── 04-user-creation.md
+│   ├── 05-grub.md
+│   ├── 06-disk-partitioning.md
+│   ├── 07-luks-encryption.md
+│   ├── 08-btrfs-filesystem.md
+│   ├── 09-mount-partitions.md
+│   ├── 10-luks-keyfile-auto-unlock.md
+│   ├── 11-networkmanager.md
+│   ├── 12-wifi.md
+│   ├── 13-bluetooth.md
+│   ├── 14-audio.md
+│   ├── 15-exit-chroot.md
+│   ├── 17-laptop-touchpad.md
+│   ├── 18-laptop-webcam.md
+│   ├── 19-laptop-ir-camera.md
+│   ├── 20-laptop-fingerprint.md
+│   ├── 21-ssh-server.md
+│   ├── 22-ufw-firewall.md
+│   └── 23-fail2ban.md
+├── modules/                    # Detailed modules (33 modules)
+│   ├── PRE-01-create-arch-usb.md
+│   ├── PRE-02-install-windows.md
+│   ├── PRE-03-format-disk.md
+│   ├── 00-core-installation.md
+│   ├── 01-chroot.md
+│   ├── 02-locale.md
 │   ├── 04-user-creation.md
 │   ├── 05-grub.md
 │   ├── 06-disk-partitioning.md
@@ -225,7 +106,9 @@ arch-linux/
 │   ├── 27-xorg-config.md
 │   ├── 28-wayland-config.md
 │   ├── 29-essential-applications.md
-│   └── 30-timeshift.md
+│   ├── 30-timeshift.md
+│   ├── 31-nvidia-drivers.md
+│   └── 32-amd-drivers.md
 └── wiki/                       # Wiki documentation
     ├── 00-HOME.md              # Home page with menu
     ├── 01-PRE-INSTALLATION.md  # Pre-installation steps
@@ -233,10 +116,88 @@ arch-linux/
     ├── 03-POST-INSTALLATION.md # Post-installation configuration
     ├── COMPLETE-INSTALLATION.md # Complete guide (all steps)
     └── INSTALLATION-FLOWS.md   # Pre-built installation scenarios
+
 ```
 
 ---
 
-**License:** This documentation is provided for educational purposes.
+## Quick Reference
 
-**License:** This documentation is provided for educational purposes.
+- **[Installation Scenarios](INSTALLATION-SCENARIOS.md)** - Choose installation scenario (dual boot, single boot, with/without LUKS)
+- **[Phases](phases/)** - Organized installation phases (recommended approach)
+- **[Step Index](STEP_INDEX.md)** - Quick reference for all steps
+- **[Desktop vs Laptop](DESKTOP_VS_LAPTOP.md)** - Guide to choose steps based on hardware type
+- **[Generate Procedure](GENERATE_PROCEDURE.md)** - How to generate custom installation procedure
+
+## Example Installation Flows
+
+These examples demonstrate how to combine modules for common installation types. For a detailed decision tree, refer to [Installation Flows](INSTALLATION-FLOWS.md).
+
+### Desktop Computer (Minimal)
+1. `00-core-installation.md`
+2. `01-chroot.md`
+3. `05-grub.md`
+4. `11-networkmanager.md` (if using Ethernet)
+5. `15-exit-chroot.md`
+6. **After first boot:**
+   - `27-xorg-config.md` or `28-wayland-config.md` (display server)
+   - `29-essential-applications.md` (web browser, etc.)
+
+### Desktop Computer (Full)
+1. `06-disk-partitioning.md` (if needed)
+2. `07-luks-encryption.md`
+3. `08-btrfs-filesystem.md`
+4. `00-core-installation.md`
+5. `01-chroot.md`
+6. `02-locale.md`
+7. `04-user-creation.md`
+8. `05-grub.md`
+9. `10-luks-keyfile-auto-unlock.md`
+10. `11-networkmanager.md`
+11. `14-audio.md`
+12. `15-exit-chroot.md`
+13. **After first boot:**
+    - `27-xorg-config.md` or `28-wayland-config.md`
+    - `24-gnome.md`, `25-kde-plasma.md`, or `26-xfce.md` (desktop environment)
+    - `29-essential-applications.md`
+    - `30-timeshift.md` (backup)
+    - `31-nvidia-drivers.md` or `32-amd-drivers.md` (GPU drivers)
+
+### Laptop (Minimal)
+1. `00-core-installation.md`
+2. `01-chroot.md`
+3. `05-grub.md`
+4. `11-networkmanager.md`
+5. `12-wifi.md`
+6. `15-exit-chroot.md`
+7. **After first boot:**
+   - `17-laptop-touchpad.md`
+   - `18-laptop-webcam.md`
+   - `27-xorg-config.md` or `28-wayland-config.md` (display server)
+   - `29-essential-applications.md` (web browser, etc.)
+
+### Laptop (Full with Biometrics)
+1. `06-disk-partitioning.md` (if needed)
+2. `07-luks-encryption.md`
+3. `08-btrfs-filesystem.md`
+4. `00-core-installation`
+5. `01-chroot.md`
+6. `02-locale.md`
+7. `04-user-creation.md`
+8. `05-grub.md`
+9. `10-luks-keyfile-auto-unlock.md`
+10. `11-networkmanager.md`
+11. `12-wifi.md`
+12. `13-bluetooth.md`
+13. `14-audio.md`
+14. `15-exit-chroot.md`
+15. **After first boot:**
+    - `17-laptop-touchpad.md`
+    - `18-laptop-webcam.md`
+    - `19-laptop-ir-camera.md` (if IR camera present)
+    - `20-laptop-fingerprint.md` (if fingerprint reader present)
+    - `27-xorg-config.md` or `28-wayland-config.md`
+    - `24-gnome.md`, `25-kde-plasma.md`, or `26-xfce.md`
+    - `29-essential-applications.md`
+    - `30-timeshift.md`
+    - `31-nvidia-drivers.md` or `32-amd-drivers.md`

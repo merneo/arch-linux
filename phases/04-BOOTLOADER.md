@@ -1,6 +1,6 @@
 # Phase 04: Bootloader
 
-**Purpose:** Install GRUB bootloader and configure auto-unlock (if using LUKS)
+**Purpose:** Install GRUB bootloader and configure auto-unlock (if using LUKS). The bootloader is essential for initiating the operating system after the system's firmware completes its POST (Power-On Self-Test). For general information on boot loaders, refer to the [ArchWiki on Boot loaders](https://wiki.archlinux.org/title/Boot_loaders), and specifically for GRUB, see the [ArchWiki on GRUB](https://wiki.archlinux.org/title/GRUB).
 
 **Prerequisites:**
 - Inside chroot environment

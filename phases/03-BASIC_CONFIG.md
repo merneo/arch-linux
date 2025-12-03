@@ -1,6 +1,6 @@
 # Phase 03: Basic Configuration
 
-**Purpose:** Configure locale, timezone, root password, and user account
+**Purpose:** Configure locale, timezone, and user account. This phase involves setting up fundamental system parameters that define your system's language, time, and user access privileges. For general configuration guidance, refer to the [ArchWiki Installation Guide#Configuration](https://wiki.archlinux.org/title/Installation_guide#Configuration).
 
 **Prerequisites:**
 - Inside chroot environment

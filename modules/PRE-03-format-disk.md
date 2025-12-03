@@ -35,7 +35,7 @@
 
 ## When to Use This Module
 
-**Use this module if:**
+**Use this module if:** For comprehensive guidance on disk partitioning, refer to the [ArchWiki on Partitioning](https://wiki.archlinux.org/title/Partitioning).
 - ✅ You want a fresh install (no existing data)
 - ✅ You're doing single boot (Arch Linux only)
 - ✅ You want to completely wipe the disk
@@ -45,14 +45,14 @@
 - ❌ You want to preserve existing data
 - ❌ You want to keep existing partitions
 
-**For dual boot or preserving data:** Use `06-disk-partitioning.md` instead.
+**For dual boot or preserving data:** Use [`06-disk-partitioning.md`](06-disk-partitioning.md) instead.
 
 ---
 
 ## Step 1: Identify Disk Device
 
 ```bash
-# List all block devices
+# List all block devices. For more details on lsblk, refer to the [ArchWiki on lsblk](https://wiki.archlinux.org/title/Lsblk).
 lsblk
 
 # Identify target disk (usually the largest one, NOT the USB drive)
@@ -79,7 +79,7 @@ In this example, target disk is `/dev/sda` (500 GB, larger than USB).
 ## Step 2: Unmount All Partitions
 
 ```bash
-# Unmount all partitions on target disk
+# Unmount all partitions on target disk. For more details on unmounting filesystems, refer to the [ArchWiki on File systems#Mounting](https://wiki.archlinux.org/title/File_systems#Mounting).
 # Replace /dev/sdX with your actual disk device
 
 # For SATA/IDE disks:
@@ -98,12 +98,12 @@ lsblk
 
 ## Step 3: Wipe Disk (Delete All Partitions)
 
-**⚠️ CRITICAL:** This will delete ALL partitions and data on the disk.
+**⚠️ CRITICAL:** This will delete ALL partitions and data on the disk. For more information on securely wiping a disk, refer to the [ArchWiki on Securely wipe disk](https://wiki.archlinux.org/title/Securely_wipe_disk).
 
 ### Option A: Using wipefs (Recommended)
 
 ```bash
-# Wipe all filesystem signatures from disk
+# Wipe all filesystem signatures from disk. For details on wipefs, consult 'man wipefs'.
 # Replace /dev/sdX with your actual disk device
 
 # For SATA/IDE disks:
@@ -124,7 +124,7 @@ sda           8:0    0 500.1G  0 disk    ← No partitions, clean disk
 
 ### Option B: Using dd (Complete Wipe - Slower)
 
-**⚠️ WARNING:** This method is slower but completely wipes the disk including partition table.
+**⚠️ WARNING:** This method is slower but completely wipes the disk including partition table. For more details on 'dd', consult 'man dd' and the [ArchWiki on dd](https://wiki.archlinux.org/title/Dd).
 
 ```bash
 # Wipe first 1 MB of disk (removes partition table)
@@ -159,7 +159,7 @@ lsblk
 
 ## Step 5: Create New Partition Table (Optional)
 
-**If you want to create a new partition table immediately:**
+**If you want to create a new partition table immediately:** For more information on partition tables, refer to the [ArchWiki on Partitioning#Partition table](https://wiki.archlinux.org/title/Partitioning#Partition_table) and the [ArchWiki on parted](https://wiki.archlinux.org/title/Parted).
 
 ```bash
 # Create new GPT partition table
@@ -181,12 +181,12 @@ lsblk
 
 ## Advanced: Secure Erase (Complete Data Wipe)
 
-**If you want to securely erase all data (for security or selling computer):**
+**If you want to securely erase all data (for security or selling computer):** For more details, refer to the [ArchWiki on Securely wipe disk](https://wiki.archlinux.org/title/Securely_wipe_disk).
 
 ### For SATA/IDE Disks:
 
 ```bash
-# Check if disk supports secure erase
+# Check if disk supports secure erase. For 'hdparm' usage, consult 'man hdparm'.
 hdparm -I /dev/sdX | grep -i "supported\|frozen"
 
 # If supported, unfreeze disk (if frozen)
@@ -199,7 +199,7 @@ hdparm --security-erase NULL /dev/sdX
 ### For NVMe Disks:
 
 ```bash
-# Check if disk supports secure erase
+# Check if disk supports secure erase. For 'nvme' usage, consult 'man nvme'.
 nvme id-ctrl /dev/nvme0n1 | grep -i "format\|sanitize"
 
 # Secure erase (takes time, depends on disk size)

@@ -1,6 +1,6 @@
 # Module: GNOME Desktop Environment
 
-**Purpose:** Install and configure the GNOME Desktop Environment
+**Purpose:** Install and configure the GNOME Desktop Environment. [GNOME](https://wiki.archlinux.org/title/GNOME) is a popular, user-friendly desktop environment known for its modern interface and integrated applications.
 
 **Prerequisites:**
 - After first boot (not in chroot)
@@ -20,16 +20,16 @@ sudo pacman -S gnome gnome-extra gnome-tweaks nautilus-share
 ```
 
 **Package breakdown:**
-- `gnome`: The core GNOME desktop environment.
-- `gnome-extra`: Additional GNOME applications (e.g., Maps, Weather, Boxes).
-- `gnome-tweaks`: Utility for fine-tuning GNOME settings.
-- `nautilus-share`: Enables file sharing through Nautilus.
+- `gnome`: The core [GNOME](https://wiki.archlinux.org/title/GNOME) desktop environment meta-package.
+- `gnome-extra`: Additional [GNOME applications](https://wiki.archlinux.org/title/GNOME#Applications) that complement the core desktop.
+- `gnome-tweaks`: A utility for fine-tuning various GNOME settings not available through the standard settings panel.
+- `nautilus-share`: Enables easy file sharing directly from the [Nautilus](https://wiki.archlinux.org/title/Nautilus) file manager.
 
 ---
 
 ## Step 2: Enable Display Manager
 
-GNOME uses GDM (GNOME Display Manager) by default.
+[GDM (GNOME Display Manager)](https://wiki.archlinux.org/title/GDM) is the default display manager for GNOME. A display manager provides a graphical login screen and manages user sessions.
 
 ```bash
 sudo systemctl enable gdm.service

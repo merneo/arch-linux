@@ -1,6 +1,6 @@
 # Arch Linux Installation Flows: Your Personalized Guide
 
-**Purpose:** This document helps you navigate the modular Arch Linux installation system by providing structured flows and decision points for common installation scenarios. Choose the path that best suits your needs!
+**Purpose:** This document helps you navigate the modular Arch Linux installation system by providing structured flows and decision points for common installation scenarios. Choose the path that best suits your needs! For a comprehensive overview of the Arch Linux installation process, refer to the [ArchWiki Installation Guide](https://wiki.archlinux.org/title/Installation_guide).
 
 ---
 
@@ -131,7 +131,7 @@ This flow covers a basic Arch Linux installation suitable for most users who do 
 
 ### Dual Boot Installation
 
-This flow focuses on installing Arch Linux alongside an existing Windows installation.
+This flow focuses on installing Arch Linux alongside an existing Windows installation. For comprehensive guidance on dual-booting, refer to the [ArchWiki on Dual boot with Windows](https://wiki.archlinux.org/title/Dual_boot_with_Windows).
 
 **Recommended for:** Users who want to keep Windows and add Arch Linux to their system.
 

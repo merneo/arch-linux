@@ -1,6 +1,6 @@
 # Phase 07: Security Configuration
 
-**Purpose:** Configure SSH, firewall, and intrusion prevention
+**Purpose:** Configure SSH, firewall, and intrusion prevention. This phase focuses on hardening your system against unauthorized access and protecting network services. For a comprehensive overview of security best practices in Arch Linux, refer to the [ArchWiki on Security](https://wiki.archlinux.org/title/Security).
 
 **Prerequisites:**
 - Inside chroot environment OR after first boot

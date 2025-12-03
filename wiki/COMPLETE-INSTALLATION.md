@@ -1,6 +1,6 @@
 # Complete Arch Linux Installation Guide
 
-**Purpose:** This guide provides a complete, sequential path through the modular Arch Linux installation process by linking to the relevant, detailed documentation modules.
+**Purpose:** This guide provides a complete, sequential path through the modular Arch Linux installation process by linking to the relevant, detailed documentation modules. For a comprehensive overview of the Arch Linux installation process, refer to the [ArchWiki Installation Guide](https://wiki.archlinux.org/title/Installation_guide).
 
 ---
 

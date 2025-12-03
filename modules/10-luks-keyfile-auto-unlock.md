@@ -1,6 +1,6 @@
 # Module: LUKS Keyfile Auto-Unlock
 
-**Purpose:** Configure automatic LUKS decryption on boot using keyfile
+**Purpose:** Configure automatic LUKS decryption on boot using a keyfile. This method allows the system to unlock encrypted partitions without requiring manual passphrase entry at every boot, enhancing convenience. For a detailed guide on LUKS keyfiles, refer to the [ArchWiki on dm-crypt/Encrypting an entire system#Keyfiles](https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system#Keyfiles) and the role of [mkinitcpio](https://wiki.archlinux.org/title/Mkinitcpio) in this process.
 
 **Prerequisites:**
 - Inside chroot environment (module `01-chroot.md`)
@@ -15,10 +15,10 @@
 
 ## Security Notes
 
-- **Keyfile security:** The keyfile is embedded in initramfs, which means anyone with physical access to the disk can boot without a passphrase
-- **Trade-off:** Convenience vs. security - auto-unlock makes boot easier but reduces security
-- **Backup keyfile:** Store a backup securely (not on the same disk)
-- **Alternative:** Use TPM (Trusted Platform Module) for more secure auto-unlock (advanced)
+- **Keyfile security:** The keyfile is embedded in initramfs, which means anyone with physical access to the disk can boot without a passphrase. This introduces a potential security vulnerability if physical access is compromised.
+- **Trade-off:** Convenience vs. security - auto-unlock makes boot easier but reduces security, especially against cold boot attacks. Consider your threat model.
+- **Backup keyfile:** Store a backup securely (not on the same disk).
+- **Alternative:** For enhanced security with auto-unlock, consider using a [Trusted Platform Module (TPM)](https://wiki.archlinux.org/title/Trusted_Platform_Module) if your hardware supports it (an advanced configuration).
 
 ---
 
@@ -33,6 +33,8 @@ chmod 700 /etc/cryptsetup.d
 
 ## Step 2: Generate LUKS Keyfile
 
+The `dd` command is used to copy data, and here it generates a random keyfile from `/dev/urandom`. `/dev/urandom` is a special file that serves as a non-blocking source of pseudo-random numbers. For more on these commands, consult `man dd` and `man urandom`, or see [ArchWiki: Random number generation](https://wiki.archlinux.org/title/Random_number_generation).
+
 ```bash
 # Generate 512-byte random keyfile
 dd if=/dev/urandom of=/etc/cryptsetup.d/root.key bs=512 count=1
@@ -45,6 +47,8 @@ chmod 600 /etc/cryptsetup.d/root.key
 
 ## Step 3: Add Keyfile to LUKS Key Slot
 
+Adding the keyfile to a LUKS key slot allows the encrypted volume to be unlocked using the keyfile instead of (or in addition to) a passphrase. For more information, refer to [ArchWiki: dm-crypt/Encrypting an entire system#Keyfiles](https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system#Keyfiles) and `man cryptsetup`.
+
 ```bash
 # Replace /dev/sdX2 with your root partition
 cryptsetup luksAddKey /dev/sdX2 /etc/cryptsetup.d/root.key
@@ -52,7 +56,8 @@ cryptsetup luksAddKey /dev/sdX2 /etc/cryptsetup.d/root.key
 
 **Enter existing LUKS passphrase** when prompted.
 
-**Verify keyfile was added:**
+**Verify keyfile was added:** The `cryptsetup luksDump` command displays LUKS header information, including which key slots are enabled.
+
 ```bash
 cryptsetup luksDump /dev/sdX2 | grep "Key Slot"
 
@@ -75,6 +80,8 @@ cryptsetup luksAddKey /dev/sdX3 /etc/cryptsetup.d/root.key
 ---
 
 ## Step 5: Configure Initramfs to Include Keyfile
+
+The keyfile must be included in the [initramfs](https://wiki.archlinux.org/title/Mkinitcpio) so that it is available early in the boot process to unlock the root partition. The `encrypt` hook is also necessary to handle LUKS encryption. For detailed instructions, refer to [ArchWiki: mkinitcpio#Adding a keyfile](https://wiki.archlinux.org/title/Mkinitcpio#Adding_a_keyfile).
 
 ```bash
 nano /etc/mkinitcpio.conf
@@ -106,6 +113,8 @@ HOOKS=(base udev autodetect modconf block encrypt filesystems keyboard fsck)
 
 ## Step 6: Update GRUB for Keyfile
 
+GRUB needs to be configured to use the keyfile for decryption at boot. This is done by adding the `cryptkey` parameter to `GRUB_CMDLINE_LINUX`. For a detailed explanation, refer to the [ArchWiki on GRUB#Encrypting_an_entire_system](https://wiki.archlinux.org/title/GRUB#Encrypting_an_entire_system) section.
+
 ```bash
 nano /etc/default/grub
 ```
@@ -124,6 +133,8 @@ GRUB_CMDLINE_LINUX="cryptkey=rootfs:/etc/cryptsetup.d/root.key cryptdevice=UUID=
 ---
 
 ## Step 7: Configure Encrypted Swap Auto-Unlock
+
+For encrypted swap partitions to be automatically unlocked and activated at boot using the keyfile, entries must be added to `/etc/crypttab` and `/etc/fstab`. The `crypttab` file defines encrypted block devices that are set up during system boot. For detailed instructions, refer to the [ArchWiki on crypttab](https://wiki.archlinux.org/title/Dm-crypt/System_configuration#crypttab) and [ArchWiki on dm-crypt/Swap encryption](https://wiki.archlinux.org/title/Dm-crypt/Swap_encryption). For `fstab` configuration, see [ArchWiki on fstab](https://wiki.archlinux.org/title/Fstab).
 
 ```bash
 # Create /etc/crypttab for swap
@@ -151,6 +162,8 @@ nano /etc/fstab
 
 ## Step 8: Rebuild Initramfs and GRUB
 
+After modifying `/etc/mkinitcpio.conf` and `/etc/default/grub`, both the initramfs image and the GRUB configuration file must be regenerated to incorporate the changes. For more details, refer to [ArchWiki: mkinitcpio#Image_generation](https://wiki.archlinux.org/title/Mkinitcpio#Image_generation) and [ArchWiki: GRUB/Configuration#Generate_the_main_configuration_file](https://wiki.archlinux.org/title/GRUB/Configuration#Generate_the_main_configuration_file).
+
 ```bash
 # Regenerate initramfs (includes keyfile now)
 mkinitcpio -P
@@ -162,6 +175,8 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ---
 
 ## Step 9: Verify Keyfile is in Initramfs
+
+It's crucial to verify that the keyfile has indeed been embedded into the initramfs image. The `lsinitcpio` utility lists the contents of an initramfs file. For more information, refer to [ArchWiki: mkinitcpio#Contents](https://wiki.archlinux.org/title/Mkinitcpio#Contents).
 
 ```bash
 # List contents of initramfs

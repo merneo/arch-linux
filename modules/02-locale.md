@@ -1,6 +1,6 @@
 # Module: Locale and Timezone Configuration
 
-**Purpose:** Configure system locale and timezone
+**Purpose:** Configure system locale and timezone. This is crucial for proper display of language-specific characters, date/time formats, and system time synchronization. For detailed information, refer to the [ArchWiki on Locale](https://wiki.archlinux.org/title/Locale) and [ArchWiki on Time](https://wiki.archlinux.org/title/Time).
 
 **Prerequisites:**
 - Inside chroot environment (module `01-chroot.md`)
@@ -20,6 +20,8 @@
 
 ## Step 1: Set Timezone
 
+Setting the correct timezone is vital for accurate system logging, scheduling, and overall time management. For detailed guidance on time zones, refer to the [ArchWiki on Time zones](https://wiki.archlinux.org/title/Time#Time_zone). The `hwclock` command is used for managing the hardware clock. See [ArchWiki on System time](https://wiki.archlinux.org/title/System_time).
+
 ```bash
 # Replace with your timezone (examples: Europe/Prague, America/New_York, Asia/Tokyo)
 ln -sf /usr/share/zoneinfo/Europe/Prague /etc/localtime
@@ -37,6 +39,8 @@ timedatectl status
 
 ## Step 2: Set Locale
 
+The system locale defines language, collation, character type, and formatting conventions. Enabling the correct locale is crucial for proper text display. For more information, refer to the [ArchWiki on Locale#Generate locales](https://wiki.archlinux.org/title/Locale#Generate_locales).
+
 ```bash
 # Uncomment your locale in locale.gen
 # For English (US):
@@ -53,6 +57,8 @@ locale-gen
 ---
 
 ## Step 3: Set System Locale
+
+This step sets the `LANG` environment variable, which defines the default locale for the entire system. For detailed instructions on configuring the system locale, refer to the [ArchWiki on Locale#Set the system locale](https://wiki.archlinux.org/title/Locale#Set_the_system_locale).
 
 ```bash
 # Set default locale
@@ -73,7 +79,7 @@ cat /etc/locale.conf
 
 ## Verification
 
-Run these commands to verify configuration:
+Run these commands to verify configuration. For more details on locale verification, see [ArchWiki: Locale#Verification](https://wiki.archlinux.org/title/Locale#Verification). For time zone settings, refer to [ArchWiki: Time#Time_zone_settings](https://wiki.archlinux.org/title/Time#Time_zone_settings).
 
 ```bash
 # Check locale
@@ -92,6 +98,8 @@ timedatectl status
 ---
 
 ## Troubleshooting
+
+For more general troubleshooting of locale and timezone issues, refer to the respective [ArchWiki: Locale](https://wiki.archlinux.org/title/Locale#Troubleshooting) and [ArchWiki: Time](https://wiki.archlinux.org/title/Time#Troubleshooting) sections.
 
 ### Problem: locale-gen fails
 **Solution:**

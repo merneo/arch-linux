@@ -1,6 +1,6 @@
 # Module: Disk Partitioning
 
-**Purpose:** Create disk partitions for Arch Linux installation
+**Purpose:** Create disk partitions for Arch Linux installation. Partitioning is a fundamental step in preparing a storage device for use by an operating system. For a comprehensive understanding of disk partitioning in Arch Linux, refer to the [ArchWiki on Partitioning](https://wiki.archlinux.org/title/Partitioning) and the utility [cfdisk](https://wiki.archlinux.org/title/Cfdisk).
 
 **Prerequisites:**
 - Booted from Arch Linux Live USB
@@ -28,7 +28,7 @@
 ## Step 1: Identify Disk Device
 
 ```bash
-# List all block devices
+# List all block devices. For more details on lsblk, refer to the [ArchWiki on lsblk](https://wiki.archlinux.org/title/Lsblk).
 lsblk
 
 # Identify target disk (usually the largest one, NOT the USB drive)
@@ -39,6 +39,8 @@ lsblk
 ---
 
 ## Step 2: Launch cfdisk
+
+`cfdisk` is a curses-based disk partition manipulator, providing a user-friendly interface for creating and managing disk partitions. For details on `cfdisk`, refer to the [ArchWiki on cfdisk](https://wiki.archlinux.org/title/Cfdisk). When prompted, select `gpt` (GUID Partition Table), which is the standard for modern UEFI systems. See [ArchWiki on GUID Partition Table](https://wiki.archlinux.org/title/Partitioning#GUID_Partition_Table) for more information.
 
 ```bash
 # Open cfdisk for your disk (replace /dev/sdX with your actual device)
@@ -68,6 +70,8 @@ cfdisk /dev/nvme0n1
 
 ### Create EFI System Partition
 
+For UEFI systems, an [EFI system partition (ESP)](https://wiki.archlinux.org/title/EFI_system_partition) is required. It stores boot loaders and must be formatted as FAT32. The `EF00` type code identifies it as an ESP.
+
 1. Navigate to **Free space** row
 2. Press Enter on **[ New ]** menu option
 3. **Partition size**: Type `512M` (minimum 512 MB for EFI) and press Enter
@@ -78,12 +82,16 @@ cfdisk /dev/nvme0n1
 
 ### Create Linux Root Partition
 
+This partition will house your root filesystem. For information on various [Linux filesystems](https://wiki.archlinux.org/title/File_systems), refer to the ArchWiki.
+
 1. Navigate to remaining **Free space** row
 2. Press Enter on **[ New ]** menu option
 3. **Partition size**: Type `90%` (or leave remaining space for Arch Linux) and press Enter
 4. Partition type will default to **Linux filesystem** (correct, do not change)
 
 ### Create Swap Partition (Optional)
+
+A [swap partition](https://wiki.archlinux.org/title/Swap) provides virtual memory when physical RAM is exhausted and can be used for hibernation.
 
 1. Navigate to remaining **Free space** row
 2. Press Enter on **[ New ]** menu option
@@ -102,12 +110,12 @@ cfdisk /dev/nvme0n1
 
 ## Dual Boot (Arch Linux + Windows)
 
-**Use this if:** You want to keep Windows and install Arch Linux alongside it.
+**Use this if:** You want to keep Windows and install Arch Linux alongside it. For a complete guide on dual-booting with Windows, refer to the [ArchWiki on Dual boot with Windows](https://wiki.archlinux.org/title/Dual_boot_with_Windows).
 
 **⚠️ IMPORTANT: Before proceeding:**
-- Windows Fast Startup **MUST BE DISABLED** (prevents filesystem corruption)
-- BitLocker encryption in Windows **MUST BE DISABLED**
-- Back up important data before resizing partitions
+- Windows Fast Startup **MUST BE DISABLED** (prevents filesystem corruption). See [ArchWiki: Dual boot with Windows#Disable Fast Startup](https://wiki.archlinux.org/title/Dual_boot_with_Windows#Disable_Fast_Startup).
+- BitLocker encryption in Windows **MUST BE DISABLED**. See [ArchWiki: Dual boot with Windows#Disable BitLocker](https://wiki.archlinux.org/title/Dual_boot_with_Windows#Disable_BitLocker).
+- Back up important data before resizing partitions.
 
 ### Option A: Use Free Space (Windows Already Installed)
 
@@ -132,7 +140,7 @@ cfdisk /dev/nvme0n1
 6. Scroll down to find **Linux swap** (type code 19 or 82)
 7. Press Enter to select Linux swap
 
-**Note:** EFI System Partition should already exist (created by Windows). Verify with `lsblk -f` - it should show FAT32 EFI partition.
+**Note:** EFI System Partition should already exist (created by Windows). Verify with `lsblk -f` - it should show FAT32 [EFI system partition](https://wiki.archlinux.org/title/EFI_system_partition).
 
 ### Option B: Resize Windows Partition (Advanced)
 
@@ -170,11 +178,13 @@ cfdisk /dev/nvme0n1
 
 ## Step 5: Verify Partitions
 
+After writing changes to the disk, it's essential to ensure the kernel re-reads the partition table and that the new partitions are visible.
+
 ```bash
-# Force kernel to re-read partition table
+# Force kernel to re-read partition table. For more on 'partprobe', see its [man page](https://man.archlinux.org/man/partprobe.8).
 partprobe /dev/sdX
 
-# List partitions again
+# List partitions again. Verify with [ArchWiki: lsblk](https://wiki.archlinux.org/title/Lsblk).
 lsblk -f
 
 # Should show:

@@ -119,6 +119,8 @@ For an organized installation, you can follow the structured phases. Each phase 
 | `28-wayland-config.md` | Wayland Display Server config | **Optional** - If using Wayland-based DEs/WMs. |
 | `29-essential-applications.md` | Install essential applications | **Recommended** - For basic daily computing tasks. |
 | `30-timeshift.md` | Timeshift for system snapshots | **Recommended** - For system backup and restore. |
+| `31-nvidia-drivers.md` | NVIDIA GPU Driver Installation | **Optional** - For systems with NVIDIA graphics. |
+| `32-amd-drivers.md` | AMD GPU Driver Installation | **Optional** - For systems with AMD graphics. |
 
 ---
 

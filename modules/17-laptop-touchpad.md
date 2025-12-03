@@ -1,6 +1,6 @@
 # Module: Laptop Touchpad Configuration
 
-**Purpose:** Configure touchpad/trackpad for laptops (tap-to-click, gestures, scrolling)
+**Purpose:** Configure touchpad/trackpad for laptops (tap-to-click, gestures, scrolling). The touchpad is a crucial input device for laptops, and proper configuration greatly enhances usability. For comprehensive details on touchpad configuration in Arch Linux, refer to the [ArchWiki on Touchpad Synaptics](https://wiki.archlinux.org/title/Touchpad_Synaptics) and [ArchWiki on libinput](https://wiki.archlinux.org/title/Libinput).
 
 **Prerequisites:**
 - Inside chroot environment (module `01-chroot.md`) OR after first boot
@@ -17,11 +17,13 @@
 
 ## Step 1: Verify Touchpad Detection
 
+Verifying that your system correctly detects the touchpad is the first step. `libinput` is the standard Wayland and X.Org input driver, while `xinput` is an X Window System utility for configuring and testing input devices.
+
 ```bash
-# List input devices
+# List input devices. For libinput details, see [ArchWiki: libinput](https://wiki.archlinux.org/title/Libinput).
 libinput list-devices | grep -i touchpad
 
-# Or check with xinput (if X11 is installed)
+# Or check with xinput (if X11 is installed). For xinput details, see [ArchWiki: xinput](https://wiki.archlinux.org/title/Xorg#Input_configuration).
 xinput list | grep -i touchpad
 
 # Expected output shows touchpad device
@@ -31,23 +33,27 @@ xinput list | grep -i touchpad
 
 ## Step 2: Install Required Packages
 
+These packages provide the necessary drivers and utilities for managing input devices, particularly touchpads.
+
 ```bash
-# libinput is usually included with desktop environments
+# libinput is usually included with desktop environments. For standalone libinput setup, see [ArchWiki: libinput](https://wiki.archlinux.org/title/Libinput).
 # For minimal setups, install explicitly:
 pacman -S libinput xf86-input-libinput
 
+# xf86-input-libinput is the Xorg input driver based on libinput.
 # For X11 environments:
-pacman -S xorg-xinput
+pacman -S xorg-xinput # Provides the 'xinput' command for managing input devices. See [ArchWiki: xinput](https://wiki.archlinux.org/title/Xorg#Input_configuration).
 
 # For Wayland (Hyprland, Sway, etc.):
-# libinput is built-in, no additional packages needed
+# libinput is built-in, no additional packages needed beyond the compositor itself.
+# See [ArchWiki: Wayland](https://wiki.archlinux.org/title/Wayland).
 ```
 
 ---
 
 ## Step 3: Configure Touchpad (Wayland - Hyprland)
 
-**For Hyprland window manager:**
+[Hyprland](https://wiki.archlinux.org/title/Hyprland) is a dynamic tiling Wayland compositor based on `wlroots`. Touchpad configuration for Hyprland is typically done through its configuration file.
 
 Edit `~/.config/hypr/hyprland.conf`:
 
@@ -84,9 +90,11 @@ hyprctl reload
 
 ## Step 4: Configure Touchpad (X11)
 
-**For X11 environments (GNOME, KDE, XFCE, etc.):**
+For X11 environments, touchpad configuration can be done either temporarily via `xinput` commands or permanently through Xorg configuration files.
 
 ### Option 1: Using xinput (temporary, until reboot)
+
+The `xinput` utility is used to configure X.Org input devices. Changes made with `xinput` are session-specific and will reset on reboot. For more details, refer to the [ArchWiki on xinput](https://wiki.archlinux.org/title/Xorg#Input_configuration).
 
 ```bash
 # List touchpad device
@@ -105,6 +113,8 @@ xinput set-prop <TOUCHPAD_ID> "libinput Disable While Typing Enabled" 1
 ```
 
 ### Option 2: Using Xorg configuration (permanent)
+
+For persistent configuration across reboots, Xorg configuration files in `/etc/X11/xorg.conf.d/` are used. These files define how input devices are handled by the X server. Refer to the [ArchWiki on Xorg configuration](https://wiki.archlinux.org/title/Xorg#Input_configuration) for comprehensive details.
 
 Create `/etc/X11/xorg.conf.d/40-libinput.conf`:
 
@@ -150,11 +160,13 @@ EndSection
 
 ## Troubleshooting
 
+For more extensive troubleshooting on touchpad issues, refer to the [ArchWiki on Touchpad Synaptics#Troubleshooting](https://wiki.archlinux.org/title/Touchpad_Synaptics#Troubleshooting) and [ArchWiki on libinput#Troubleshooting](https://wiki.archlinux.org/title/Libinput#Troubleshooting).
+
 ### Problem: Touchpad not detected
 **Solution:**
 1. Check if touchpad is enabled in BIOS/UEFI
-2. Verify kernel module: `lsmod | grep psmouse`
-3. Check dmesg: `dmesg | grep -i touchpad`
+2. Verify kernel module: `lsmod | grep psmouse`. For `lsmod` details, see [ArchWiki: Kernel modules](https://wiki.archlinux.org/title/Kernel_modules).
+3. Check kernel messages: `dmesg | grep -i touchpad`. For `dmesg` details, see [ArchWiki: dmesg](https://wiki.archlinux.org/title/Dmesg).
 
 ### Problem: Tap-to-click not working
 **Solution:**
