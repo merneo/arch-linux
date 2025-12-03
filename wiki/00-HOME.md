@@ -8,9 +8,11 @@ This repository provides a **modular installation system** for Arch Linux. Each 
 
 ## 🚀 Quick Start
 
-1. **Boot from Arch Linux Live USB**
-2. **Connect to network** (Ethernet or WiFi)
-3. **Choose your installation path** below
+1. **[Create Arch Linux USB](modules/PRE-01-create-arch-usb.md)** - Create bootable USB drive
+2. **[Install Windows](modules/PRE-02-install-windows.md)** - Only if dual booting
+3. **Boot from Arch Linux Live USB**
+4. **Connect to network** (Ethernet or WiFi)
+5. **Choose your installation path** below
 
 ---
 
@@ -77,7 +79,7 @@ Choose what you need after core installation:
 
 **Modularity First:** Each installation step is a separate module. Pick and choose what you need.
 
-**No Assumptions:** This system assumes you're already booted from Arch Linux Live USB. It doesn't format disks or create USB drives - it only installs and configures the system.
+**Complete Installation System:** This system covers the entire installation process from USB creation to system configuration, including Windows installation for dual boot scenarios.
 
 **Flexibility:** Combine modules in any order to create your custom installation procedure.
 

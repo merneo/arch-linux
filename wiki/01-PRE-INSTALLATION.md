@@ -8,9 +8,15 @@
 
 ## Menu: Pre-Installation Steps
 
-**First, choose your installation scenario:** See [Installation Scenarios](../INSTALLATION-SCENARIOS.md) for detailed guidance.
+**⚠️ IMPORTANT:** Before proceeding, complete these preparation steps:
 
-**Then choose what you need:**
+1. **[Create Arch Linux USB](../modules/PRE-01-create-arch-usb.md)** - Create bootable USB drive (required)
+2. **[Install Windows](../modules/PRE-02-install-windows.md)** - Only if dual booting (optional)
+3. **[Format Disk](../modules/PRE-03-format-disk.md)** - Only if you want to completely wipe disk (optional)
+
+**Then choose your installation scenario:** See [Installation Scenarios](../INSTALLATION-SCENARIOS.md) for detailed guidance.
+
+**After preparation, choose what you need:**
 
 - **[Disk Partitioning](#disk-partitioning)** - Create disk partitions (single boot or dual boot)
 - **[LUKS Encryption](#luks-encryption)** - Encrypt partitions (optional, for Btrfs + LUKS scenario)

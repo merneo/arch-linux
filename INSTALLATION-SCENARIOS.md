@@ -17,7 +17,9 @@
 - Swap partition (optional)
 
 **Required Modules:**
-1. `06-disk-partitioning.md` - **Use dual boot section** (resize Windows partition or use free space)
+1. `PRE-01-create-arch-usb.md` - Create Arch Linux bootable USB
+2. `PRE-02-install-windows.md` - Install Windows first (if not already installed)
+3. `06-disk-partitioning.md` - **Use dual boot section** (resize Windows partition or use free space)
 2. Choose filesystem:
    - **Option A:** `07-luks-encryption.md` → `08-btrfs-filesystem.md` (Btrfs + LUKS)
    - **Option B:** `08-btrfs-filesystem.md` (Btrfs only, no LUKS)
@@ -46,7 +48,9 @@
 - Swap partition (encrypted with LUKS2, optional)
 
 **Required Modules:**
-1. `06-disk-partitioning.md` - **Use single boot section** (entire disk for Arch)
+1. `PRE-01-create-arch-usb.md` - Create Arch Linux bootable USB
+2. `PRE-03-format-disk.md` - Format disk completely (optional, if you want fresh start)
+3. `06-disk-partitioning.md` - **Use single boot section** (entire disk for Arch)
 2. `07-luks-encryption.md` - Encrypt root and swap partitions
 3. `08-btrfs-filesystem.md` - Create Btrfs on encrypted partition
 4. `00-core-installation.md` - Install base system
@@ -75,7 +79,9 @@
 - Swap partition (optional)
 
 **Required Modules:**
-1. `06-disk-partitioning.md` - **Use single boot section** (entire disk for Arch)
+1. `PRE-01-create-arch-usb.md` - Create Arch Linux bootable USB
+2. `PRE-03-format-disk.md` - Format disk completely (optional, if you want fresh start)
+3. `06-disk-partitioning.md` - **Use single boot section** (entire disk for Arch)
 2. `08-btrfs-filesystem.md` - Create Btrfs (skip LUKS encryption)
 3. `00-core-installation.md` - Install base system
 4. `01-chroot.md` - Enter chroot
@@ -108,6 +114,9 @@
 
 | Module | Dual Boot | Single Boot (LUKS) | Single Boot (No LUKS) |
 |--------|-----------|-------------------|---------------------|
+| `PRE-01-create-arch-usb.md` | ✅ Required | ✅ Required | ✅ Required |
+| `PRE-02-install-windows.md` | ✅ Required | ❌ Skip | ❌ Skip |
+| `PRE-03-format-disk.md` | ❌ Skip | ⚠️ Optional | ⚠️ Optional |
 | `06-disk-partitioning.md` | ✅ (dual boot section) | ✅ (single boot section) | ✅ (single boot section) |
 | `07-luks-encryption.md` | ⚠️ Optional | ✅ Required | ❌ Skip |
 | `08-btrfs-filesystem.md` | ✅ | ✅ (on encrypted) | ✅ (on unencrypted) |

@@ -6,6 +6,21 @@
 
 ---
 
+## Preparation Modules (Before Installation)
+
+| Module | Purpose | When to Use |
+|--------|---------|-------------|
+| `PRE-01-create-arch-usb.md` | Create bootable Arch Linux USB drive | **Always** - Required before installation |
+| `PRE-02-install-windows.md` | Install Windows for dual boot | **Dual boot only** - Install Windows before Arch Linux |
+| `PRE-03-format-disk.md` | Completely wipe and format disk | **Fresh install only** - If you want to wipe entire disk |
+
+**Note:** 
+- `PRE-01` is required for all installations
+- `PRE-02` is only for dual boot scenarios
+- `PRE-03` is optional (only if you want to completely wipe disk)
+
+---
+
 ## Core Installation (Required)
 
 | Module | Purpose | When to Use |
@@ -160,4 +175,4 @@ Each module lists its prerequisites. Common dependencies:
 
 ---
 
-**Remember:** This system assumes you're already booted from Arch Linux Live USB. It doesn't format disks or create USB drives - it only installs and configures the system.
+**Remember:** Start with preparation modules (`PRE-01`, `PRE-02` if dual boot, `PRE-03` if needed), then proceed with core installation modules.

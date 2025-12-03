@@ -21,7 +21,7 @@ This repository provides a **modular installation system** for Arch Linux. Each 
 
 **Modularity First:** Each installation step is a separate module. Pick and choose what you need.
 
-**No Assumptions:** This system assumes you're already booted from Arch Linux Live USB. It doesn't format disks or create USB drives - it only installs and configures the system.
+**Complete Installation System:** This system covers the entire installation process from USB creation to system configuration, including Windows installation for dual boot scenarios.
 
 **Core is Minimal:** Core installation = pacstrap + root password. Nothing else.
 
@@ -30,6 +30,14 @@ This repository provides a **modular installation system** for Arch Linux. Each 
 ---
 
 ## Available Modules
+
+### Preparation (Before Installation)
+
+**These modules must be completed before installing Arch Linux:**
+
+- **`PRE-01-create-arch-usb.md`** - Create bootable Arch Linux USB drive
+- **`PRE-02-install-windows.md`** - Install Windows (for dual boot scenario only)
+- **`PRE-03-format-disk.md`** - Format disk completely (for fresh installs only)
 
 ### Core Installation (Required)
 - **`00-core-installation.md`** - Install base Arch Linux system (pacstrap) - **CORE MODULE**
@@ -168,7 +176,10 @@ arch-linux/
 ├── README.md                    # This file
 ├── MODULE_INDEX.md             # Quick reference for all modules
 ├── GENERATE_PROCEDURE.md       # How to generate custom procedure
-├── modules/                    # Individual modules (23 modules)
+├── modules/                    # Individual modules (26 modules: 3 PRE + 23 main)
+│   ├── PRE-01-create-arch-usb.md # PREP: Create Arch Linux USB
+│   ├── PRE-02-install-windows.md # PREP: Install Windows (dual boot)
+│   ├── PRE-03-format-disk.md    # PREP: Format disk (fresh install)
 │   ├── 00-core-installation.md # CORE: Install base system
 │   ├── 01-chroot.md            # Enter chroot
 │   ├── 02-locale.md            # Set locale and timezone

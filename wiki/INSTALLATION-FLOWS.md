@@ -14,13 +14,15 @@ Choose the flow that matches your situation:
 
 **Use this if:** You want the absolute minimum - just install the system and set root password.
 
-**Time:** 25-45 minutes
+**Time:** 35-55 minutes (includes USB preparation)
 
 ### Steps:
 
-1. **[Core Installation](02-CORE-INSTALLATION.md)** - Install base system, enter chroot, set root password
-2. **[GRUB Bootloader](03-POST-INSTALLATION.md#grub-bootloader)** - Install GRUB (required for boot)
-3. **[Exit & Reboot](03-POST-INSTALLATION.md#exit-reboot)** - Final step
+1. **[Create Arch Linux USB](../modules/PRE-01-create-arch-usb.md)** - Create bootable USB drive
+2. **Boot from USB** and connect to network
+3. **[Core Installation](02-CORE-INSTALLATION.md)** - Install base system, enter chroot, set root password
+4. **[GRUB Bootloader](03-POST-INSTALLATION.md#grub-bootloader)** - Install GRUB (required for boot)
+5. **[Exit & Reboot](03-POST-INSTALLATION.md#exit-reboot)** - Final step
 
 **Note:** Assumes disk is already partitioned and mounted at `/mnt`
 
@@ -30,20 +32,22 @@ Choose the flow that matches your situation:
 
 **Use this if:** You want a working system with user account and network.
 
-**Time:** 30-50 minutes
+**Time:** 40-60 minutes (includes USB preparation)
 
 ### Steps:
 
-1. **[Pre-Installation](01-PRE-INSTALLATION.md)** (if needed)
+1. **[Create Arch Linux USB](../modules/PRE-01-create-arch-usb.md)** - Create bootable USB drive
+2. **Boot from USB** and connect to network
+3. **[Pre-Installation](01-PRE-INSTALLATION.md)** (if needed)
    - Disk Partitioning (if disk not already partitioned)
    - Mount Partitions
 
-2. **[Core Installation](02-CORE-INSTALLATION.md)**
+4. **[Core Installation](02-CORE-INSTALLATION.md)**
    - Install base system
    - Enter chroot
    - Set root password
 
-3. **[Post-Installation](03-POST-INSTALLATION.md)**
+5. **[Post-Installation](03-POST-INSTALLATION.md)**
    - Locale & Timezone
    - User Creation
    - GRUB Bootloader
@@ -56,21 +60,24 @@ Choose the flow that matches your situation:
 
 **Use this if:** You want everything - LUKS encryption, Btrfs, and all features.
 
-**Time:** 1-2 hours
+**Time:** 1.5-2.5 hours (includes USB preparation)
 
 ### Steps:
 
-1. **[Pre-Installation](01-PRE-INSTALLATION.md)**
+1. **[Create Arch Linux USB](../modules/PRE-01-create-arch-usb.md)** - Create bootable USB drive
+2. **[Format Disk](../modules/PRE-03-format-disk.md)** - Completely wipe disk (optional, for fresh install)
+3. **Boot from USB** and connect to network
+4. **[Pre-Installation](01-PRE-INSTALLATION.md)**
    - Disk Partitioning
    - LUKS Encryption
    - Btrfs Filesystem
 
-2. **[Core Installation](02-CORE-INSTALLATION.md)**
+5. **[Core Installation](02-CORE-INSTALLATION.md)**
    - Install base system
    - Enter chroot
    - Set root password
 
-3. **[Post-Installation](03-POST-INSTALLATION.md)**
+6. **[Post-Installation](03-POST-INSTALLATION.md)**
    - Locale & Timezone
    - User Creation
    - GRUB Bootloader (with LUKS parameters)
