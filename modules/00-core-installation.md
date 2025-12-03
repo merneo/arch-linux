@@ -40,6 +40,7 @@ pacstrap /mnt \
   linux \
   linux-firmware \
   linux-headers \
+  intel-ucode \
   btrfs-progs \
   dosfstools \
   e2fsprogs \

@@ -20,6 +20,8 @@ Choose what you need:
 - **[WiFi Support](#wifi-support)** - WiFi configuration
 - **[Bluetooth](#bluetooth)** - Bluetooth support
 - **[Audio Server](#audio-server)** - PipeWire audio
+- **[Intel Graphics Drivers](#intel-graphics-drivers)** - Intel graphics (Intel version only)
+- **[AMD Graphics Drivers](#amd-graphics-drivers)** - AMD graphics (AMD version only)
 - **[Exit & Reboot](#exit-reboot)** - Final step
 
 ---

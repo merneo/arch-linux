@@ -9,6 +9,10 @@
 - Network connection established
 - Disk partitions created and mounted at `/mnt`
 
+**Note:** This is the vendor-neutral core version. For Intel or AMD specific versions, see:
+- [Intel Version](../core-intel/wiki/02-CORE-INSTALLATION.md) - Includes `intel-ucode` and Intel graphics drivers
+- [AMD Version](../core-amd/wiki/02-CORE-INSTALLATION.md) - Includes `amd-ucode` and AMD graphics drivers
+
 ---
 
 ## Core Installation Steps
