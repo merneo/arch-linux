@@ -68,8 +68,10 @@ Choose what you need after core installation:
 
 ## 📖 Documentation
 
-- **[Installation Scenarios](../INSTALLATION-SCENARIOS.md)** - **NEW!** Choose your installation scenario (dual boot, single boot, with/without LUKS)
-- **[Module Index](../MODULE_INDEX.md)** - Quick reference for all modules
+- **[Installation Scenarios](../INSTALLATION-SCENARIOS.md)** - Choose your installation scenario (dual boot, single boot, with/without LUKS)
+- **[Phases](../phases/)** - **NEW!** Organized installation phases (recommended)
+- **[Steps](../steps/)** - **NEW!** Individual installation steps (commands only)
+- **[Step Index](../STEP_INDEX.md)** - Quick reference for all steps
 - **[Generate Procedure](../GENERATE_PROCEDURE.md)** - How to generate custom procedure
 - **[Repository README](../README.md)** - System overview
 
