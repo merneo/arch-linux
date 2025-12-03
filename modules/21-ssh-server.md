@@ -62,11 +62,13 @@ PermitEmptyPasswords no
 # Enable SSH service to start on boot
 systemctl enable sshd
 
-# Start SSH service immediately (if after first boot)
+# If after first boot (not in chroot), start SSH service immediately
 systemctl start sshd
 ```
 
-**Note:** If you're in chroot, service will start automatically on first boot.
+**Note:** 
+- **In chroot:** Use only `systemctl enable sshd` (service will start automatically on first boot)
+- **After first boot:** Use `systemctl enable --now sshd` to enable and start immediately
 
 ---
 

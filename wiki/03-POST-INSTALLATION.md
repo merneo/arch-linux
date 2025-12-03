@@ -20,8 +20,6 @@ Choose what you need:
 - **[WiFi Support](#wifi-support)** - WiFi configuration
 - **[Bluetooth](#bluetooth)** - Bluetooth support
 - **[Audio Server](#audio-server)** - PipeWire audio
-- **[Intel Graphics Drivers](#intel-graphics-drivers)** - Intel graphics (Intel version only)
-- **[AMD Graphics Drivers](#amd-graphics-drivers)** - AMD graphics (AMD version only)
 - **[Laptop Touchpad](#laptop-touchpad)** - Touchpad configuration (laptops only)
 - **[Laptop Webcam](#laptop-webcam)** - Webcam configuration (laptops only)
 - **[Laptop IR Camera](#laptop-ir-camera)** - IR camera for face recognition (laptops only)
@@ -576,77 +574,6 @@ systemctl --user enable pipewire pipewire-pulse wireplumber
 
 ---
 
-## Intel Graphics Drivers
-
-**Purpose:** Install Intel graphics drivers (Mesa, Vulkan, VA-API)
-
-**Prerequisites:**
-- Inside chroot environment
-- **Note:** This is only for Intel version. See [Intel branch](../core-intel/wiki/03-POST-INSTALLATION.md#intel-graphics-drivers)
-
-**Time:** 3-5 minutes
-
-### Step 1: Install Intel Graphics Drivers
-
-```bash
-# Install Intel graphics drivers
-pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel \
-  xf86-video-intel intel-media-driver
-```
-
-**Package breakdown:**
-- `mesa` - OpenGL implementation
-- `lib32-mesa` - 32-bit OpenGL (for compatibility)
-- `vulkan-intel` - Vulkan driver for Intel
-- `lib32-vulkan-intel` - 32-bit Vulkan
-- `xf86-video-intel` - X11 Intel driver (legacy)
-- `intel-media-driver` - Hardware video acceleration
-
-**SUCCESS:** Intel graphics drivers installed
-
-**Official Resources:**
-- [Intel Graphics on ArchWiki](https://wiki.archlinux.org/title/Intel_graphics)
-- [Mesa 3D Graphics Library](https://www.mesa3d.org/)
-
-**Next:** Continue with other configuration steps or [Exit & Reboot](#exit-reboot)
-
----
-
-## AMD Graphics Drivers
-
-**Purpose:** Install AMD graphics drivers (Mesa, Vulkan, VA-API)
-
-**Prerequisites:**
-- Inside chroot environment
-- **Note:** This is only for AMD version. See [AMD branch](../core-amd/wiki/03-POST-INSTALLATION.md#amd-graphics-drivers)
-
-**Time:** 3-5 minutes
-
-### Step 1: Install AMD Graphics Drivers
-
-```bash
-# Install AMD graphics drivers
-pacman -S mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon \
-  xf86-video-amdgpu
-```
-
-**Package breakdown:**
-- `mesa` - OpenGL implementation
-- `lib32-mesa` - 32-bit OpenGL (for compatibility)
-- `vulkan-radeon` - Vulkan driver for AMD Radeon
-- `lib32-vulkan-radeon` - 32-bit Vulkan
-- `xf86-video-amdgpu` - X11 AMD driver
-
-**SUCCESS:** AMD graphics drivers installed
-
-**Official Resources:**
-- [AMD Graphics on ArchWiki](https://wiki.archlinux.org/title/AMDGPU)
-- [Mesa 3D Graphics Library](https://www.mesa3d.org/)
-
-**Next:** Continue with other configuration steps or [Exit & Reboot](#exit-reboot)
-
----
-
 ## Laptop Touchpad
 
 **Purpose:** Configure touchpad/trackpad for laptops
@@ -865,6 +792,146 @@ fprintd-enroll $USER
 **Official Resources:**
 - [ArchWiki: Fprint](https://wiki.archlinux.org/title/Fprint)
 - [python-validity GitHub](https://github.com/uunicorn/python-validity)
+
+**Next:** Continue with other configuration steps or [Exit & Reboot](#exit-reboot)
+
+---
+
+## SSH Server
+
+**Purpose:** Install and configure SSH server with custom port and security
+
+**Prerequisites:**
+- After first boot (not in chroot)
+- User account created (module `04-user-creation.md`)
+
+**Time:** 5-10 minutes
+
+**ENVIRONMENT:** After first boot
+
+### Step 1: Install SSH Server
+
+```bash
+pacman -S openssh
+```
+
+### Step 2: Configure SSH
+
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+**Key settings:**
+- `Port 1991` - Custom SSH port
+- `PermitRootLogin no` - Disable root login
+- `PasswordAuthentication yes` - Allow password auth
+
+### Step 3: Enable SSH Service
+
+```bash
+sudo systemctl enable --now sshd
+```
+
+**SUCCESS:** SSH server running on port 1991, root login disabled
+
+**Official Resources:**
+- [ArchWiki: OpenSSH](https://wiki.archlinux.org/title/OpenSSH)
+
+**Next:** [UFW Firewall](#ufw-firewall) or [Exit & Reboot](#exit-reboot)
+
+---
+
+## UFW Firewall
+
+**Purpose:** Configure UFW firewall (all outgoing, only SSH incoming)
+
+**Prerequisites:**
+- After first boot (not in chroot)
+- SSH server configured (module `21-ssh-server.md`)
+
+**Time:** 5-10 minutes
+
+**ENVIRONMENT:** After first boot
+
+### Step 1: Install UFW
+
+```bash
+pacman -S ufw
+```
+
+### Step 2: Configure Defaults
+
+```bash
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+```
+
+### Step 3: Allow SSH
+
+```bash
+sudo ufw allow 1991/tcp
+```
+
+### Step 4: Enable Firewall
+
+```bash
+sudo ufw enable
+```
+
+**SUCCESS:** UFW firewall active, SSH (1991) allowed, all outgoing allowed
+
+**Official Resources:**
+- [ArchWiki: UFW](https://wiki.archlinux.org/title/Uncomplicated_Firewall)
+
+**Next:** [Fail2ban](#fail2ban) or [Exit & Reboot](#exit-reboot)
+
+---
+
+## Fail2ban
+
+**Purpose:** Install fail2ban to prevent SSH brute force attacks
+
+**Prerequisites:**
+- After first boot (not in chroot)
+- SSH server configured (module `21-ssh-server.md`)
+- UFW firewall configured (module `22-ufw-firewall.md`)
+
+**Time:** 5-10 minutes
+
+**ENVIRONMENT:** After first boot
+
+### Step 1: Install Fail2ban
+
+```bash
+pacman -S fail2ban
+```
+
+### Step 2: Configure SSH Jail
+
+```bash
+sudo tee /etc/fail2ban/jail.d/sshd.conf << 'EOF'
+[sshd]
+enabled = true
+port = 1991
+filter = sshd
+backend = systemd
+journalmatch = _SYSTEMD_UNIT=sshd.service
+maxretry = 3
+bantime = 3600
+findtime = 600
+EOF
+```
+
+### Step 3: Enable Fail2ban
+
+```bash
+sudo systemctl enable --now fail2ban
+```
+
+**SUCCESS:** Fail2ban protecting SSH, bans IPs after 3 failed attempts
+
+**Official Resources:**
+- [ArchWiki: Fail2ban](https://wiki.archlinux.org/title/Fail2ban)
 
 **Next:** Continue with other configuration steps or [Exit & Reboot](#exit-reboot)
 

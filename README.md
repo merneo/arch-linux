@@ -167,12 +167,12 @@ arch-linux/
 ├── README.md                    # This file
 ├── MODULE_INDEX.md             # Quick reference for all modules
 ├── GENERATE_PROCEDURE.md       # How to generate custom procedure
-├── modules/                    # Individual modules (16 modules)
+├── modules/                    # Individual modules (23 modules)
 │   ├── 00-core-installation.md # CORE: Install base system
 │   ├── 01-chroot.md            # Enter chroot
 │   ├── 02-locale.md            # Set locale and timezone
 │   ├── 03-root-password.md     # Set root password
-│   ├── 04-user-creation.md    # Create user account
+│   ├── 04-user-creation.md     # Create user account
 │   ├── 05-grub.md              # Install GRUB bootloader
 │   ├── 06-disk-partitioning.md # OPTIONAL: Create partitions
 │   ├── 07-luks-encryption.md   # OPTIONAL: Encrypt partitions
@@ -183,7 +183,14 @@ arch-linux/
 │   ├── 12-wifi.md              # WiFi support
 │   ├── 13-bluetooth.md         # Bluetooth support
 │   ├── 14-audio.md             # Audio server
-│   └── 15-exit-chroot.md       # Exit and reboot
+│   ├── 15-exit-chroot.md       # Exit and reboot
+│   ├── 17-laptop-touchpad.md   # Laptop: Touchpad configuration
+│   ├── 18-laptop-webcam.md     # Laptop: Webcam configuration
+│   ├── 19-laptop-ir-camera.md  # Laptop: IR camera configuration
+│   ├── 20-laptop-fingerprint.md # Laptop: Fingerprint reader
+│   ├── 21-ssh-server.md        # SSH server (port 1991, root disabled)
+│   ├── 22-ufw-firewall.md      # UFW firewall
+│   └── 23-fail2ban.md          # Fail2ban SSH protection
 └── wiki/                       # Wiki documentation
     ├── 00-HOME.md              # Home page with menu
     ├── 01-PRE-INSTALLATION.md  # Pre-installation steps

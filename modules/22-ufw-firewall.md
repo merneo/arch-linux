@@ -179,11 +179,12 @@ ufw status verbose | grep Default
 2. Should show: `allow (outgoing)`
 3. If not, set: `ufw default allow outgoing`
 
-### Problem: UFW service not starting
+### Problem: UFW not active
 **Solution:**
-1. Enable UFW service: `systemctl enable ufw`
-2. Start UFW: `systemctl start ufw`
-3. Check status: `systemctl status ufw`
+1. Check UFW status: `ufw status`
+2. If inactive, enable UFW: `ufw enable`
+3. Verify rules: `ufw status verbose`
+4. **Note:** UFW doesn't use systemd service in Arch Linux - it's managed directly via `ufw` commands
 
 ---
 

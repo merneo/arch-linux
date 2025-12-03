@@ -28,55 +28,14 @@ pacman -S fail2ban
 
 ## Step 2: Create Fail2ban Configuration
 
+**Arch Linux uses systemd journal by default, so we configure fail2ban to use systemd backend:**
+
 ```bash
 # Create local configuration directory
 mkdir -p /etc/fail2ban/jail.d
 
-# Create SSH jail configuration for port 1991
+# Create SSH jail configuration for port 1991 with systemd backend
 cat > /etc/fail2ban/jail.d/sshd.conf << 'EOF'
-[sshd]
-enabled = true
-port = 1991
-filter = sshd
-logpath = /var/log/auth.log
-maxretry = 3
-bantime = 3600
-findtime = 600
-EOF
-```
-
-**Configuration explanation:**
-- `enabled = true`: Enable SSH jail
-- `port = 1991`: Monitor SSH on custom port
-- `maxretry = 3`: Ban after 3 failed attempts
-- `bantime = 3600`: Ban for 1 hour (3600 seconds)
-- `findtime = 600`: Count failures within 10 minutes (600 seconds)
-
----
-
-## Step 3: Configure Log Path
-
-**Check your system's auth log location:**
-
-```bash
-# Check if /var/log/auth.log exists
-ls -la /var/log/auth.log
-
-# If not, check journald location
-# Arch Linux uses systemd journal, so we need to configure journal backend
-```
-
-**For systemd journal (Arch Linux default):**
-
-Edit `/etc/fail2ban/jail.d/sshd.conf`:
-
-```bash
-nano /etc/fail2ban/jail.d/sshd.conf
-```
-
-**Update configuration:**
-
-```bash
 [sshd]
 enabled = true
 port = 1991
@@ -86,44 +45,22 @@ journalmatch = _SYSTEMD_UNIT=sshd.service
 maxretry = 3
 bantime = 3600
 findtime = 600
-```
-
-**Save and exit** (Ctrl+O, Enter, Ctrl+X)
-
----
-
-## Step 4: Update SSH Filter for Port 1991
-
-```bash
-# Check if custom filter is needed
-grep -i "port.*1991" /etc/fail2ban/filter.d/sshd.conf
-
-# If not found, create custom filter
-cat > /etc/fail2ban/filter.d/sshd-custom.conf << 'EOF'
-[Definition]
-failregex = ^%(__prefix_line)s(?:error: PAM: )?Authentication failure for .* from <HOST>( via \S+)?\s*$
-            ^%(__prefix_line)s(?:error: PAM: )?User not known to the underlying authentication module for .* from <HOST>\s*$
-            ^%(__prefix_line)sFailed \S+ for .* from <HOST>(?: port \d+)?(?: ssh\d*)?(: (ruser .*|(\S+ )?user .* from <HOST>))?.*$
-            ^%(__prefix_line)sROOT LOGIN REFUSED.* from <HOST>\s*$
-            ^%(__prefix_line)s[iI](?:llegal|nvalid) user .* from <HOST>\s*$
-ignoreregex =
 EOF
 ```
 
-**Update jail to use custom filter:**
-
-```bash
-nano /etc/fail2ban/jail.d/sshd.conf
-```
-
-**Change filter line:**
-```bash
-filter = sshd-custom
-```
+**Configuration explanation:**
+- `enabled = true`: Enable SSH jail
+- `port = 1991`: Monitor SSH on custom port
+- `filter = sshd`: Use default SSH filter
+- `backend = systemd`: Use systemd journal (Arch Linux default)
+- `journalmatch = _SYSTEMD_UNIT=sshd.service`: Monitor SSH service logs
+- `maxretry = 3`: Ban after 3 failed attempts
+- `bantime = 3600`: Ban for 1 hour (3600 seconds)
+- `findtime = 600`: Count failures within 10 minutes (600 seconds)
 
 ---
 
-## Step 5: Enable and Start Fail2ban
+## Step 3: Enable and Start Fail2ban
 
 ```bash
 # Enable fail2ban service
@@ -137,7 +74,7 @@ systemctl start fail2ban
 
 ---
 
-## Step 6: Verify Fail2ban Configuration
+## Step 4: Verify Fail2ban Configuration
 
 ```bash
 # Check fail2ban service status
@@ -170,7 +107,7 @@ fail2ban-client status sshd
 
 ---
 
-## Step 7: Test Fail2ban (After First Boot)
+## Step 5: Test Fail2ban (After First Boot)
 
 **From another computer (or terminal):**
 
@@ -221,9 +158,9 @@ fail2ban-client status sshd | grep "Banned IP"
 
 ### Problem: Fail2ban not detecting failed logins
 **Solution:**
-1. Check log path: `fail2ban-client status sshd | grep "File list"`
+1. Check backend: `fail2ban-client status sshd | grep -i backend`
 2. Verify SSH logs are being written: `journalctl -u sshd -n 50`
-3. Check filter matches: `fail2ban-regex /var/log/auth.log /etc/fail2ban/filter.d/sshd.conf`
+3. Test filter with systemd: `fail2ban-regex "journalctl _SYSTEMD_UNIT=sshd.service" /etc/fail2ban/filter.d/sshd.conf`
 
 ### Problem: Fail2ban not banning IPs
 **Solution:**
