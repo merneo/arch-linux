@@ -57,9 +57,10 @@ Choose what you need after core installation:
 
 ### Installation Flows
 
-- **[Minimal Installation](INSTALLATION-FLOWS.md#minimal)** - Just system + root password
-- **[Standard Installation](INSTALLATION-FLOWS.md#standard)** - System + user + network
-- **[Full Installation](INSTALLATION-FLOWS.md#full)** - LUKS + Btrfs + all features
+- **[Installation Flows](INSTALLATION-FLOWS.md)** - Pre-built installation scenarios
+  - Minimal Installation - Just system + root password
+  - Standard Installation - System + user + network
+  - Full Installation - LUKS + Btrfs + all features
 
 ---
 

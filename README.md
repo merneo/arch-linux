@@ -6,22 +6,26 @@ This repository provides a **modular installation system** for Arch Linux. Each 
 
 ---
 
+## 🚀 Quick Start
+
+**Start here:** [Core Installation](wiki/02-CORE-INSTALLATION.md) - **Default view**
+
+**Or browse:**
+- [Home](wiki/00-HOME.md) - Installation menu
+- [Complete Guide](wiki/COMPLETE-INSTALLATION.md) - All steps in one document
+- [Installation Flows](wiki/INSTALLATION-FLOWS.md) - Pre-built installation scenarios
+
+---
+
 ## Philosophy
 
 **Modularity First:** Each installation step is a separate module. Pick and choose what you need.
 
 **No Assumptions:** This system assumes you're already booted from Arch Linux Live USB. It doesn't format disks or create USB drives - it only installs and configures the system.
 
+**Core is Minimal:** Core installation = pacstrap + root password. Nothing else.
+
 **Flexibility:** Combine modules in any order to create your custom installation procedure.
-
----
-
-## Quick Start
-
-1. **Boot from Arch Linux Live USB**
-2. **Connect to network** (Ethernet or WiFi)
-3. **Choose modules** you need from the list below
-4. **Follow modules in order** (each module lists prerequisites)
 
 ---
 
