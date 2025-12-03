@@ -26,6 +26,9 @@ Choose what you need:
 - **[Laptop Webcam](#laptop-webcam)** - Webcam configuration (laptops only)
 - **[Laptop IR Camera](#laptop-ir-camera)** - IR camera for face recognition (laptops only)
 - **[Laptop Fingerprint](#laptop-fingerprint)** - Fingerprint reader (laptops only)
+- **[SSH Server](#ssh-server)** - SSH server (port 1991, root disabled)
+- **[UFW Firewall](#ufw-firewall)** - UFW firewall configuration
+- **[Fail2ban](#fail2ban)** - Fail2ban SSH protection
 - **[Exit & Reboot](#exit-reboot)** - Final step
 
 ---

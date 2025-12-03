@@ -54,6 +54,11 @@ This repository provides a **modular installation system** for Arch Linux. Each 
 - **`13-bluetooth.md`** - Bluetooth support
 - **`14-audio.md`** - Audio server (PipeWire)
 
+### Security and Network (Optional)
+- **`21-ssh-server.md`** - SSH server (port 1991, root disabled)
+- **`22-ufw-firewall.md`** - UFW firewall (outgoing allowed, SSH incoming)
+- **`23-fail2ban.md`** - Fail2ban for SSH protection
+
 ### Laptop Hardware (Laptops Only)
 - **`17-laptop-touchpad.md`** - Configure touchpad/trackpad
 - **`18-laptop-webcam.md`** - Configure built-in webcam

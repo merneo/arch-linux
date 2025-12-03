@@ -54,6 +54,19 @@
 
 ---
 
+## Security and Network (Optional)
+
+| Module | Purpose | When to Use |
+|--------|---------|-------------|
+| `21-ssh-server.md` | Configure SSH server (port 1991, root disabled) | **If needed** - If you want remote SSH access |
+| `22-ufw-firewall.md` | Configure UFW firewall | **Recommended** - If using SSH or want firewall protection |
+| `23-fail2ban.md` | Configure fail2ban for SSH protection | **Recommended** - If using SSH (prevents brute force attacks) |
+
+**Note:** These modules work together:
+- SSH server (port 1991, root disabled)
+- UFW firewall (allows outgoing, only SSH incoming)
+- Fail2ban (bans IPs after failed login attempts)
+
 ## Laptop Hardware (Laptops Only)
 
 | Module | Purpose | When to Use |
