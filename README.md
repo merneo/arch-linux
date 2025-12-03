@@ -122,29 +122,60 @@ Each module follows this structure:
 
 ---
 
+## Documentation
+
+### Wiki Documentation (User-Friendly)
+
+- **[Home](wiki/00-HOME.md)** - Installation menu
+- **[Core Installation](wiki/02-CORE-INSTALLATION.md)** - **DEFAULT VIEW** - Core installation steps
+- **[Pre-Installation](wiki/01-PRE-INSTALLATION.md)** - Disk partitioning, LUKS, Btrfs
+- **[Post-Installation](wiki/03-POST-INSTALLATION.md)** - Configuration menu
+- **[Complete Guide](wiki/COMPLETE-INSTALLATION.md)** - All steps in one document
+- **[Installation Flows](wiki/INSTALLATION-FLOWS.md)** - Pre-built scenarios
+
+### Module Documentation (Technical)
+
+- **[Module Index](MODULE_INDEX.md)** - Quick reference for all modules
+- **[Generate Procedure](GENERATE_PROCEDURE.md)** - How to generate custom procedure
+- **[modules/](modules/)** - Individual module files
+
+### AI Helpers
+
+- **Helper:** `~/Documents/helpers/arch-linux-modular-installation.md` - Quick reference for AI assistants
+
+---
+
 ## Repository Structure
 
 ```
 arch-linux/
 ├── README.md                    # This file
 ├── MODULE_INDEX.md             # Quick reference for all modules
-└── modules/
-    ├── 00-core-installation.md # CORE: Install base system
-    ├── 01-chroot.md            # Enter chroot
-    ├── 02-locale.md            # Set locale and timezone
-    ├── 03-root-password.md     # Set root password
-    ├── 04-user-creation.md    # Create user account
-    ├── 05-grub.md              # Install GRUB bootloader
-    ├── 06-disk-partitioning.md # OPTIONAL: Create partitions
-    ├── 07-luks-encryption.md   # OPTIONAL: Encrypt partitions
-    ├── 08-btrfs-filesystem.md  # OPTIONAL: Create Btrfs
-    ├── 09-mount-partitions.md  # OPTIONAL: Mount partitions
-    ├── 10-luks-keyfile-auto-unlock.md # OPTIONAL: Auto-unlock
-    ├── 11-networkmanager.md    # Enable NetworkManager
-    ├── 12-wifi.md              # WiFi support
-    ├── 13-bluetooth.md         # Bluetooth support
-    ├── 14-audio.md             # Audio server
-    └── 15-exit-chroot.md       # Exit and reboot
+├── GENERATE_PROCEDURE.md       # How to generate custom procedure
+├── modules/                    # Individual modules (16 modules)
+│   ├── 00-core-installation.md # CORE: Install base system
+│   ├── 01-chroot.md            # Enter chroot
+│   ├── 02-locale.md            # Set locale and timezone
+│   ├── 03-root-password.md     # Set root password
+│   ├── 04-user-creation.md    # Create user account
+│   ├── 05-grub.md              # Install GRUB bootloader
+│   ├── 06-disk-partitioning.md # OPTIONAL: Create partitions
+│   ├── 07-luks-encryption.md   # OPTIONAL: Encrypt partitions
+│   ├── 08-btrfs-filesystem.md  # OPTIONAL: Create Btrfs
+│   ├── 09-mount-partitions.md  # OPTIONAL: Mount partitions
+│   ├── 10-luks-keyfile-auto-unlock.md # OPTIONAL: Auto-unlock
+│   ├── 11-networkmanager.md    # Enable NetworkManager
+│   ├── 12-wifi.md              # WiFi support
+│   ├── 13-bluetooth.md         # Bluetooth support
+│   ├── 14-audio.md             # Audio server
+│   └── 15-exit-chroot.md       # Exit and reboot
+└── wiki/                       # Wiki documentation
+    ├── 00-HOME.md              # Home page with menu
+    ├── 01-PRE-INSTALLATION.md  # Pre-installation steps
+    ├── 02-CORE-INSTALLATION.md # Core installation (DEFAULT VIEW)
+    ├── 03-POST-INSTALLATION.md # Post-installation configuration
+    ├── COMPLETE-INSTALLATION.md # Complete guide (all steps)
+    └── INSTALLATION-FLOWS.md   # Pre-built installation scenarios
 ```
 
 ---
