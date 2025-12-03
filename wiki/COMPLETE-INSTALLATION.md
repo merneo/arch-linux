@@ -22,7 +22,7 @@
 
 ---
 
-
+## Menu: Pre-Installation Steps
 
 Choose what you need:
 
@@ -442,7 +442,6 @@ lsblk -f
 
 ---
 
-**Back to:** [Home](00-HOME.md) | **Next:** [Core Installation](02-CORE-INSTALLATION.md)
 
 
 ---
@@ -590,7 +589,6 @@ New password:
 
 ---
 
-**Back to:** [Home](00-HOME.md) | **Next:** [Post-Installation Configuration](03-POST-INSTALLATION.md)
 
 
 ---
@@ -605,7 +603,7 @@ New password:
 
 ---
 
-
+## Menu: Post-Installation Configuration
 
 Choose what you need:
 
@@ -1243,4 +1241,3 @@ reboot
 
 ---
 
-**Back to:** [Home](00-HOME.md) | **Previous:** [Core Installation](02-CORE-INSTALLATION.md)
