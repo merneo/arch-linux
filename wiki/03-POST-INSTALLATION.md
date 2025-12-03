@@ -569,6 +569,77 @@ systemctl --user enable pipewire pipewire-pulse wireplumber
 
 ---
 
+## Intel Graphics Drivers
+
+**Purpose:** Install Intel graphics drivers (Mesa, Vulkan, VA-API)
+
+**Prerequisites:**
+- Inside chroot environment
+- **Note:** This is only for Intel version. See [Intel branch](../core-intel/wiki/03-POST-INSTALLATION.md#intel-graphics-drivers)
+
+**Time:** 3-5 minutes
+
+### Step 1: Install Intel Graphics Drivers
+
+```bash
+# Install Intel graphics drivers
+pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel \
+  xf86-video-intel intel-media-driver
+```
+
+**Package breakdown:**
+- `mesa` - OpenGL implementation
+- `lib32-mesa` - 32-bit OpenGL (for compatibility)
+- `vulkan-intel` - Vulkan driver for Intel
+- `lib32-vulkan-intel` - 32-bit Vulkan
+- `xf86-video-intel` - X11 Intel driver (legacy)
+- `intel-media-driver` - Hardware video acceleration
+
+**SUCCESS:** Intel graphics drivers installed
+
+**Official Resources:**
+- [Intel Graphics on ArchWiki](https://wiki.archlinux.org/title/Intel_graphics)
+- [Mesa 3D Graphics Library](https://www.mesa3d.org/)
+
+**Next:** Continue with other configuration steps or [Exit & Reboot](#exit-reboot)
+
+---
+
+## AMD Graphics Drivers
+
+**Purpose:** Install AMD graphics drivers (Mesa, Vulkan, VA-API)
+
+**Prerequisites:**
+- Inside chroot environment
+- **Note:** This is only for AMD version. See [AMD branch](../core-amd/wiki/03-POST-INSTALLATION.md#amd-graphics-drivers)
+
+**Time:** 3-5 minutes
+
+### Step 1: Install AMD Graphics Drivers
+
+```bash
+# Install AMD graphics drivers
+pacman -S mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon \
+  xf86-video-amdgpu
+```
+
+**Package breakdown:**
+- `mesa` - OpenGL implementation
+- `lib32-mesa` - 32-bit OpenGL (for compatibility)
+- `vulkan-radeon` - Vulkan driver for AMD Radeon
+- `lib32-vulkan-radeon` - 32-bit Vulkan
+- `xf86-video-amdgpu` - X11 AMD driver
+
+**SUCCESS:** AMD graphics drivers installed
+
+**Official Resources:**
+- [AMD Graphics on ArchWiki](https://wiki.archlinux.org/title/AMDGPU)
+- [Mesa 3D Graphics Library](https://www.mesa3d.org/)
+
+**Next:** Continue with other configuration steps or [Exit & Reboot](#exit-reboot)
+
+---
+
 ## Exit & Reboot
 
 **Purpose:** Exit chroot environment, unmount partitions, and reboot system
