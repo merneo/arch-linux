@@ -153,7 +153,11 @@ Same as Intel laptop.
 
 ---
 
-## Installation Scenarios (By Type)
+---
+
+## Installation Types (By Configuration)
+
+### Scenario 1: Dual Boot (Arch Linux + Windows)
 
 ### Scenario 1: Dual Boot (Arch Linux + Windows)
 
