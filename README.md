@@ -130,15 +130,38 @@ arch-linux/
 
 ## Quick Reference
 
+### Getting Started
+- **[Main Index](INDEX.md)** - Start here! Choose your hardware and configuration
+- **[Installation Checklist](INSTALLATION_CHECKLIST.md)** - Track your installation progress
 - **[Installation Scenarios](INSTALLATION-SCENARIOS.md)** - Choose installation scenario (dual boot, single boot, with/without LUKS)
+- **[Time Estimates](TIME_ESTIMATES.md)** - Plan your installation time
+
+### Installation Guides
 - **[Phases](phases/)** - Organized installation phases (recommended approach)
 - **[Step Index](STEP_INDEX.md)** - Quick reference for all steps
 - **[Module Index](MODULE_INDEX.md)** - Quick reference for all modules
+- **[Post-Installation Checklist](POST_INSTALL_CHECKLIST.md)** - What to do after first boot
+
+### Help & Support
+- **[FAQ](FAQ.md)** - Frequently asked questions
+- **[Troubleshooting](TROUBLESHOOTING.md)** - Common problems and solutions
+- **[Common Mistakes](COMMON_MISTAKES.md)** - Avoid common errors
+
+### Reference & Tools
 - **[Module Dependencies](MODULE_DEPENDENCIES.md)** - Dependency graph and relationships
 - **[Module Finder](MODULE_FINDER.md)** - Find modules by use case, hardware, or scenario
 - **[Quick Reference](QUICK_REFERENCE.md)** - Cheat sheet and quick lookup
+- **[Comparison Guide](COMPARISON_GUIDE.md)** - Xorg/Wayland, Desktop Environments comparison
 - **[Desktop vs Laptop](DESKTOP_VS_LAPTOP.md)** - Guide to choose steps based on hardware type
+
+### Optimization & Maintenance
+- **[Performance Tuning](PERFORMANCE_TUNING.md)** - Optimize your system performance
+- **[Backup & Recovery](BACKUP_RECOVERY.md)** - Backup and recovery procedures
+
+### Contributing
 - **[Generate Procedure](GENERATE_PROCEDURE.md)** - How to generate custom installation procedure
+- **[Contributing Guide](CONTRIBUTING.md)** - How to contribute to this repository
+- **[Changelog](CHANGELOG.md)** - Change history
 
 ## Example Installation Flows
 

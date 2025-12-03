@@ -91,14 +91,34 @@ All phases are linked together with Previous/Next navigation:
 
 ## 📚 Complete Documentation
 
+### Installation Guides
 - **[Complete Installation Guide](wiki/COMPLETE-INSTALLATION.md)** - All steps in one document
 - **[Installation Scenarios](INSTALLATION-SCENARIOS.md)** - Detailed scenarios by hardware
 - **[Installation Flows](wiki/INSTALLATION-FLOWS.md)** - Pre-built installation flows
+- **[Installation Checklist](INSTALLATION_CHECKLIST.md)** - Track your progress
+- **[Post-Installation Checklist](POST_INSTALL_CHECKLIST.md)** - After first boot
+
+### Reference Guides
 - **[Module Index](MODULE_INDEX.md)** - All available modules
 - **[Step Index](STEP_INDEX.md)** - All individual steps
 - **[Module Dependencies](MODULE_DEPENDENCIES.md)** - Dependency relationships
 - **[Module Finder](MODULE_FINDER.md)** - Find modules by use case
 - **[Quick Reference](QUICK_REFERENCE.md)** - Cheat sheet
+
+### Help & Support
+- **[FAQ](FAQ.md)** - Frequently asked questions
+- **[Troubleshooting](TROUBLESHOOTING.md)** - Common problems and solutions
+- **[Common Mistakes](COMMON_MISTAKES.md)** - Avoid common errors
+- **[Time Estimates](TIME_ESTIMATES.md)** - Installation time planning
+
+### Comparison & Optimization
+- **[Comparison Guide](COMPARISON_GUIDE.md)** - Xorg/Wayland, Desktop Environments
+- **[Performance Tuning](PERFORMANCE_TUNING.md)** - Optimize your system
+- **[Backup & Recovery](BACKUP_RECOVERY.md)** - Backup and recovery procedures
+
+### Contributing
+- **[Contributing Guide](CONTRIBUTING.md)** - How to contribute
+- **[Changelog](CHANGELOG.md)** - Change history
 
 ---
 
@@ -106,63 +126,154 @@ All phases are linked together with Previous/Next navigation:
 
 ### Path 1: Desktop (Intel/NVIDIA) - Encrypted
 ```
-Phase 00: Preparation
-    ↓
-Phase 01: Disk Setup (LUKS + Btrfs)
-    ↓
-Phase 02: System Install
-    ↓
-Phase 03: Basic Config
-    ↓
-Phase 04: Bootloader (with auto-unlock)
-    ↓
-Phase 05: Network
-    ↓
-Phase 09: Finalize
-    ↓
-[After Boot] NVIDIA Drivers → Desktop Environment
+┌─────────────────────┐
+│ Phase 00: Prep      │
+│ - Create USB        │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 01: Disk      │
+│ - LUKS + Btrfs      │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 02: Install   │
+│ - Base system       │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 03: Config    │
+│ - Locale, User      │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 04: Boot      │
+│ - GRUB + Auto-unlock│
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 05: Network   │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 09: Finalize  │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ After Boot:         │
+│ - NVIDIA Drivers    │
+│ - Desktop Env       │
+└─────────────────────┘
 ```
 
 ### Path 2: Laptop (AMD) - Encrypted with Biometrics
 ```
-Phase 00: Preparation
-    ↓
-Phase 01: Disk Setup (LUKS + Btrfs)
-    ↓
-Phase 02: System Install
-    ↓
-Phase 03: Basic Config
-    ↓
-Phase 04: Bootloader (with auto-unlock)
-    ↓
-Phase 05: Network (WiFi)
-    ↓
-Phase 06: Audio
-    ↓
-Phase 07: Security
-    ↓
-Phase 08: Hardware (Touchpad, Webcam, Fingerprint)
-    ↓
-Phase 09: Finalize
-    ↓
-[After Boot] AMD Drivers → Desktop Environment
+┌─────────────────────┐
+│ Phase 00: Prep      │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 01: Disk      │
+│ - LUKS + Btrfs      │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 02: Install   │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 03: Config    │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 04: Boot      │
+│ - GRUB + Auto-unlock│
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 05: Network   │
+│ - WiFi              │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 06: Audio     │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 07: Security  │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 08: Hardware  │
+│ - Touchpad, etc.    │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 09: Finalize  │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ After Boot:         │
+│ - AMD Drivers       │
+│ - Desktop Env       │
+└─────────────────────┘
 ```
 
 ### Path 3: Dual Boot (Windows + Arch)
 ```
-Phase 00: Preparation (Windows first)
-    ↓
-Phase 01: Disk Setup (Dual boot partitioning)
-    ↓
-Phase 02: System Install
-    ↓
-Phase 03: Basic Config
-    ↓
-Phase 04: Bootloader (with os-prober for Windows)
-    ↓
-Phase 05: Network
-    ↓
-Phase 09: Finalize
+┌─────────────────────┐
+│ Phase 00: Prep      │
+│ - Windows first     │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 01: Disk      │
+│ - Dual boot layout  │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 02: Install   │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 03: Config    │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 04: Boot      │
+│ - GRUB + os-prober  │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 05: Network   │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Phase 09: Finalize  │
+└─────────────────────┘
 ```
 
 ---

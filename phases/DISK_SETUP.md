@@ -6,6 +6,9 @@
 - Booted from Arch Linux Live USB
 - Disk identified
 
+**Time Estimate:** 15-30 minutes
+**Difficulty:** ⭐⭐ Intermediate
+
 **Steps (execute in order):**
 
 1. **[Disk Partitioning](../steps/disk-partitioning.md)**

@@ -6,6 +6,9 @@
 - Inside chroot environment
 - EFI partition mounted at /boot
 
+**Time Estimate:** 10-15 minutes
+**Difficulty:** ⭐⭐ Intermediate
+
 **Steps (execute in order):**
 
 1. **[GRUB Installation](../steps/grub.md)**

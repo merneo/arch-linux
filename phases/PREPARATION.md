@@ -2,6 +2,9 @@
 
 **Purpose:** Prepare USB, install Windows, and optionally format disk before proceeding with the Arch Linux installation. This phase covers essential groundwork to ensure a smooth setup. For a general overview of the pre-installation process, refer to the [ArchWiki Installation Guide#Pre-installation](https://wiki.archlinux.org/title/Installation_guide#Pre-installation).
 
+**Time Estimate:** 30-60 minutes  
+**Difficulty:** ⭐ Easy
+
 **Prerequisites:**
 - Second computer (preparation machine) with internet connection
 - USB flash drive (8 GB minimum)

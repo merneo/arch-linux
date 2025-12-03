@@ -6,6 +6,9 @@
 - Disk partitions created and mounted at /mnt
 - Network connection established
 
+**Time Estimate:** 10-20 minutes
+**Difficulty:** ⭐ Easy
+
 **Steps (execute in order):**
 
 1. **[Core System Installation](../steps/core-installation.md)**

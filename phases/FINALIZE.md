@@ -6,6 +6,9 @@
 - All configuration completed
 - System ready for first boot
 
+**Time Estimate:** 5 minutes
+**Difficulty:** ⭐ Easy
+
 **Steps:**
 
 1. **[Exit Chroot and Reboot](../steps/exit-chroot.md)**

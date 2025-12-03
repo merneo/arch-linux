@@ -5,6 +5,9 @@
 **Prerequisites:**
 - Inside chroot environment OR after first boot
 
+**Time Estimate:** 5-10 minutes
+**Difficulty:** ⭐ Easy
+
 **Steps (execute in order):**
 
 1. **[NetworkManager](../steps/networkmanager.md)**

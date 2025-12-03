@@ -6,6 +6,9 @@
 - Inside chroot environment OR after first boot
 - Network configured
 
+**Time Estimate:** 15-20 minutes
+**Difficulty:** ⭐⭐ Intermediate
+
 **Steps (execute in order):**
 
 1. **[SSH Server](../steps/ssh-server.md)**

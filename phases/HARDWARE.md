@@ -6,6 +6,9 @@
 - After first boot (not in chroot)
 - Laptop hardware present
 
+**Time Estimate:** 10-20 minutes
+**Difficulty:** ⭐⭐ Intermediate
+
 **Steps (execute as needed):**
 
 1. **[Touchpad Configuration](../steps/touchpad.md)**

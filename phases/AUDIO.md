@@ -5,6 +5,9 @@
 **Prerequisites:**
 - Inside chroot environment OR after first boot
 
+**Time Estimate:** 5-10 minutes
+**Difficulty:** ⭐ Easy
+
 **Steps:**
 
 1. **[Audio Server Setup](../steps/audio.md)**

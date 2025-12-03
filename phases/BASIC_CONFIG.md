@@ -5,6 +5,9 @@
 **Prerequisites:**
 - Inside chroot environment
 
+**Time Estimate:** 10-15 minutes
+**Difficulty:** ⭐ Easy
+
 **Steps (execute in order):**
 
 1. **[Locale and Timezone](../steps/locale.md)**
