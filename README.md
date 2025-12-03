@@ -54,6 +54,14 @@ This repository provides a **modular installation system** for Arch Linux. Each 
 - **`13-bluetooth.md`** - Bluetooth support
 - **`14-audio.md`** - Audio server (PipeWire)
 
+### Laptop Hardware (Laptops Only)
+- **`17-laptop-touchpad.md`** - Configure touchpad/trackpad
+- **`18-laptop-webcam.md`** - Configure built-in webcam
+- **`19-laptop-ir-camera.md`** - Configure IR camera for face recognition
+- **`20-laptop-fingerprint.md`** - Configure fingerprint reader
+
+**Note:** Desktop computers typically don't have these built-in. Skip these modules for desktop installations.
+
 ### Final Steps
 - **`15-exit-chroot.md`** - Exit chroot, unmount, reboot
 
@@ -61,7 +69,9 @@ This repository provides a **modular installation system** for Arch Linux. Each 
 
 ## Quick Reference
 
-See **`MODULE_INDEX.md`** for detailed module reference and installation flows.
+- **`MODULE_INDEX.md`** - Detailed module reference and installation flows
+- **`DESKTOP_VS_LAPTOP.md`** - **NEW!** Guide to choose modules based on hardware type (Desktop vs Laptop)
+- **`GENERATE_PROCEDURE.md`** - How to generate custom installation procedure
 
 ## Example Installation Flows
 
