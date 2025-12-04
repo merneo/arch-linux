@@ -30,7 +30,7 @@ The wiki directory provides:
 
 ---
 
-### PRE-INSTALLATION.md
+### pre-installation.md
 **Purpose:** Pre-installation steps and preparation
 
 **Contains:**
@@ -43,7 +43,7 @@ The wiki directory provides:
 
 ---
 
-### CORE-INSTALLATION.md
+### core-installation.md
 **Purpose:** Core system installation guide
 
 **Contains:**
@@ -56,7 +56,7 @@ The wiki directory provides:
 
 ---
 
-### POST-INSTALLATION.md
+### post-installation.md
 **Purpose:** Post-installation configuration guide
 
 **Contains:**
@@ -71,7 +71,7 @@ The wiki directory provides:
 
 ---
 
-### COMPLETE-INSTALLATION.md
+### complete-installation.md
 **Purpose:** Complete installation guide with all phases
 
 **Contains:**
@@ -84,7 +84,7 @@ The wiki directory provides:
 
 ---
 
-### INSTALLATION-FLOWS.md
+### installation-flows.md
 **Purpose:** Pre-built installation scenarios
 
 **Contains:**
@@ -102,11 +102,11 @@ The wiki directory provides:
 
 ```
 HOME.md
-  ├── PRE-INSTALLATION.md (if needed)
-  ├── CORE-INSTALLATION.md (main installation)
-  │   └── POST-INSTALLATION.md (after first boot)
-  ├── COMPLETE-INSTALLATION.md (all-in-one guide)
-  └── INSTALLATION-FLOWS.md (pre-built scenarios)
+  ├── pre-installation.md (if needed)
+  ├── core-installation.md (main installation)
+  │   └── post-installation.md (after first boot)
+  ├── complete-installation.md (all-in-one guide)
+  └── installation-flows.md (pre-built scenarios)
 ```
 
 ---

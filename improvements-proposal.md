@@ -1,18 +1,18 @@
-# Navrhovaná Vylepšení
+# Proposed Improvements
 
-Tento dokument obsahuje návrhy na další vylepšení repozitáře Arch Linux Modular Installation System.
+This document contains proposals for further enhancements to the Arch Linux Modular Installation System repository.
 
 ---
 
-## 🎯 Priorita 1: Kritická Vylepšení
+## 🎯 Priority 1: Critical Improvements
 
-### 1. **Instalační Checklist (installation-checklist.md)**
-**Problém:** Uživatelé mohou snadno zapomenout kroky nebo ztratit přehled o pokroku.
+### 1. **Installation Checklist (installation-checklist.md)**
+**Problem:** Users can easily forget steps or lose track of progress.
 
-**Řešení:**
-- Interaktivní checklist pro celou instalaci
-- Fáze rozdělené podle hardware typu
-- Možnost označit dokončené kroky
+**Solution:**
+- Interactive checklist for the entire installation
+- Phases organized by hardware type
+- Option to mark completed steps
 - Progress tracking
 
 **Příklad struktury:**
@@ -38,14 +38,14 @@ Tento dokument obsahuje návrhy na další vylepšení repozitáře Arch Linux M
 
 ---
 
-### 2. **Centralizovaný Troubleshooting Guide (troubleshooting.md)**
-**Problém:** Troubleshooting je rozptýlený napříč moduly, těžko se hledá.
+### 2. **Centralized Troubleshooting Guide (troubleshooting.md)**
+**Problem:** Troubleshooting information is scattered across modules, making it difficult to find.
 
-**Řešení:**
-- Jeden soubor s nejčastějšími problémy
-- Organizace podle fáze/komponenty
-- Quick links na detaily v modulech
-- Search-friendly struktura
+**Solution:**
+- A single file with the most common problems
+- Organized by phase/component
+- Quick links to details in modules
+- Search-friendly structure
 
 **Příklad:**
 ```markdown
@@ -64,97 +64,97 @@ Tento dokument obsahuje návrhy na další vylepšení repozitáře Arch Linux M
 ---
 
 ### 3. **FAQ (faq.md)**
-**Problém:** Opakující se otázky, uživatelé nevědí kde začít.
+**Problem:** Repeated questions, users don't know where to start.
 
-**Řešení:**
-- Nejčastější otázky a odpovědi
-- Organizace podle témat
-- Links na detailní dokumentaci
+**Solution:**
+- Most frequent questions and answers
+- Organized by topic
+- Links to detailed documentation
 
-**Příklad:**
+**Example:**
 ```markdown
 # Frequently Asked Questions
 
 ## General
-**Q: Kde začít?**
-A: Začněte na [index.md](index.md) a vyberte svůj hardware.
+**Q: Where to start?**
+A: Start at [index.md](index.md) and choose your hardware.
 
-**Q: Jak dlouho trvá instalace?**
-A: Viz [time-estimates.md](time-estimates.md)
+**Q: How long does the installation take?**
+A: See [time-estimates.md](time-estimates.md)
 
 ## Dual Boot
-**Q: Můžu mít Windows a Arch Linux?**
-A: Ano, viz [Dual Boot Guide](installation-scenarios.md#scenario-1-dual-boot-arch-linux-windows)
+**Q: Can I have Windows and Arch Linux?**
+A: Yes, see [Dual Boot Guide](installation-scenarios.md#scenario-1-dual-boot-arch-linux-windows)
 ...
 ```
 
 ---
 
-## 🎯 Priorita 2: Důležitá Vylepšení
+## 🎯 Priority 2: Important Improvements
 
 ### 4. **Time Estimates (time-estimates.md)**
-**Problém:** Uživatelé nevědí, jak dlouho instalace trvá.
+**Problem:** Users do not know how long the installation takes.
 
-**Řešení:**
-- Odhady času pro každou fázi
-- Celkový čas pro různé scénáře
-- Faktory ovlivňující čas (zkušenost, hardware)
+**Solution:**
+- Time estimates for each phase
+- Total time for different scenarios
+- Factors influencing time (experience, hardware)
 
-**Příklad:**
+**Example:**
 ```markdown
 # Time Estimates
 
 ## Phase-by-Phase Estimates
-- Phase 00: Preparation - 30-60 minut
-- Phase 01: Disk Setup - 15-30 minut
-- Phase 02: System Install - 10-20 minut (závisí na rychlosti internetu)
+- Phase 00: Preparation - 30-60 minutes
+- Phase 01: Disk Setup - 15-30 minutes
+- Phase 02: System Install - 10-20 minutes (depends on internet speed)
 ...
 
 ## Complete Installation Times
-- Minimal: 1-2 hodiny
-- Standard: 2-4 hodiny
-- Full (encrypted + desktop): 3-6 hodin
+- Minimal: 1-2 hours
+- Standard: 2-4 hours
+- Full (encrypted + desktop): 3-6 hours
 ```
 
 ---
 
 ### 5. **Post-Installation Checklist (post-install-checklist.md)**
-**Problém:** Po první boot se uživatelé ztratí, co dál.
+**Problem:** After the first boot, users get lost and don't know what to do next.
 
-**Řešení:**
-- Checklist pro první boot
-- Co zkontrolovat
-- Co nainstalovat
-- Co nakonfigurovat
+**Solution:**
+- Checklist for the first boot
+- What to check
+- What to install
+- What to configure
 
-**Příklad:**
+**Example:**
 ```markdown
 # Post-Installation Checklist
 
 ## First Boot
-- [ ] GRUB menu se zobrazuje
-- [ ] LUKS passphrase funguje (pokud šifrováno)
-- [ ] Přihlášení funguje
-- [ ] Network funguje
+- [ ] GRUB menu is displayed
+- [ ] LUKS passphrase works (if encrypted)
+- [ ] Login works
+- [ ] Network works
 
 ## Essential Setup
-- [ ] GPU drivers nainstalovány
-- [ ] Desktop environment nainstalován
-- [ ] Essential applications nainstalovány
+- [ ] GPU drivers installed
+- [ ] Desktop environment installed
+- [ ] Essential applications installed
 ...
 ```
 
 ---
 
 ### 6. **Comparison Guide (comparison-guide.md)**
-**Problém:** Uživatelé nevědí, jaké volby zvolit (Xorg vs Wayland, GNOME vs KDE, atd.)
+**Problem:** Users don't know which options to choose (Xorg vs Wayland, GNOME vs KDE, etc.)
 
-**Řešení:**
-- Porovnání možností
-- Tabulky s výhodami/nevýhodami
-- Doporučení podle use case
+**Solution:**
+- Comparison of options
+- Tables with pros/cons
+- Recommendations by use case
 
-**Příklad:**
+**Example:**
 ```markdown
 # Comparison Guide
 
@@ -177,22 +177,22 @@ A: Ano, viz [Dual Boot Guide](installation-scenarios.md#scenario-1-dual-boot-arc
 
 ---
 
-## 🎯 Priorita 3: Nice-to-Have Vylepšení
+## 🎯 Priority 3: Nice-to-Have Improvements
 
 ### 7. **Common Mistakes Guide (common-mistakes.md)**
-**Problém:** Uživatelé dělají stejné chyby opakovaně.
+**Problem:** Users make the same mistakes repeatedly.
 
-**Řešení:**
-- Seznam nejčastějších chyb
-- Jak se jim vyhnout
-- Jak je opravit
+**Solution:**
+- List of common mistakes
+- How to avoid them
+- How to fix them
 
 ---
 
 ### 8. **Visual Flowcharts (text-based)**
-**Problém:** Těžko vizualizovat flow instalace.
+**Problem:** Difficult to visualize installation flow.
 
-**Řešení:**
+**Solution:**
 - ASCII art flowcharts
 - Decision trees
 - Visual representation of phases
@@ -216,20 +216,20 @@ Installation Flow:
 ---
 
 ### 9. **Difficulty Levels**
-**Problém:** Uživatelé nevědí, co je pro ně vhodné.
+**Problem:** Users don't know what is suitable for them.
 
-**Řešení:**
-- Označit fáze/moduly obtížností
+**Solution:**
+- Mark phases/modules with difficulty
 - Beginner/Intermediate/Advanced
-- Doporučení podle zkušenosti
+- Recommendations based on experience
 
 ---
 
 ### 10. **Prerequisites Checklist**
-**Problém:** Uživatelé začínají bez potřebných věcí.
+**Problem:** Users start without necessary items.
 
-**Řešení:**
-- Kompletní seznam předpokladů
+**Solution:**
+- Complete list of prerequisites
 - Hardware requirements
 - Software requirements
 - Knowledge requirements
@@ -237,41 +237,41 @@ Installation Flow:
 ---
 
 ### 11. **Verification Scripts**
-**Problém:** Manuální verifikace je zdlouhavá.
+**Problem:** Manual verification is tedious.
 
-**Řešení:**
-- Bash skripty pro verifikaci každé fáze
-- Automatické kontroly
-- Report generování
+**Solution:**
+- Bash scripts for phase verification
+- Automated checks
+- Report generation
 
 ---
 
 ### 12. **Contributing Guide (contributing.md)**
-**Problém:** Není jasné, jak přispět.
+**Problem:** It's not clear how to contribute.
 
-**Řešení:**
-- Jak přidat nový modul
-- Jak upravit existující
+**Solution:**
+- How to add a new module
+- How to modify existing ones
 - Coding standards
 - Pull request process
 
 ---
 
 ### 13. **Changelog (changelog.md)**
-**Problém:** Není přehled změn.
+**Problem:** There is no overview of changes.
 
-**Řešení:**
-- Historie změn
-- Co bylo přidáno/změněno
-- Verze dokumentace
+**Solution:**
+- Change history
+- What was added/changed
+- Documentation versions
 
 ---
 
 ### 14. **Performance Tuning Guide**
-**Problém:** Po instalaci systém může být pomalý.
+**Problem:** After installation, the system can be slow.
 
-**Řešení:**
-- Tips pro optimalizaci
+**Solution:**
+- Optimization tips
 - SSD optimization
 - Boot time optimization
 - Memory management
@@ -279,39 +279,39 @@ Installation Flow:
 ---
 
 ### 15. **Backup & Recovery Guide**
-**Problém:** Co když se něco pokazí?
+**Problem:** What if something goes wrong?
 
-**Řešení:**
-- Jak zálohovat před instalací
-- Jak obnovit systém
+**Solution:**
+- How to back up before installation
+- How to restore the system
 - Timeshift usage
 - Recovery procedures
 
 ---
 
-## 📊 Souhrn
+## 📊 Summary
 
-### Doporučená Priorita Implementace:
+### Recommended Implementation Priority:
 
-1. **installation-checklist.md** - Okamžitá hodnota pro uživatele
-2. **troubleshooting.md** - Centralizace existujícího obsahu
-3. **faq.md** - Snížení opakujících se otázek
-4. **time-estimates.md** - Pomáhá s plánováním
-5. **post-install-checklist.md** - Důležité pro první boot
-6. **comparison-guide.md** - Pomáhá s rozhodováním
-7. Ostatní podle potřeby
-
----
-
-## 🎯 Další Nápady
-
-- **Screenshots/Screenshots Guide** - Vizuální pomůcky
-- **Video Tutorials Links** - Externí zdroje
-- **Community Resources** - Fora, Discord, atd.
-- **Hardware Compatibility List** - Testované konfigurace
-- **Automated Installation Scripts** - Pro pokročilé uživatele
-- **Multi-language Support** - Lokalizace (budoucnost)
+1. **installation-checklist.md** - Immediate value for users
+2. **troubleshooting.md** - Centralization of existing content
+3. **faq.md** - Reduction of repeated questions
+4. **time-estimates.md** - Helps with planning
+5. **post-install-checklist.md** - Important for first boot
+6. **comparison-guide.md** - Helps with decision-making
+7. Others as needed
 
 ---
 
-**Která vylepšení byste chtěli implementovat jako první?**
+## 🎯 Further Ideas
+
+- **Screenshots/Screenshots Guide** - Visual aids
+- **Video Tutorials Links** - External resources
+- **Community Resources** - Forums, Discord, etc.
+- **Hardware Compatibility List** - Tested configurations
+- **Automated Installation Scripts** - For advanced users
+- **Multi-language Support** - Localization (future)
+
+---
+
+**Which improvements would you like to implement first?**

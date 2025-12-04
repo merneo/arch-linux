@@ -54,41 +54,41 @@ Use modules when:
 ## Step Categories
 
 ### Pre-Installation Steps
-- `PRE-create-arch-usb.md` - Create bootable USB
-- `PRE-install-windows.md` - Install Windows
-- `PRE-format-disk.md` - Format disk
+- `pre-create-arch-usb-commands.md` - Create bootable USB
+- `pre-install-windows-commands.md` - Install Windows
+- `pre-format-disk-commands.md` - Format disk
 
 ### Core Installation
-- `core-installation.md` - Install base system
-- `chroot.md` - Enter chroot
+- `core-installation-commands.md` - Install base system
+- `chroot-commands.md` - Enter chroot
 
 ### Configuration
-- `locale.md` - Set locale
-- `user-creation.md` - Create user
-- `grub.md` - Install GRUB
+- `locale-commands.md` - Set locale
+- `user-creation-commands.md` - Create user
+- `grub-commands.md` - Install GRUB
 
 ### Disk & Filesystem
-- `disk-partitioning.md` - Create partitions
-- `luks-encryption.md` - Encrypt partitions
-- `btrfs-filesystem.md` - Create Btrfs
-- `mount-partitions.md` - Mount partitions
+- `disk-partitioning-commands.md` - Create partitions
+- `luks-encryption-commands.md` - Encrypt partitions
+- `btrfs-filesystem-commands.md` - Create Btrfs
+- `mount-partitions-commands.md` - Mount partitions
 
 ### Network & Audio
-- `networkmanager.md` - Enable NetworkManager
-- `wifi.md` - WiFi support
-- `bluetooth.md` - Bluetooth support
-- `audio.md` - Audio server
+- `networkmanager-commands.md` - Enable NetworkManager
+- `wifi-commands.md` - WiFi support
+- `bluetooth-commands.md` - Bluetooth support
+- `audio-commands.md` - Audio server
 
 ### Security
-- `ssh-server.md` - SSH server
-- `ufw-firewall.md` - UFW firewall
-- `fail2ban.md` - Fail2ban
+- `ssh-server-commands.md` - SSH server
+- `ufw-firewall-commands.md` - UFW firewall
+- `fail2ban-commands.md` - Fail2ban
 
 ### Hardware
-- `touchpad.md` - Touchpad
-- `webcam.md` - Webcam
-- `ir-camera.md` - IR camera
-- `fingerprint.md` - Fingerprint reader
+- `touchpad-commands.md` - Touchpad
+- `webcam-commands.md` - Webcam
+- `ir-camera-commands.md` - IR camera
+- `fingerprint-commands.md` - Fingerprint reader
 
 ---
 

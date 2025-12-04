@@ -35,7 +35,7 @@ Instead of picking individual modules, phases provide a **structured approach** 
 ## Available Phases
 
 ### Phase 00: Preparation
-**File:** `PREPARATION.md`
+**File:** `00-preparation.md`
 
 Covers:
 - Creating Arch Linux USB drive
@@ -47,7 +47,7 @@ Covers:
 ---
 
 ### Phase 01: Disk Setup
-**File:** `DISK_SETUP.md`
+**File:** `01-disk-setup.md`
 
 Covers:
 - Disk partitioning
@@ -60,7 +60,7 @@ Covers:
 ---
 
 ### Phase 02: System Install
-**File:** `SYSTEM_INSTALL.md`
+**File:** `02-system-install.md`
 
 Covers:
 - Base system installation (pacstrap)
@@ -72,7 +72,7 @@ Covers:
 ---
 
 ### Phase 03: Basic Config
-**File:** `BASIC_CONFIG.md`
+**File:** `03-basic-config.md`
 
 Covers:
 - Setting locale and timezone
@@ -84,7 +84,7 @@ Covers:
 ---
 
 ### Phase 04: Bootloader
-**File:** `BOOTLOADER.md`
+**File:** `04-bootloader.md`
 
 Covers:
 - Installing GRUB
@@ -96,7 +96,7 @@ Covers:
 ---
 
 ### Phase 05: Network
-**File:** `NETWORK.md`
+**File:** `05-network.md`
 
 Covers:
 - Enabling NetworkManager
@@ -108,7 +108,7 @@ Covers:
 ---
 
 ### Phase 06: Audio
-**File:** `AUDIO.md`
+**File:** `06-audio.md`
 
 Covers:
 - Installing PipeWire audio stack
@@ -118,7 +118,7 @@ Covers:
 ---
 
 ### Phase 07: Security
-**File:** `SECURITY.md`
+**File:** `07-security.md`
 
 Covers:
 - Configuring UFW firewall
@@ -130,7 +130,7 @@ Covers:
 ---
 
 ### Phase 08: Hardware
-**File:** `HARDWARE.md`
+**File:** `08-hardware.md`
 
 Covers:
 - Touchpad configuration
@@ -143,7 +143,7 @@ Covers:
 ---
 
 ### Phase 09: Finalize
-**File:** `FINALIZE.md`
+**File:** `09-finalize.md`
 
 Covers:
 - Exiting chroot
